@@ -11,7 +11,7 @@
                         <div class="card text-dark bg-light mb-3">
                             <div class="row  d-flex align-items-center">
                                 <div class="col-3">
-                                    <div class="ms-4 d-flex justify-content-center align-items-center bg-success text-white rounded" style="width: 50px; height: 50px;">
+                                    <div class="ms-4 d-flex justify-content-center align-items-center bg-success text-white" style="width: 50px; height: 50px; border-radius: 15px;">
                                         <i class="fas fa-hand-holding-usd fa-2x"></i>
                                     </div>
                                 </div>
@@ -29,7 +29,7 @@
                         <div class="card text-dark bg-light mb-3">
                             <div class="row  d-flex align-items-center">
                                 <div class="col-3">
-                                    <div class="ms-4 d-flex justify-content-center align-items-center bg-danger text-white rounded" style="width: 50px; height: 50px;">
+                                    <div class="ms-4 d-flex justify-content-center align-items-center bg-danger text-white" style="width: 50px; height: 50px; border-radius: 15px;">
                                         <i class="fas fa-search-dollar fa-2x"></i>
                                     </div>
                                 </div>
@@ -47,7 +47,7 @@
                         <div class="card text-dark bg-light mb-3 clickable" data-url="{{ url('/laporan-pengeluaran') }}{{ $_GET?'?'.$_SERVER['QUERY_STRING']: '' }}" style="cursor: pointer;">
                             <div class="row  d-flex align-items-center">
                                 <div class="col-3">
-                                    <div class="ms-4 d-flex justify-content-center align-items-center bg-warning text-white rounded" style="width: 50px; height: 50px;">
+                                    <div class="ms-4 d-flex justify-content-center align-items-center bg-warning text-white" style="width: 50px; height: 50px; border-radius: 15px;">
                                         <i class="fas fa-money-check-alt fa-2x"></i>
                                     </div>
                                 </div>
@@ -65,8 +65,8 @@
                         <div class="card text-dark bg-light mb-3">
                             <div class="row  d-flex align-items-center">
                                 <div class="col-3">
-                                    <div class="ms-4 d-flex justify-content-center align-items-center bg-primary text-white rounded" style="width: 50px; height: 50px;">
-                                        <i class="far fa-money-bill-alt fa-2x"></i>
+                                    <div class="ms-4 d-flex justify-content-center align-items-center text-white" style="width: 50px; height: 50px; border-radius: 15px; background-color: rgb(186, 186, 186);">
+                                        <img src="{{ asset('/assets/img/saldo.png') }}" style="width: 40px">
                                     </div>
                                 </div>
                                 <div class="col-9">

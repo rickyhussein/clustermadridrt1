@@ -2773,7 +2773,7 @@ textarea.form-textarea[rows] {
 
 .box-service {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px 12px;
 }
 .box-service li a {
@@ -2784,8 +2784,8 @@ textarea.form-textarea[rows] {
   text-align: center;
 }
 .box-service li .icon-box {
-  width: 44px;
-  height: 44px;
+  width: 60px;
+  height: 60px;
   border-radius: 16px;
   display: flex;
   justify-content: center;
