@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-light-orange elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('/dashboard') }}" class="brand-link">
-        <img src="{{ url('assets/img/rt1.jpeg') }}" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
+        <img src="{{ url('/icons/icon-72.png') }}" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
         <span class="brand-text font-weight-light">Cluster Madrid</span>
     </a>
 

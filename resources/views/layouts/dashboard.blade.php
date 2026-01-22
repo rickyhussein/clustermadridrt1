@@ -7,7 +7,7 @@
 
   <title>{{ $title }}</title>
   {{-- logo --}}
-  <link rel="shorcut icon" href="{{ url('assets/img/rt1.jpeg') }}">
+  <link rel="shorcut icon" href="{{ url('/icons/icon-72.png') }}">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->

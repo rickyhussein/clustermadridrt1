@@ -10,8 +10,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title }}</title>
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="{{ url('assets/img/rt1.jpeg') }}" />
-    <link rel="apple-touch-icon-precomposed" href="{{ url('assets/img/rt1.jpeg') }}" />
+    <link rel="shortcut icon" href="{{ url('/icons/icon-72.png') }}" />
+    <link rel="apple-touch-icon-precomposed" href="{{ url('/icons/icon-72.png') }}" />
     <!-- Font -->
     <link rel="stylesheet" href="{{ url('/myhr/fonts/fonts.css') }}" />
     <!-- Icons -->
@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="{{ url('/myhr/styles/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ url('/myhr/styles/swiper-bundle.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('/myhr/styles/styles.css') }}" />
-    <link rel="manifest" href="{{ url('/myhr/_manifest.json') }}" data-pwa-version="set_in_manifest_and_pwa_js">
-    <link rel="apple-touch-icon" sizes="192x192" href="{{ url('assets/img/rt1.jpeg') }}">
+    <link rel="manifest" href="{{ url('/manifest.json') }}" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="192x192" href="{{ url('/icons/icon-72.png') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="{{ url('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ url('adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -294,7 +294,7 @@
                 <div class="tf-container">
                     <div class="d-flex justify-content-between align-items-center">
                         <a href="{{ url('/dashboard-user') }}" class="sidebar-logo">
-                            <img src="{{ url('assets/img/rt1.jpeg') }}"  alt="logo">
+                            <img src="{{ url('/icons/icon-72.png') }}"  alt="logo">
                             <span style="color: white; font-size:20px" class="ms-2">Cluster Madrid</span>
                         </a>
                         <a href="javascript:void(0);" class="clear-panel"> <i class="icon-close1"></i> </a>
@@ -426,19 +426,13 @@
                 }
             });
 
-            $('#tablePayroll').DataTable( {
-                "responsive": true,
-                "paging": false,
-                "info": false,
-                "scrollCollapse": true,
-                "autoWidth": false,
-                'searching': false
-            });
-             $("#tableprint").DataTable({
-                "responsive": true, "autoWidth": false,
-                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-                dom: 'flrtip'
-            }).buttons().container().appendTo('#tableprint_wrapper .col-md-6:eq(0)');
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function () {
+                    navigator.serviceWorker.register('/service-worker.js')
+                        .then(reg => console.log('SW registered', reg))
+                        .catch(err => console.log('SW failed', err));
+                });
+            }
         });
 
     </script>
