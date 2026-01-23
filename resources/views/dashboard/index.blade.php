@@ -3,8 +3,10 @@
     <div class="container-fluid">
         <div class="row">
               <div class="col-md-3 col-sm-6 col-12">
-                <div class="info-box">
-                  <span class="info-box-icon bg-success"><i class="fas fa-hand-holding-usd"></i></span>
+                <div class="info-box" style="border-radius: 15px;">
+                  <span class="info-box-icon" style="border-radius: 15px; background-color: rgb(214, 214, 214);">
+                    <img src="{{ asset('/assets/img/pemasukan.png') }}" style="width: 40px">
+                  </span>
                   <div class="info-box-content">
                     <span class="info-box-text">Total Pemasukan</span>
                     <span class="info-box-number">Rp {{ number_format($transaction_in_paid) }}</span>
@@ -13,8 +15,10 @@
               </div>
 
               <div class="col-md-3 col-sm-6 col-12">
-                <div class="info-box">
-                  <span class="info-box-icon bg-danger"><i class="fas fa-search-dollar"></i></span>
+                <div class="info-box" style="border-radius: 15px;">
+                    <span class="info-box-icon" style="border-radius: 15px; background-color: rgb(214, 214, 214);">
+                        <img src="{{ asset('/assets/img/outstanding.png') }}" style="width: 40px">
+                    </span>
                   <div class="info-box-content">
                     <span class="info-box-text">Total Outstanding</span>
                     <span class="info-box-number">Rp {{ number_format($transaction_in_unpaid) }}</span>
@@ -23,8 +27,10 @@
               </div>
 
               <div class="col-md-3 col-sm-6 col-12">
-                <div class="info-box clickable" data-url="{{ url('/pengeluaran') }}{{ $_GET?'?'.$_SERVER['QUERY_STRING']: '' }}" style="cursor: pointer;">
-                  <span class="info-box-icon bg-warning" style="color: white"><i class="fas fa-money-check-alt"></i></span>
+                <div class="info-box clickable" style="border-radius: 15px;" data-url="{{ url('/pengeluaran') }}{{ $_GET?'?'.$_SERVER['QUERY_STRING']: '' }}" style="cursor: pointer;">
+                    <span class="info-box-icon" style="border-radius: 15px; background-color: rgb(214, 214, 214);">
+                        <img src="{{ asset('/assets/img/pengeluaran.png') }}" style="width: 40px">
+                    </span>
                   <div class="info-box-content">
                     <span class="info-box-text">Total Pengeluaran</span>
                     <span class="info-box-number">Rp {{ number_format($transaction_out) }}</span>
@@ -33,8 +39,10 @@
               </div>
 
               <div class="col-md-3 col-sm-6 col-12">
-                <div class="info-box">
-                  <span class="info-box-icon bg-primary"><i class="far fa-money-bill-alt"></i></span>
+                <div class="info-box" style="border-radius: 15px;">
+                    <span class="info-box-icon" style="border-radius: 15px; background-color: rgb(214, 214, 214);">
+                        <img src="{{ asset('/assets/img/saldo.png') }}" style="width: 40px">
+                    </span>
                   <div class="info-box-content">
                     <span class="info-box-text">Sisa Saldo</span>
                     <span class="info-box-number">{{ number_format($sisa) }}</span>

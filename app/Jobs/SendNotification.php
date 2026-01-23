@@ -20,6 +20,7 @@ class SendNotification implements ShouldQueue
     protected $nominal;
     protected $whatsappApiUrl;
     protected $whatsappApiSession;
+    protected $whatsappApiKey;
 
     public function __construct($user, $ipkl, $month_name, $expired_date, $nominal)
     {
@@ -28,8 +29,9 @@ class SendNotification implements ShouldQueue
         $this->month_name = $month_name;
         $this->expired_date = $expired_date;
         $this->nominal = $nominal;
-        $this->whatsappApiUrl = config('midtrans.railway_whatsapp_api_url');
-        $this->whatsappApiSession = config('midtrans.railway_whatsapp_api_session');
+        $this->whatsappApiUrl = config('midtrans.whatsapp_api_url');
+        $this->whatsappApiSession = config('midtrans.whatsapp_api_session');
+        $this->whatsappApiKey = config('midtrans.whatsapp_api_key');
     }
 
     public function handle()
@@ -49,6 +51,7 @@ class SendNotification implements ShouldQueue
             'session' => $this->whatsappApiSession,
             'to' => $this->user->whatsapp($this->user->no_hp),
             'text' =>  $message,
+            'key' =>  $this->whatsappApiKey,
         ]);
     }
 }
