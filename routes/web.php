@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\authController;
@@ -300,6 +301,13 @@ Route::get('/optimize', function () {
 
 Route::get('/migrate', function () {
     Artisan::call('migrate');
+});
+
+Route::get('/update-role', function () {
+    $users = User::whereNotIn('id', [1,2])->get();
+    foreach ($users as $user) {
+        $user->assignRole('user');
+    }
 });
 
 
