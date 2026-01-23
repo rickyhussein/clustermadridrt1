@@ -65,7 +65,7 @@
                         </span>
                         <br>
                         <span style="font-weight:bold; text-transform: uppercase; padding:15px 0px 5px;">
-                            RT 01 RT 02 RT 03 / RW 016
+                            RT 01 / RW 016
                         </span>
                         <br>
                     </td>
@@ -138,11 +138,6 @@
                 <td style="width: 67%; vertical-align:top;">{{ $surat_izin_renovasi->type ?? '-' }} {{ $surat_izin_renovasi->type_text ? '(' . $surat_izin_renovasi->type_text . ')' : '' }}</td>
             </tr>
             <tr>
-                <td style="width: 30%; vertical-align:top;">Luas Area yang Direnovasi</td>
-                <td style="width: 3%; vertical-align:top;">:</td>
-                <td style="width: 67%; vertical-align:top;">{{ $surat_izin_renovasi->size ?? '-' }} m²</td>
-            </tr>
-            <tr>
                 <td style="width: 30%; vertical-align:top;">Rencana Mulai Tanggal</td>
                 <td style="width: 3%; vertical-align:top;">:</td>
                 <td style="width: 67%; vertical-align:top;">
@@ -180,9 +175,9 @@
                 <td style="width: 67%; vertical-align:top;">{{ $surat_izin_renovasi->contractor ?? '-' }}</td>
             </tr>
             <tr>
-                <td style="width: 30%; vertical-align:top;">Nama Perusahaan</td>
+                <td style="width: 30%; vertical-align:top;">Nomor Telepon Kontraktor / Pelaksana</td>
                 <td style="width: 3%; vertical-align:top;">:</td>
-                <td style="width: 67%; vertical-align:top;">{{ $surat_izin_renovasi->company_name ?? '-' }}</td>
+                <td style="width: 67%; vertical-align:top;">{{ $surat_izin_renovasi->company_phone ?? '-' }}</td>
             </tr>
         </tbody>
     </table>

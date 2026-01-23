@@ -141,7 +141,7 @@
                 <td style="width: 65%; vertical-align:top;">{{ $surat_pengantar->gender ?? '-' }}</td>
             </tr>
             <tr>
-                <td style="width: 30%; vertical-align:top;">Bangsa / Agama</td>
+                <td style="width: 30%; vertical-align:top;">Kewarganegaraan / Agama</td>
                 <td style="width: 5%; vertical-align:top;">:</td>
                 <td style="width: 65%; vertical-align:top;">{{ $surat_pengantar->nation ?? '-' }} / {{ $surat_pengantar->religion ?? '-' }}</td>
             </tr>

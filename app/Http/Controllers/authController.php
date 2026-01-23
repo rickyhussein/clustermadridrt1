@@ -85,7 +85,7 @@ class authController extends Controller
             }
         }
 
-        Alert::error('Failed', 'Username / Password Salah');
+        Alert::error('Failed', 'Alamat / Password Salah');
         return back();
     }
 

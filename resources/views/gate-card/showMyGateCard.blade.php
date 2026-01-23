@@ -11,7 +11,7 @@
                 <div class="tf-container ms-4 me-4">
                     @if ($gate_card->payment_source == 'Bank Transfer (Perlu Konfirmasi Pembayaran Manual)' && $gate_card->status == 'unpaid')
                         <div class="alert alert-warning" role="alert">
-                            Silahkan transfer ke rekening ini : <span class="me-1" style="font-weight: bold;">Bank Syariah Indonesia (BSI)</span> Nama Penerima : <span class="me-1" style="font-weight: bold;">Cluster Madrid Nutiara Gading City</span> No. Rekening : <a id="copy"><span style="font-weight: bold;">6868123336</span> <i class="fas fa-copy ms-1"></i></a>
+                            Silahkan transfer ke rekening ini : <span class="me-1" style="font-weight: bold;">Bank Syariah Indonesia (BSI)</span> Nama Penerima : <span class="me-1" style="font-weight: bold;">RT 01 CLUSTER MADRID</span> No. Rekening : <a id="copy"><span style="font-weight: bold;">6868123336</span> <i class="fas fa-copy ms-1"></i></a>
                         </div>
                     @endif
 

@@ -34,7 +34,7 @@
                             <th style="min-width: 250px; background-color:rgb(243, 243, 243);" class="text-center">Jenis Surat Pengantar</th>
                             <th style="min-width: 250px; background-color:rgb(243, 243, 243);" class="text-center">Tempat Lahir</th>
                             <th style="min-width: 250px; background-color:rgb(243, 243, 243);" class="text-center">Tanggal Lahir</th>
-                            <th style="min-width: 250px; background-color:rgb(243, 243, 243);" class="text-center">Bangsa</th>
+                            <th style="min-width: 250px; background-color:rgb(243, 243, 243);" class="text-center">Kewarganegaraan</th>
                             <th style="min-width: 250px; background-color:rgb(243, 243, 243);" class="text-center">Agama</th>
                             <th style="min-width: 250px; background-color:rgb(243, 243, 243);" class="text-center">Nomor KTP</th>
                             <th style="min-width: 250px; background-color:rgb(243, 243, 243);" class="text-center">Status Perkawinan</th>

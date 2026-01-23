@@ -26,7 +26,6 @@ class SuratIzinRenovasiController extends Controller
             $query->where(function ($query) use ($search) {
                 $query->where('type', 'LIKE', '%' . $search . '%')
                 ->orWhere('contractor', 'LIKE', '%' . $search . '%')
-                ->orWhere('company_name', 'LIKE', '%' . $search . '%')
                 ->orWhereHas('user', function ($q) use ($search) {
                     $q->where('name', 'LIKE', '%' . $search . '%')
                     ->orWhere('alamat', 'LIKE', '%' . $search . '%');
@@ -101,11 +100,9 @@ class SuratIzinRenovasiController extends Controller
                 'date' => 'required',
                 'type' => 'required',
                 'type_text' => 'required_if:type,Lainnya',
-                'size' => 'required',
                 'start_date' => 'required',
                 'end_date' => 'required',
                 'contractor' => 'required',
-                'company_name' => 'required',
                 'company_phone' => 'required',
                 'fotokopi_ktp_pemohon' => 'nullable',
                 'gambar_design_renovasi' => 'nullable',
@@ -146,11 +143,9 @@ class SuratIzinRenovasiController extends Controller
                 'date' => 'required',
                 'type' => 'required',
                 'type_text' => 'required_if:type,Lainnya',
-                'size' => 'required',
                 'start_date' => 'required',
                 'end_date' => 'required',
                 'contractor' => 'required',
-                'company_name' => 'required',
                 'company_phone' => 'required',
                 'fotokopi_ktp_pemohon' => 'nullable',
                 'gambar_design_renovasi' => 'nullable',

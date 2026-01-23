@@ -167,7 +167,7 @@ class DonasiController extends Controller
                 'payment_source' => 'required',
                 'nominal' => 'required',
                 'notes' => 'nullable',
-                'file_transaction_path' => 'file|max:10240',
+                'file_transaction_path' => 'required|file|max:10240',
             ]);
 
             $validated['nominal'] = $request->nominal ? str_replace(',', '', $request->nominal) : 0;
@@ -274,7 +274,7 @@ class DonasiController extends Controller
                 'payment_source' => 'required',
                 'nominal' => 'required',
                 'notes' => 'nullable',
-                'file_transaction_path' => 'file|max:10240',
+                'file_transaction_path' => 'required|file|max:10240',
             ]);
 
             $validated['nominal'] = $request->nominal ? str_replace(',', '', $request->nominal) : 0;

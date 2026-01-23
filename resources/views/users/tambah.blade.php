@@ -71,35 +71,6 @@
                             <select name="rt" id="rt" class="form-control @error('rt') is-invalid @enderror selectpicker" data-live-search="true">
                                 <option value="">-- Pilih RT --</option>
                                 <option value="001" {{ '001' == old('rt') ? 'selected="selected"' : '' }}>001</option>
-                                <option value="002" {{ '002' == old('rt') ? 'selected="selected"' : '' }}>002</option>
-                                <option value="003" {{ '003' == old('rt') ? 'selected="selected"' : '' }}>003</option>
-                                <option value="004" {{ '004' == old('rt') ? 'selected="selected"' : '' }}>004</option>
-                                <option value="005" {{ '005' == old('rt') ? 'selected="selected"' : '' }}>005</option>
-                                <option value="006" {{ '006' == old('rt') ? 'selected="selected"' : '' }}>006</option>
-                                <option value="007" {{ '007' == old('rt') ? 'selected="selected"' : '' }}>007</option>
-                                <option value="008" {{ '008' == old('rt') ? 'selected="selected"' : '' }}>008</option>
-                                <option value="009" {{ '009' == old('rt') ? 'selected="selected"' : '' }}>009</option>
-                                <option value="010" {{ '010' == old('rt') ? 'selected="selected"' : '' }}>010</option>
-                                <option value="011" {{ '011' == old('rt') ? 'selected="selected"' : '' }}>011</option>
-                                <option value="012" {{ '012' == old('rt') ? 'selected="selected"' : '' }}>012</option>
-                                <option value="013" {{ '013' == old('rt') ? 'selected="selected"' : '' }}>013</option>
-                                <option value="014" {{ '014' == old('rt') ? 'selected="selected"' : '' }}>014</option>
-                                <option value="015" {{ '015' == old('rt') ? 'selected="selected"' : '' }}>015</option>
-                                <option value="016" {{ '016' == old('rt') ? 'selected="selected"' : '' }}>016</option>
-                                <option value="017" {{ '017' == old('rt') ? 'selected="selected"' : '' }}>017</option>
-                                <option value="018" {{ '018' == old('rt') ? 'selected="selected"' : '' }}>018</option>
-                                <option value="019" {{ '019' == old('rt') ? 'selected="selected"' : '' }}>019</option>
-                                <option value="020" {{ '020' == old('rt') ? 'selected="selected"' : '' }}>020</option>
-                                <option value="021" {{ '021' == old('rt') ? 'selected="selected"' : '' }}>021</option>
-                                <option value="022" {{ '022' == old('rt') ? 'selected="selected"' : '' }}>022</option>
-                                <option value="023" {{ '023' == old('rt') ? 'selected="selected"' : '' }}>023</option>
-                                <option value="024" {{ '024' == old('rt') ? 'selected="selected"' : '' }}>024</option>
-                                <option value="025" {{ '025' == old('rt') ? 'selected="selected"' : '' }}>025</option>
-                                <option value="026" {{ '026' == old('rt') ? 'selected="selected"' : '' }}>026</option>
-                                <option value="027" {{ '027' == old('rt') ? 'selected="selected"' : '' }}>027</option>
-                                <option value="028" {{ '028' == old('rt') ? 'selected="selected"' : '' }}>028</option>
-                                <option value="029" {{ '029' == old('rt') ? 'selected="selected"' : '' }}>029</option>
-                                <option value="030" {{ '030' == old('rt') ? 'selected="selected"' : '' }}>030</option>
                             </select>
                             @error('rt')
                             <div class="invalid-feedback">
@@ -111,36 +82,7 @@
                             <label for="rw">RW</label>
                             <select name="rw" id="rw" class="form-control @error('rw') is-invalid @enderror selectpicker" data-live-search="true">
                                 <option value="">-- Pilih RW --</option>
-                                <option value="001" {{ '001' == old('rw') ? 'selected="selected"' : '' }}>001</option>
-                                <option value="002" {{ '002' == old('rw') ? 'selected="selected"' : '' }}>002</option>
-                                <option value="003" {{ '003' == old('rw') ? 'selected="selected"' : '' }}>003</option>
-                                <option value="004" {{ '004' == old('rw') ? 'selected="selected"' : '' }}>004</option>
-                                <option value="005" {{ '005' == old('rw') ? 'selected="selected"' : '' }}>005</option>
-                                <option value="006" {{ '006' == old('rw') ? 'selected="selected"' : '' }}>006</option>
-                                <option value="007" {{ '007' == old('rw') ? 'selected="selected"' : '' }}>007</option>
-                                <option value="008" {{ '008' == old('rw') ? 'selected="selected"' : '' }}>008</option>
-                                <option value="009" {{ '009' == old('rw') ? 'selected="selected"' : '' }}>009</option>
-                                <option value="010" {{ '010' == old('rw') ? 'selected="selected"' : '' }}>010</option>
-                                <option value="011" {{ '011' == old('rw') ? 'selected="selected"' : '' }}>011</option>
-                                <option value="012" {{ '012' == old('rw') ? 'selected="selected"' : '' }}>012</option>
-                                <option value="013" {{ '013' == old('rw') ? 'selected="selected"' : '' }}>013</option>
-                                <option value="014" {{ '014' == old('rw') ? 'selected="selected"' : '' }}>014</option>
-                                <option value="015" {{ '015' == old('rw') ? 'selected="selected"' : '' }}>015</option>
                                 <option value="016" {{ '016' == old('rw') ? 'selected="selected"' : '' }}>016</option>
-                                <option value="017" {{ '017' == old('rw') ? 'selected="selected"' : '' }}>017</option>
-                                <option value="018" {{ '018' == old('rw') ? 'selected="selected"' : '' }}>018</option>
-                                <option value="019" {{ '019' == old('rw') ? 'selected="selected"' : '' }}>019</option>
-                                <option value="020" {{ '020' == old('rw') ? 'selected="selected"' : '' }}>020</option>
-                                <option value="021" {{ '021' == old('rw') ? 'selected="selected"' : '' }}>021</option>
-                                <option value="022" {{ '022' == old('rw') ? 'selected="selected"' : '' }}>022</option>
-                                <option value="023" {{ '023' == old('rw') ? 'selected="selected"' : '' }}>023</option>
-                                <option value="024" {{ '024' == old('rw') ? 'selected="selected"' : '' }}>024</option>
-                                <option value="025" {{ '025' == old('rw') ? 'selected="selected"' : '' }}>025</option>
-                                <option value="026" {{ '026' == old('rw') ? 'selected="selected"' : '' }}>026</option>
-                                <option value="027" {{ '027' == old('rw') ? 'selected="selected"' : '' }}>027</option>
-                                <option value="028" {{ '028' == old('rw') ? 'selected="selected"' : '' }}>028</option>
-                                <option value="029" {{ '029' == old('rw') ? 'selected="selected"' : '' }}>029</option>
-                                <option value="030" {{ '030' == old('rw') ? 'selected="selected"' : '' }}>030</option>
                             </select>
                             @error('rt')
                             <div class="invalid-feedback">
@@ -238,7 +180,7 @@
                                             </select>
                                         </div>
                                         <div class="col-4 mb-4">
-                                            <label for="nation">Bangsa</label>
+                                            <label for="nation">Kewarganegaraan</label>
                                             <input type="text" class="form-control borderi nation" name="nation[]" value="{{ old('nation')[$key] }}">
                                         </div>
                                         <div class="col-4 mb-4">
@@ -315,7 +257,7 @@
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
-                                        <label for="nation">Bangsa</label>
+                                        <label for="nation">Kewarganegaraan</label>
                                         <input type="text" class="form-control borderi nation" name="nation[]">
                                     </div>
                                     <div class="col-4 mb-4">
@@ -432,7 +374,7 @@
                                 </select>
                             </div>
                             <div class="col-4 mb-4">
-                                <label for="nation">Bangsa</label>
+                                <label for="nation">Kewarganegaraan</label>
                                 <input type="text" class="form-control borderi nation" name="nation[]">
                             </div>
                             <div class="col-4 mb-4">

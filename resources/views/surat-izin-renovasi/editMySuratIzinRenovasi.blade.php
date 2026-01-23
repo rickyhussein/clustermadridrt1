@@ -213,19 +213,6 @@
                             </div>
 
                             <div class="group-input">
-                                <label for="size" style="z-index: 1000">Luas Area</label>
-                                <div class="input-group">
-                                    <input type="text" class="number form-control @error('size') is-invalid @enderror borderi size" name="size" id="size"  value="{{ old('size', $surat_izin_renovasi->size) }}">
-                                    <span class="input-group-text">m²</span>
-                                    @error('size')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="group-input">
                                 <label for="start_date">Tanggal Mulai</label>
                                 <input type="text" class="date @error('start_date') is-invalid @enderror" id="start_date" name="start_date" value="{{ old('start_date', $surat_izin_renovasi->start_date) }}">
                                 @error('start_date')
@@ -256,17 +243,7 @@
                             </div>
 
                             <div class="group-input">
-                                <label for="company_name">Nama Perusahaan</label>
-                                <input type="text" class="@error('company_name') is-invalid @enderror" id="company_name" name="company_name" value="{{ old('company_name', $surat_izin_renovasi->company_name) }}">
-                                @error('company_name')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-
-                            <div class="group-input">
-                                <label for="company_phone">Nomor Telepon Perusahaan</label>
+                                <label for="company_phone">Nomor Telepon Kontraktor / Pelaksana</label>
                                 <input type="text" class="number @error('company_phone') is-invalid @enderror" id="company_phone" name="company_phone" value="{{ old('company_phone', $surat_izin_renovasi->company_phone) }}">
                                 @error('company_phone')
                                     <div class="invalid-feedback">

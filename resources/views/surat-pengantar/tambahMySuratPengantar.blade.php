@@ -81,7 +81,7 @@
                             </div>
 
                             <div class="group-input">
-                                <label for="nation">Bangsa</label>
+                                <label for="nation">Kewarganegaraan</label>
                                 <input type="text" class="@error('nation') is-invalid @enderror borderi nation" name="nation" id="nation" value="{{ old('nation') }}">
                                 @error('nation')
                                 <div class="invalid-feedback">

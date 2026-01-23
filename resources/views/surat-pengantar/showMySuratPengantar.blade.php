@@ -85,7 +85,7 @@
                     <li class="list-card-invoice tf-topbar d-flex justify-content-between align-items-center">
                         <div class="content-right">
                             <p>
-                                Bangsa
+                                Kewarganegaraan
                             </p>
                             <h5>
                                 {{ $surat_pengantar->nation ?? '-' }}

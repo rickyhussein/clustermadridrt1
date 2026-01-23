@@ -90,7 +90,6 @@
 
                         <div class="content">
                             <h4 class="white_color">{{ auth()->user()->name }}</h4>
-                            <p class="white_color fw_4">{{ auth()->user()->email }}</p>
                         </div>
                     </a>
                     <div class="d-flex align-items-center gap-4">

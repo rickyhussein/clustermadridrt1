@@ -71,7 +71,6 @@
                                 <label for="payment_source" style="z-index: 1000">Jenis Pembayaran</label>
                                 <select name="payment_source" id="payment_source" class="@error('payment_source') is-invalid @enderror select2" data-live-search="true">
                                     <option value="">-- Pilih Jenis Pembayaran --</option>
-                                    <option value="midtrans" {{ 'midtrans' == old('payment_source', $donasi->payment_source) ? 'selected="selected"' : '' }}>midtrans</option>
                                     <option value="Bank Transfer (Perlu Konfirmasi Pembayaran Manual)" {{ 'Bank Transfer (Perlu Konfirmasi Pembayaran Manual)' == old('payment_source', $donasi->payment_source) ? 'selected="selected"' : '' }}>Bank Transfer (Perlu Konfirmasi Pembayaran Manual)</option>
                                 </select>
                                 @error('type')
@@ -102,8 +101,7 @@
                             </div>
 
                             <div id="fileContainer" style="margin-top: -15px">
-                                Bukti Pembayaran (Jika Sudah Transfer)
-
+                                Bukti Pembayaran
                                 <div class="group-input">
                                     <input class="form-control @error('file_transaction_path') is-invalid @enderror" type="file" id="file_transaction_path" name="file_transaction_path">
                                     @error('file_transaction_path')
@@ -117,7 +115,7 @@
                                 </div>
 
                                 <div class="alert alert-warning" role="alert">
-                                    Silahkan transfer ke rekening ini : <span class="me-1" style="font-weight: bold;">Bank Syariah Indonesia (BSI)</span> Nama Penerima : <span class="me-1" style="font-weight: bold;">Cluster Madrid Nutiara Gading City</span> No. Rekening : <a id="copy"><span style="font-weight: bold;">6868123336</span> <i class="fas fa-copy ms-1"></i></a>
+                                    Silahkan transfer ke rekening ini : <span class="me-1" style="font-weight: bold;">Bank Syariah Indonesia (BSI)</span> Nama Penerima : <span class="me-1" style="font-weight: bold;">RT 01 CLUSTER MADRID</span> No. Rekening : <a id="copy"><span style="font-weight: bold;">6868123336</span> <i class="fas fa-copy ms-1"></i></a>
                                 </div>
                             </div>
                         </div>

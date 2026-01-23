@@ -145,16 +145,6 @@
                         </p>
                     </a>
                 </li>
-
-
-                <li class="nav-item">
-                    <a href="{{ url('/infrastruktur') }}" class="nav-link {{ Request::is('infrastruktur*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-building"></i>
-                        <p>
-                            Infrastruktur
-                        </p>
-                    </a>
-                </li>
             </ul>
         </nav>
 
@@ -173,6 +163,10 @@
                         </p>
                     </a>
                 </li>
+                <br>
+                <br>
+                <br>
+                <br>
             </ul>
         </nav>
     </div>

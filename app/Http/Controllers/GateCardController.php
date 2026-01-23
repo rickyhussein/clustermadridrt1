@@ -153,7 +153,7 @@ class GateCardController extends Controller
                 'nominal' => 'required',
                 'qty' => 'required|numeric|max:4',
                 'notes' => 'nullable',
-                'file_transaction_path' => 'file|max:10240',
+                'file_transaction_path' => 'required|file|max:10240',
             ]);
 
             $validated['nominal'] = $request->nominal ? str_replace(',', '', $request->nominal) : 0;
@@ -262,7 +262,7 @@ class GateCardController extends Controller
                 'nominal' => 'required',
                 'qty' => 'required|numeric|max:4',
                 'notes' => 'nullable',
-                'file_transaction_path' => 'file|max:10240',
+                'file_transaction_path' => 'required|file|max:10240',
             ]);
 
             $validated['nominal'] = $request->nominal ? str_replace(',', '', $request->nominal) : 0;
