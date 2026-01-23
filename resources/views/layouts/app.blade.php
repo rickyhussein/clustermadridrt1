@@ -258,12 +258,12 @@
     <div class="tf-panel left">
         <div class="panel_overlay"></div>
         <div class="panel-box panel-left panel-sidebar">
-            <div class="header-sidebar bg_white_color is-fixed">
+            <div class="header-sidebar is-fixed" style="background-color: white; color: black">
                 <div class="tf-container">
                     <div class="d-flex justify-content-between align-items-center">
                         <a href="{{ url('/dashboard-user') }}" class="sidebar-logo">
-                            <img src="{{ url('/icons/icon-72.png') }}"  alt="logo">
-                            <span style="color: white; font-size:20px" class="ms-2">RT 01 Madrid</span>
+                            <img src="{{ url('/icons/icon-72.png') }}" style="width: 50px; height: 50px; margin-top: 5%;"  alt="logo">
+                            <span style="font-size:20px" class="ms-2">RT 01 Madrid</span>
                         </a>
                         <a href="javascript:void(0);" class="clear-panel"> <i class="icon-close1"></i> </a>
                     </div>
@@ -272,7 +272,6 @@
             <div class="panel-body">
                 <div class="tf-container">
                     <div class="box-content">
-
                         <ul class="box-nav">
                             <li>
                                 <a href="{{ url('/dashboard-user') }}" class="nav-link" >

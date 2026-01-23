@@ -1,13 +1,10 @@
 <aside class="main-sidebar sidebar-light-orange elevation-4">
-    <!-- Brand Logo -->
     <a href="{{ url('/dashboard') }}" class="brand-link">
-        <img src="{{ url('/icons/icon-72.png') }}" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
-        <span class="brand-text font-weight-light">Cluster Madrid</span>
+        <img src="{{ url('/icons/icon-72.png') }}"style="width: 50px; height: 50px;">
+        <span class="brand-text font-weight-light">RT 01 Madrid</span>
     </a>
 
-    <!-- Sidebar -->
     <div class="sidebar">
-    <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
             <img style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;" src="{{ auth()->user()->foto ? url('/storage/'.auth()->user()->foto) : asset('assets/img/foto_default.jpg') }}" class="img-circle elevation-2" alt="User Image">
@@ -179,5 +176,4 @@
             </ul>
         </nav>
     </div>
-    <!-- /.sidebar -->
 </aside>

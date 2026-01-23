@@ -11,8 +11,8 @@
                         <div class="card text-dark bg-light mb-3">
                             <div class="row  d-flex align-items-center">
                                 <div class="col-3">
-                                    <div class="ms-4 d-flex justify-content-center align-items-center bg-success text-white" style="width: 50px; height: 50px; border-radius: 15px;">
-                                        <i class="fas fa-hand-holding-usd fa-2x"></i>
+                                    <div class="ms-4 d-flex justify-content-center align-items-center text-white" style="width: 50px; height: 50px; border-radius: 15px; background-color: rgb(186, 186, 186);">
+                                        <img src="{{ asset('/assets/img/pemasukan.png') }}" style="width: 40px">
                                     </div>
                                 </div>
                                 <div class="col-9">
@@ -29,8 +29,8 @@
                         <div class="card text-dark bg-light mb-3">
                             <div class="row  d-flex align-items-center">
                                 <div class="col-3">
-                                    <div class="ms-4 d-flex justify-content-center align-items-center bg-danger text-white" style="width: 50px; height: 50px; border-radius: 15px;">
-                                        <i class="fas fa-search-dollar fa-2x"></i>
+                                    <div class="ms-4 d-flex justify-content-center align-items-center text-white" style="width: 50px; height: 50px; border-radius: 15px; background-color: rgb(186, 186, 186);">
+                                        <img src="{{ asset('/assets/img/outstanding.png') }}" style="width: 40px">
                                     </div>
                                 </div>
                                 <div class="col-9">
@@ -47,8 +47,8 @@
                         <div class="card text-dark bg-light mb-3 clickable" data-url="{{ url('/laporan-pengeluaran') }}{{ $_GET?'?'.$_SERVER['QUERY_STRING']: '' }}" style="cursor: pointer;">
                             <div class="row  d-flex align-items-center">
                                 <div class="col-3">
-                                    <div class="ms-4 d-flex justify-content-center align-items-center bg-warning text-white" style="width: 50px; height: 50px; border-radius: 15px;">
-                                        <i class="fas fa-money-check-alt fa-2x"></i>
+                                    <div class="ms-4 d-flex justify-content-center align-items-center text-white" style="width: 50px; height: 50px; border-radius: 15px; background-color: rgb(186, 186, 186);">
+                                        <img src="{{ asset('/assets/img/pengeluaran.png') }}" style="width: 40px">
                                     </div>
                                 </div>
                                 <div class="col-9">

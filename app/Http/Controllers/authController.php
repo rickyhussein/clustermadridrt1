@@ -70,7 +70,7 @@ class authController extends Controller
     public function loginProses(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required',
+            'alamat' => 'required',
             'password' => 'required'
         ]);
 
