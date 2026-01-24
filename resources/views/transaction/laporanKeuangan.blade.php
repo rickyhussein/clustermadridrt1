@@ -213,9 +213,12 @@
         </div>
     </div>
 
-
     @push('script')
         <script>
+            $(".clickable").on("click", function() {
+                window.location.href = $(this).data("url");
+            });
+
             var ctx = document.getElementById('transactionChart').getContext('2d');
 
             var transactionChart = new Chart(ctx, {

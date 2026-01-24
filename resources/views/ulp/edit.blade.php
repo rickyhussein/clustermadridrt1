@@ -31,4 +31,12 @@
             </div>
         </div>
     </div>
+    
+    @push('script')
+        <script>
+            $(".clickable").on("click", function() {
+                window.location.href = $(this).data("url");
+            });
+        </script>
+    @endpush
 @endsection
