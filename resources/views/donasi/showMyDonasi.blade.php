@@ -10,7 +10,7 @@
             <div class="bill-content">
                 <div class="tf-container ms-4 me-4">
                     @if ($donasi->payment_source == 'Bank Transfer (Perlu Konfirmasi Pembayaran Manual)' && $donasi->status == 'unpaid')
-                        <div class="alert alert-warning" role="alert">
+                        <div class="alert" role="alert" style="color: white; background-color: black;">
                             Silahkan transfer ke rekening ini : <span class="me-1" style="font-weight: bold;">Bank Syariah Indonesia (BSI)</span> Nama Penerima : <span class="me-1" style="font-weight: bold;">RT 001 RW 016 CLUSTER MADRID MGC</span> No. Rekening : <a id="copy"><span style="font-weight: bold;">8880010167</span> <i class="fas fa-copy ms-1"></i></a>
                         </div>
                     @endif
