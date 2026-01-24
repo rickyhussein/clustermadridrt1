@@ -141,7 +141,16 @@
                     <a href="{{ url('/berita') }}" class="nav-link {{ Request::is('berita*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-newspaper"></i>
                         <p>
-                            Berita Publik
+                            Informasi Terkini
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('/ulp') }}" class="nav-link {{ Request::is('ulp*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-file-pdf"></i>
+                        <p>
+                            Unduh Laporan PDF
                         </p>
                     </a>
                 </li>

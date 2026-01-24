@@ -3,6 +3,7 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UlpController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\IPKLController;
@@ -281,6 +282,13 @@ Route::put('/my-umkm/update/{id}', [UmkmController::class, 'updateMyUmkm'])->mid
 Route::get('/my-umkm/delete/{id}', [UmkmController::class, 'deleteMyUmkm'])->middleware('role:user');
 
 Route::get('/my-settings', [usersController::class, 'mySettings'])->middleware('role:user');
+
+Route::get('/ulp', [UlpController::class, 'index'])->middleware('role:admin');
+Route::get('/ulp/tambah', [UlpController::class, 'tambah'])->middleware('role:admin');
+Route::post('/ulp/store', [UlpController::class, 'store'])->middleware('role:admin');
+Route::get('/ulp/edit/{id}', [UlpController::class, 'edit'])->middleware('role:admin');
+Route::put('/ulp/update/{id}', [UlpController::class, 'update'])->middleware('role:admin');
+Route::delete('/ulp/delete/{id}', [UlpController::class, 'delete'])->middleware('role:admin');
 
 Route::get('/reset', function () {
     Artisan::call('optimize');

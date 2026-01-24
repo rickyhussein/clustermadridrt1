@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ulp;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
@@ -120,6 +121,8 @@ class TransactionController extends Controller
             ->sum('nominal');
         }
 
+        $ulps = Ulp::orderBy('id', 'ASC')->get();
+
         return view('transaction.laporanKeuangan', compact(
             'title',
             'transaction_in_paid',
@@ -130,7 +133,8 @@ class TransactionController extends Controller
             'transaction_out_array',
             'months',
             'year',
-            'sisa'
+            'sisa',
+            'ulps',
         ));
     }
 }

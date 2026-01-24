@@ -78,37 +78,62 @@
                             </div>
                         </div>
                       </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                          <div class="card-header border-0">
-                            <div class="d-flex justify-content-between">
-                              <h3 class="card-title">Keuangan</h3>
+                      
+                      <div class="col-12">
+                          <div class="card mb-3">
+                            <div class="card-header border-0">
+                              <div class="d-flex justify-content-between">
+                                <h3 class="card-title"><i class="far fa-file-pdf me-2"></i>Unduh File PDF</h3>
+                              </div>
+                            </div>
+                            <div class="card-body">
+                              <div class="position-relative mb-4">
+                                    @foreach ($ulps as $key => $ulp)
+                                        {{ $key + 1 }}. 
+                                        @if ($ulp->ulp_file_path)
+                                            <div class="badge clickable" data-url="{{ url('/storage/'.$ulp->ulp_file_path) }}" style="color: rgb(21, 47, 118); background-color:rgba(192, 218, 254, 0.889); border-radius:10px; cursor: pointer;" target="_blank"><i class="fa fa-download mr-1"></i> {{ $ulp->ulp_file_name }}</div>
+                                        @else
+                                            -
+                                        @endif
+                                        @if (!$loop->last)
+                                            <hr>
+                                        @endif
+                                    @endforeach 
+                              </div>
                             </div>
                           </div>
-                          <div class="card-body">
+                      </div>
 
-
-                            <div class="position-relative mb-4">
-                              <canvas id="transactionChart" height="200"></canvas>
+                      <div class="col-12">
+                          <div class="card mb-3">
+                            <div class="card-header border-0">
+                              <div class="d-flex justify-content-between">
+                                <h3 class="card-title"><i class="far fa-money-bill-alt me-2"></i>Keuangan</h3>
+                              </div>
                             </div>
-
-                            <div class="d-flex flex-row justify-content-end">
-                              <span class="mr-2">
-                                @if (request('start_date'))
-                                    <i class="fas fa-square" style="color: blue"></i> Tahun {{ date('Y', strtotime(request('start_date'))); }}
-                                @else
-                                    <i class="fas fa-square" style="color: blue"></i> Tahun {{ $year }}
-                                @endif
-                              </span>
-
+                            <div class="card-body">
+      
+      
+                              <div class="position-relative mb-4">
+                                <canvas id="transactionChart" height="200"></canvas>
+                              </div>
+      
+                              <div class="d-flex flex-row justify-content-end">
+                                <span class="mr-2">
+                                  @if (request('start_date'))
+                                      <i class="fas fa-square" style="color: blue"></i> Tahun {{ date('Y', strtotime(request('start_date'))); }}
+                                  @else
+                                      <i class="fas fa-square" style="color: blue"></i> Tahun {{ $year }}
+                                  @endif
+                                </span>
+      
+                              </div>
                             </div>
                           </div>
-                        </div>
                       </div>
                 </div>
+
+
             </div>
         </div>
     </div>
