@@ -10,7 +10,7 @@ class BeritaController extends Controller
 {
     public function index()
     {
-        $title = 'Berita Publik';
+        $title = 'Informasi Terkini';
         $search = request()->input('search');
         $start_date = request()->input('start_date');
         $end_date = request()->input('end_date');
@@ -33,7 +33,7 @@ class BeritaController extends Controller
 
     public function tambah()
     {
-        $title = 'Berita Publik';
+        $title = 'Informasi Terkini';
 
         return view('berita.tambah', compact(
             'title',
@@ -62,7 +62,7 @@ class BeritaController extends Controller
 
     public function edit($id)
     {
-        $title = 'Berita Publik';
+        $title = 'Informasi Terkini';
         $berita = Berita::find($id);
 
         return view('berita.edit', compact(
@@ -101,7 +101,7 @@ class BeritaController extends Controller
 
     public function myBerita()
     {
-        $title = 'Berita Publik';
+        $title = 'Informasi Terkini';
         $search = request()->input('search');
 
         $beritas = Berita::when($search, function ($query) use ($search) {
@@ -119,7 +119,7 @@ class BeritaController extends Controller
 
     public function showMyBerita($id)
     {
-        $title = 'Berita Publik';
+        $title = 'Informasi Terkini';
         $berita = Berita::find($id);
         $comments = BeritaComment::where('berita_id', $berita->id)->paginate(15);
 

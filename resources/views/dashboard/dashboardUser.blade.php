@@ -191,8 +191,8 @@
                                     </svg>
                                 </div>
                                 <br>
-                                Berita <br>
-                                Publik
+                                Informasi <br>
+                                Terkini
                             </center>
                         </div>
                     </a>
