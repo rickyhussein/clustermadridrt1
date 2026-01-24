@@ -88,17 +88,23 @@
                             </div>
                             <div class="card-body">
                               <div class="position-relative mb-4">
-                                    @foreach ($ulps as $key => $ulp)
-                                        {{ $key + 1 }}. 
-                                        @if ($ulp->ulp_file_path)
-                                            <div class="badge clickable" data-url="{{ url('/storage/'.$ulp->ulp_file_path) }}" style="color: rgb(21, 47, 118); background-color:rgba(192, 218, 254, 0.889); border-radius:10px; cursor: pointer;" target="_blank"><i class="fa fa-download mr-1"></i> {{ $ulp->ulp_file_name }}</div>
-                                        @else
-                                            -
-                                        @endif
-                                        @if (!$loop->last)
-                                            <hr>
-                                        @endif
-                                    @endforeach 
+                                    @if (count($ulps) > 0)
+                                        @foreach ($ulps as $key => $ulp)
+                                            {{ $key + 1 }}. 
+                                            @if ($ulp->ulp_file_path)
+                                                <div class="badge clickable" data-url="{{ url('/storage/'.$ulp->ulp_file_path) }}" style="color: rgb(21, 47, 118); background-color:rgba(192, 218, 254, 0.889); border-radius:10px; cursor: pointer;" target="_blank"><i class="fa fa-download mr-1"></i> {{ $ulp->ulp_file_name }}</div>
+                                            @else
+                                                -
+                                            @endif
+                                            @if (!$loop->last)
+                                                <hr>
+                                            @endif
+                                        @endforeach 
+                                    @else
+                                        <center>
+                                            No Data Available
+                                        </center>
+                                    @endif
                               </div>
                             </div>
                           </div>
