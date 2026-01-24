@@ -17,6 +17,9 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('foto')->nullable();
+            $table->string('kartu_keluarga')->nullable();
+            $table->string('ktp_kepala_keluarga')->nullable();
+            $table->string('ktp_istri')->nullable();
             $table->string('alamat')->nullable();
             $table->string('rt')->nullable();
             $table->string('status')->nullable();

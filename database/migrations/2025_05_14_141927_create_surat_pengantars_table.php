@@ -19,6 +19,7 @@ class CreateSuratPengantarsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('keluarga_id')->nullable();
             $table->foreign('keluarga_id')->references('id')->on('keluargas')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('name')->nullable();
             $table->string('surat_pengantar_number')->nullable();
             $table->date('date')->nullable();
             $table->string('born_place')->nullable();

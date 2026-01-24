@@ -82,13 +82,20 @@ class User extends Authenticatable
         return $total_donasi_fasum;
     }
 
-    public function getDonasiUmum($user_id, $month, $year)
+    public function getDonasiRthRt01($user_id, $month, $year)
     {
-        $total_donasi_umum = Transaction::where('type', 'Donasi Umum')->where('status', 'paid')->where('user_id', $user_id)->where('month', $month)->where('year', $year)->sum('nominal');
+        $total_donasi_umum = Transaction::where('type', 'Donasi RTH RT01')->where('status', 'paid')->where('user_id', $user_id)->where('month', $month)->where('year', $year)->sum('nominal');
 
         return $total_donasi_umum;
     }
 
+    public function getDonasiInventaris($user_id, $month, $year)
+    {
+        $total_donasi_inventaris = Transaction::where('type', 'Donasi Inventaris')->where('status', 'paid')->where('user_id', $user_id)->where('month', $month)->where('year', $year)->sum('nominal');
+
+        return $total_donasi_inventaris;
+    }
+    
     public function getDonasiLainnya($user_id, $month, $year)
     {
         $total_donasi_lainnya = Transaction::where('type', 'Donasi Lainnya')->where('status', 'paid')->where('user_id', $user_id)->where('month', $month)->where('year', $year)->sum('nominal');

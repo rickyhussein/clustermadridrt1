@@ -55,6 +55,18 @@ class laporanDonasiExport implements FromView, WithStyles, WithEvents, WithColum
             'AO' => '"Rp" #,##0',
             'AP' => '"Rp" #,##0',
             'AQ' => '"Rp" #,##0',
+            'AR' => '"Rp" #,##0',
+            'AS' => '"Rp" #,##0',
+            'AT' => '"Rp" #,##0',
+            'AU' => '"Rp" #,##0',
+            'AV' => '"Rp" #,##0',
+            'AW' => '"Rp" #,##0',
+            'AX' => '"Rp" #,##0',
+            'AY' => '"Rp" #,##0',
+            'AZ' => '"Rp" #,##0',
+            'BA' => '"Rp" #,##0',
+            'BB' => '"Rp" #,##0',
+            'BC' => '"Rp" #,##0',
         ];
     }
 
@@ -136,18 +148,18 @@ class laporanDonasiExport implements FromView, WithStyles, WithEvents, WithColum
         $endRow = $totalUsers + 3;
 
         if ($month) {
-            $tableRange = "A{$startRow}:J" . ($endRow - 1);
+            $tableRange = "A{$startRow}:K" . ($endRow - 1);
         } else {
-            $tableRange = "A{$startRow}:AQ" . ($endRow - 1);
+            $tableRange = "A{$startRow}:BC" . ($endRow - 1);
         }
 
         $footerTotalRange = "A{$endRow}:F{$endRow}";
         $footerOtherRange = $month
-            ? "G{$endRow}:J{$endRow}"
-            : "G{$endRow}:AQ{$endRow}";
+            ? "G{$endRow}:K{$endRow}"
+            : "G{$endRow}:BC{$endRow}";
 
         return [
-            ($month ? 'A1:J2' : 'A1:AQ2') => [
+            ($month ? 'A1:K2' : 'A1:BC2') => [
                 'font' => ['bold' => true, 'size' => 12],
                 'alignment' => [
                     'horizontal' => 'center',
@@ -203,7 +215,7 @@ class laporanDonasiExport implements FromView, WithStyles, WithEvents, WithColum
             AfterSheet::class => function(AfterSheet $event) {
                 // Daftar kolom dari F sampai AD (total 25 kolom)
                 $columns = [
-                    'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ'
+                    'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ', 'BA', 'BB', 'BC'
                 ];
 
                 // Set lebar kolom secara manual

@@ -16,6 +16,9 @@ class AddColumnQtyToTransactionsTable extends Migration
         Schema::table('transactions', function (Blueprint $table) {
             $table->bigInteger('qty')->nullable();
             $table->string('status_gate_card')->nullable();
+            $table->string('status_gate_card_text')->nullable();
+            $table->string('vehicle_type')->nullable();
+            $table->string('vehicle_type_text')->nullable();
         });
     }
 

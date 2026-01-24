@@ -149,9 +149,12 @@ class GateCardController extends Controller
                 'date' => 'required',
                 'type' => 'required',
                 'status_gate_card' => 'required',
+                'status_gate_card_text' => 'required_if:status_gate_card,Katu Akses Pengganti',
                 'payment_source' => 'required',
                 'nominal' => 'required',
                 'qty' => 'required|numeric|max:4',
+                'vehicle_type' => 'required',
+                'vehicle_type_text' => 'required_if:vehicle_type,Lainnya',
                 'notes' => 'nullable',
                 'file_transaction_path' => 'required|file|max:10240',
             ]);
@@ -258,11 +261,14 @@ class GateCardController extends Controller
                 'date' => 'required',
                 'type' => 'required',
                 'status_gate_card' => 'required',
+                'status_gate_card_text' => 'required_if:status_gate_card,Katu Akses Pengganti',
                 'payment_source' => 'required',
                 'nominal' => 'required',
                 'qty' => 'required|numeric|max:4',
+                'vehicle_type' => 'required',
+                'vehicle_type_text' => 'required_if:vehicle_type,Lainnya',
                 'notes' => 'nullable',
-                'file_transaction_path' => 'required|file|max:10240',
+                'file_transaction_path' => 'file|max:10240',
             ]);
 
             $validated['nominal'] = $request->nominal ? str_replace(',', '', $request->nominal) : 0;

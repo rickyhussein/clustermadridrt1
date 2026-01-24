@@ -54,6 +54,17 @@
                     <li class="list-card-invoice tf-topbar d-flex justify-content-between align-items-center">
                         <div class="content-right">
                             <p>
+                                Nama
+                            </p>
+                            <h5>
+                                {{ $surat_pengantar->name ?? '-' }}
+                            </h5>
+                        </div>
+                    </li>
+
+                    <li class="list-card-invoice tf-topbar d-flex justify-content-between align-items-center">
+                        <div class="content-right">
+                            <p>
                                 Tempat Lahir
                             </p>
                             <h5>
@@ -144,6 +155,17 @@
                             </p>
                             <h5>
                                 {{ $surat_pengantar->alamat ?? '-' }}
+                            </h5>
+                        </div>
+                    </li>
+
+                    <li class="list-card-invoice tf-topbar d-flex justify-content-between align-items-center">
+                        <div class="content-right">
+                            <p>
+                                Jenis Surat Pengantar
+                            </p>
+                            <h5>
+                                {{ $surat_pengantar->letter_type ?? '-' }} {{ $surat_pengantar->letter_type_text ? ': ' . $surat_pengantar->letter_type_text : '' }}
                             </h5>
                         </div>
                     </li>

@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="col-9">
                                     <div class="card-body">
-                                      <h5 class="card-title">Total Outstanding</h5>
+                                      <h5 class="card-title">Total Tertunda</h5>
                                       <p class="card-text">Rp {{ number_format($transaction_in_unpaid) }}</p>
                                     </div>
                                 </div>
@@ -98,9 +98,9 @@
                             <div class="d-flex flex-row justify-content-end">
                               <span class="mr-2">
                                 @if (request('start_date'))
-                                    <i class="fas fa-square text-primary"></i> Tahun {{ date('Y', strtotime(request('start_date'))); }}
+                                    <i class="fas fa-square" style="color: blue"></i> Tahun {{ date('Y', strtotime(request('start_date'))); }}
                                 @else
-                                    <i class="fas fa-square text-primary"></i> Tahun {{ $year }}
+                                    <i class="fas fa-square" style="color: blue"></i> Tahun {{ $year }}
                                 @endif
                               </span>
 
@@ -190,7 +190,7 @@
             var transactionChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: {!! json_encode(array_values($months)) !!}, // Label Bulan
+                    labels: {!! json_encode(array_values($months)) !!},
                     datasets: [
                         {
                             label: 'Pemasukan',
@@ -198,13 +198,13 @@
                             data: {!! json_encode($transaction_in_paid_array) !!}
                         },
                         {
-                            label: 'Outstanding',
-                            backgroundColor: '#dc3545',
+                            label: 'Tertunda',
+                            backgroundColor: '#ff7a00',
                             data: {!! json_encode($transaction_in_unpaid_array) !!}
                         },
                         {
                             label: 'Pengeluaran',
-                            backgroundColor: '#ffc107',
+                            backgroundColor: '#dc3545',
                             data: {!! json_encode($transaction_out_array) !!}
                         }
                     ]

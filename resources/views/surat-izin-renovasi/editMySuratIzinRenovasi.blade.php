@@ -323,7 +323,7 @@
 
     @push('script')
         <script>
-            flatpickr(".date");
+            flatpickr(".date", {disableMobile: true});
             $('.select2').select2();
 
             $('body').on('keyup', '.number', function (event) {

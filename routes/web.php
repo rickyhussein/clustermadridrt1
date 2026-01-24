@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\authController;
@@ -307,6 +308,15 @@ Route::get('/update-role', function () {
     $users = User::whereNotIn('id', [1,2])->get();
     foreach ($users as $user) {
         $user->assignRole('user');
+    }
+});
+
+Route::get('/update-password', function () {
+    $users = User::whereNotIn('id', [1,2])->get();
+    foreach ($users as $user) {
+        $user->update([
+            'password' => Hash::make('RT01@2025')
+        ]);
     }
 });
 

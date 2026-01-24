@@ -148,6 +148,7 @@
                             <th style="min-width: 250px; background-color:rgb(243, 243, 243);" class="text-center">Jenis Pembayaran</th>
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Nominal</th>
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Jumlah Gate Card Yang Dipesan</th>
+                            <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Jenis Kendaraan</th>
                             <th style="min-width: 300px; background-color:rgb(243, 243, 243);" class="text-center">Nomor Polisi Kendaraan</th>
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Bukti Pembayaran</th>
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Status</th>
@@ -168,10 +169,16 @@
                                     <td class="text-center" style="vertical-align: middle;">{{ $gate_card->user->name ?? '-' }}</td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $gate_card->date ?? '-' }}</td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $gate_card->type ?? '-' }}</td>
-                                    <td class="text-center" style="vertical-align: middle;">{{ $gate_card->status_gate_card ?? '-' }}</td>
+                                    <td style="vertical-align: middle;">
+                                        {{ $gate_card->status_gate_card ?? '-' }}
+                                        @if ($gate_card->status_gate_card_text)
+                                            <br>
+                                            Alasan : {{ $gate_card->status_gate_card_text }}
+                                        @endif
                                     <td class="text-center" style="vertical-align: middle;">{{ $gate_card->payment_source ?? '-' }}</td>
                                     <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($gate_card->nominal) }}</td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $gate_card->qty ?? '-' }}</td>
+                                    <td class="text-center" style="vertical-align: middle;">{{ $gate_card->vehicle_type ?? '-' }} {{ $gate_card->vehicle_type_text ? ': ' . $gate_card->vehicle_type_text : '' }}</td>
                                     <td style="vertical-align: middle;">{!! $gate_card->notes ? nl2br(e($gate_card->notes)) : '-' !!}</td>
                                     <td class="text-center" style="vertical-align: middle;">
                                         @if ($gate_card->file_transaction_path)

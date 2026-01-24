@@ -17,7 +17,7 @@
         <h1 style="float: left;">{{ $title }}</h1>
         <img src="{{ url('/icons/icon-72.png') }}" style="width: 100px; float: right; margin-top: -30px;" alt="" srcset="">
         <div class="group-input">
-            <input type="text" placeholder="alamat" class="@error('alamat') is-invalid @enderror" value="{{ old('alamat') }}" name="alamat">
+            <input type="text" placeholder="Alamat" class="@error('alamat') is-invalid @enderror" value="{{ old('alamat') }}" name="alamat">
             @error('alamat')
               <div class="invalid-feedback">
                   {{ $message }}

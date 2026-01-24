@@ -20,15 +20,6 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="col">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto">
-                            @error('foto')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
                     </div>
                     <br>
                     <div class="form-row">
@@ -138,6 +129,53 @@
                             @enderror
                         </div>
                     </div>
+                    <br>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="foto" class="form-label">Foto</label>
+                            <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto">
+                            @error('foto')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="col">
+                            <label for="kartu_keluarga" class="form-label">Kartu Keluarga</label>
+                            <input class="form-control @error('kartu_keluarga') is-invalid @enderror" type="file" id="kartu_keluarga" name="kartu_keluarga">
+                            @error('kartu_keluarga')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="ktp_kepala_keluarga" class="form-label">KTP Kepala Keluarga</label>
+                            <input class="form-control @error('ktp_kepala_keluarga') is-invalid @enderror" type="file" id="ktp_kepala_keluarga" name="ktp_kepala_keluarga">
+                            @error('ktp_kepala_keluarga')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="col">
+                            <label for="ktp_istri" class="form-label">KTP Istri</label>
+                            <input class="form-control @error('ktp_istri') is-invalid @enderror" type="file" id="ktp_istri" name="ktp_istri">
+                            @error('ktp_istri')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+
                     @php
                         $old = session()->getOldInput();
                     @endphp
@@ -313,7 +351,7 @@
 
     @push('script')
         <script>
-            flatpickr(".date");
+            flatpickr(".date", {disableMobile: true});
 
             $('.select2').select2();
 
@@ -416,7 +454,7 @@
                 `;
 
                 $('#keluargaContainer').append(newKeluarga);
-                flatpickr(".date");
+                flatpickr(".date", {disableMobile: true});
                 $('.select2').select2();
             });
 

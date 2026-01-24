@@ -117,7 +117,7 @@
             <tr>
                 <td style="width: 30%; vertical-align:top;">Nama</td>
                 <td style="width: 5%; vertical-align:top;">:</td>
-                <td style="width: 65%; vertical-align:top;">{{ $surat_pengantar->keluarga->nama_keluarga ?? '-' }}</td>
+                <td style="width: 65%; vertical-align:top;">{{ $surat_pengantar->name ?? '-' }}</td>
             </tr>
             <tr>
                 <td style="width: 30%; vertical-align:top;">Tempat / Tanggal Lahir</td>

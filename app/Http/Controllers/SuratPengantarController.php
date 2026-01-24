@@ -23,6 +23,7 @@ class SuratPengantarController extends Controller
         ->when($search, function ($query) use ($search) {
             $query->where(function ($query) use ($search) {
                 $query->where('surat_pengantar_number', 'LIKE', '%' . $search . '%')
+                ->orWhere('name', 'LIKE', '%' . $search . '%')
                 ->orWhere('letter_type', 'LIKE', '%' . $search . '%')
                 ->orWhere('alamat', 'LIKE', '%' . $search . '%')
                 ->orWhereHas('keluarga', function ($q) use ($search) {
@@ -91,7 +92,7 @@ class SuratPengantarController extends Controller
         $result = null;
         DB::transaction(function ()  use ($request, $result) {
             $validated = $request->validate([
-                'keluarga_id' => 'required',
+                'name' => 'required',
                 'surat_pengantar_number' => 'required',
                 'date' => 'required',
                 'born_place' => 'required',
@@ -134,7 +135,7 @@ class SuratPengantarController extends Controller
         $surat_pengantar = SuratPengantar::find($id);
         DB::transaction(function ()  use ($request, $surat_pengantar) {
             $validated = $request->validate([
-                'keluarga_id' => 'required',
+                'name' => 'required',
                 'surat_pengantar_number' => 'required',
                 'date' => 'required',
                 'born_place' => 'required',

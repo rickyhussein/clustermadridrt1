@@ -104,6 +104,9 @@ class usersController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'foto' => 'image|file|max:10240',
+            'kartu_keluarga' => 'image|file|max:10240',
+            'ktp_kepala_keluarga' => 'image|file|max:10240',
+            'ktp_istri' => 'image|file|max:10240',
             'email' => 'required|unique:users',
             'password' => 'required|min:6|max:255',
             'alamat' => 'required|unique:users',
@@ -116,6 +119,22 @@ class usersController extends Controller
 
         if ($request->file('foto')) {
             $validated['foto'] = $request->file('foto')->store('foto');
+        }
+
+        if ($request->file('foto')) {
+            $validated['foto'] = $request->file('foto')->store('foto');
+        }
+
+        if ($request->file('kartu_keluarga')) {
+            $validated['kartu_keluarga'] = $request->file('kartu_keluarga')->store('kartu_keluarga');
+        }
+
+        if ($request->file('ktp_kepala_keluarga')) {
+            $validated['ktp_kepala_keluarga'] = $request->file('ktp_kepala_keluarga')->store('ktp_kepala_keluarga');
+        }
+
+        if ($request->file('ktp_istri')) {
+            $validated['ktp_istri'] = $request->file('ktp_istri')->store('ktp_istri');
         }
 
         $validated['password'] = Hash::make($validated['password']);
@@ -181,6 +200,9 @@ class usersController extends Controller
         $rules = [
             'name' => 'required',
             'foto' => 'image|file|max:10240',
+            'kartu_keluarga' => 'image|file|max:10240',
+            'ktp_kepala_keluarga' => 'image|file|max:10240',
+            'ktp_istri' => 'image|file|max:10240',
             'rt' => 'required',
             'rw' => 'required',
             'no_hp' => 'required',
@@ -201,6 +223,18 @@ class usersController extends Controller
 
         if ($request->file('foto')) {
             $validated['foto'] = $request->file('foto')->store('foto');
+        }
+
+        if ($request->file('kartu_keluarga')) {
+            $validated['kartu_keluarga'] = $request->file('kartu_keluarga')->store('kartu_keluarga');
+        }
+
+        if ($request->file('ktp_kepala_keluarga')) {
+            $validated['ktp_kepala_keluarga'] = $request->file('ktp_kepala_keluarga')->store('ktp_kepala_keluarga');
+        }
+
+        if ($request->file('ktp_istri')) {
+            $validated['ktp_istri'] = $request->file('ktp_istri')->store('ktp_istri');
         }
 
         foreach($user->roles as $r){
@@ -305,6 +339,9 @@ class usersController extends Controller
         $rules = [
             'name' => 'required',
             'foto' => 'image|file|max:10240',
+            'kartu_keluarga' => 'image|file|max:10240',
+            'ktp_kepala_keluarga' => 'image|file|max:10240',
+            'ktp_istri' => 'image|file|max:10240',
             'rt' => 'required',
             'rw' => 'required',
             'no_hp' => 'required',
@@ -324,6 +361,18 @@ class usersController extends Controller
 
         if ($request->file('foto')) {
             $validated['foto'] = $request->file('foto')->store('foto');
+        }
+
+        if ($request->file('kartu_keluarga')) {
+            $validated['kartu_keluarga'] = $request->file('kartu_keluarga')->store('kartu_keluarga');
+        }
+
+        if ($request->file('ktp_kepala_keluarga')) {
+            $validated['ktp_kepala_keluarga'] = $request->file('ktp_kepala_keluarga')->store('ktp_kepala_keluarga');
+        }
+
+        if ($request->file('ktp_istri')) {
+            $validated['ktp_istri'] = $request->file('ktp_istri')->store('ktp_istri');
         }
 
         $user->update($validated);

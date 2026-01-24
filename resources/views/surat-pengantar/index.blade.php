@@ -52,7 +52,7 @@
                             @foreach ($surat_pengantars as $key => $surat_pengantar)
                                 <tr>
                                     <td class="text-center" style="position: sticky; left: 0; background-color: rgb(235, 235, 235); z-index: 1; vertical-align: middle;">{{ ($surat_pengantars->currentpage() - 1) * $surat_pengantars->perpage() + $key + 1 }}.</td>
-                                    <td class="text-center" style="vertical-align: middle;">{{ $surat_pengantar->keluarga->nama_keluarga ?? '-' }}</td>
+                                    <td class="text-center" style="vertical-align: middle;">{{ $surat_pengantar->name ?? '-' }}</td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $surat_pengantar->date ?? '-' }}</td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $surat_pengantar->surat_pengantar_number ?? '-' }}</td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $surat_pengantar->letter_type ?? '-' }} {{ $surat_pengantar->letter_type_text ? ': ' . $surat_pengantar->letter_type_text : '' }}</td>

@@ -39,7 +39,8 @@ class DonasiController extends Controller
         ->when(!$type, function ($query) {
             $query->where(function ($q) {
                 $q->where('type', 'Donasi Fasum')
-                ->orWhere('type', 'Donasi Umum')
+                ->orWhere('type', 'Donasi RTH RT01')
+                ->orWhere('type', 'Donasi Inventaris')
                 ->orWhere('type', 'Donasi Lainnya');
             });
         })
@@ -132,7 +133,8 @@ class DonasiController extends Controller
         $transaction_donasi = Transaction::where('user_id', auth()->user()->id)
         ->where(function ($query) {
             $query->where('type', 'Donasi Fasum')
-            ->orWhere('type', 'Donasi Umum')
+            ->orWhere('type', 'Donasi RTH RT01')
+            ->orWhere('type', 'Donasi Inventaris')
             ->orWhere('type', 'Donasi Lainnya');
         })
         ->when($start_date && $end_date, function ($query) use ($start_date, $end_date) {
@@ -274,7 +276,7 @@ class DonasiController extends Controller
                 'payment_source' => 'required',
                 'nominal' => 'required',
                 'notes' => 'nullable',
-                'file_transaction_path' => 'required|file|max:10240',
+                'file_transaction_path' => 'file|max:10240',
             ]);
 
             $validated['nominal'] = $request->nominal ? str_replace(',', '', $request->nominal) : 0;

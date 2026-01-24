@@ -63,7 +63,7 @@ class authController extends Controller
     public function login()
     {
         return view('auth.login',[
-            "title" => "Log In"
+            "title" => "Portal Warga"
         ]);
     }
 

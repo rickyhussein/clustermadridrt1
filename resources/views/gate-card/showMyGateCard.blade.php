@@ -11,7 +11,7 @@
                 <div class="tf-container ms-4 me-4">
                     @if ($gate_card->payment_source == 'Bank Transfer (Perlu Konfirmasi Pembayaran Manual)' && $gate_card->status == 'unpaid')
                         <div class="alert alert-warning" role="alert">
-                            Silahkan transfer ke rekening ini : <span class="me-1" style="font-weight: bold;">Bank Syariah Indonesia (BSI)</span> Nama Penerima : <span class="me-1" style="font-weight: bold;">RT 01 CLUSTER MADRID</span> No. Rekening : <a id="copy"><span style="font-weight: bold;">6868123336</span> <i class="fas fa-copy ms-1"></i></a>
+                            Silahkan transfer ke rekening ini : <span class="me-1" style="font-weight: bold;">Bank Syariah Indonesia (BSI)</span> Nama Penerima : <span class="me-1" style="font-weight: bold;">RT 001 RW 016 CLUSTER MADRID MGC</span> No. Rekening : <a id="copy"><span style="font-weight: bold;">8880010167</span> <i class="fas fa-copy ms-1"></i></a>
                         </div>
                     @endif
 
@@ -79,6 +79,7 @@
                                 </h5>
                             </div>
                         </li>
+
                         <li class="list-card-invoice tf-topbar d-flex justify-content-between align-items-center">
                             <div class="content-right">
                                 <p>
@@ -89,6 +90,19 @@
                                 </h5>
                             </div>
                         </li>
+                        
+                        @if ($gate_card->status_gate_card == 'Katu Akses Pengganti')
+                            <li class="list-card-invoice tf-topbar d-flex justify-content-between align-items-center">
+                                <div class="content-right">
+                                    <p>
+                                        Alasan
+                                    </p>
+                                    <h5>
+                                        {{ $gate_card->status_gate_card_text ?? '-' }}
+                                    </h5>
+                                </div>
+                            </li>
+                        @endif
 
                         <li class="list-card-invoice tf-topbar d-flex justify-content-between align-items-center">
                             <div class="content-right">
@@ -135,6 +149,17 @@
                                     @else
                                         <div class="badge" style="color: rgba(78, 26, 26, 0.889); background-color:rgb(242, 170, 170); border-radius:10px; text-transform: uppercase;">{{ $gate_card->status ?? '-' }}</div>
                                     @endif
+                                </h5>
+                            </div>
+                        </li>
+
+                        <li class="list-card-invoice tf-topbar d-flex justify-content-between align-items-center">
+                            <div class="content-right">
+                                <p>
+                                    Jenis Kendaraan
+                                </p>
+                                <h5>
+                                    {{ $gate_card->vehicle_type ?? '-' }} {{ $gate_card->vehicle_type_text ? ': ' . $gate_card->vehicle_type_text : '' }}
                                 </h5>
                             </div>
                         </li>
@@ -332,7 +357,7 @@
 
                 $('#copy').on('click', function(e) {
                     e.preventDefault();
-                    var urlToCopy = "6868123336";
+                    var urlToCopy = "8880010167";
                     var tempInput = $('<input>');
                     $('body').append(tempInput);
                     tempInput.val(urlToCopy).select();

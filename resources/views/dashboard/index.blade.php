@@ -20,7 +20,7 @@
                         <img src="{{ asset('/assets/img/outstanding.png') }}" style="width: 40px">
                     </span>
                   <div class="info-box-content">
-                    <span class="info-box-text">Total Outstanding</span>
+                    <span class="info-box-text">Total Tertunda</span>
                     <span class="info-box-number">Rp {{ number_format($transaction_in_unpaid) }}</span>
                   </div>
                 </div>
@@ -150,13 +150,13 @@
                             data: {!! json_encode($transaction_in_paid_array) !!}
                         },
                         {
-                            label: 'Outstanding',
-                            backgroundColor: '#dc3545',
+                            label: 'Tertunda',
+                            backgroundColor: '#ff7a00',
                             data: {!! json_encode($transaction_in_unpaid_array) !!}
                         },
                         {
                             label: 'Pengeluaran',
-                            backgroundColor: '#ffc107',
+                            backgroundColor: '#dc3545',
                             data: {!! json_encode($transaction_out_array) !!}
                         }
                     ]

@@ -101,15 +101,6 @@
                             </div>
 
                             <div class="group-input">
-                                <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto">
-                                @error('foto')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="group-input">
                                 <label for="role">Role</label>
                                 <input style="width: 100%" type="text" class="@error('role') is-invalid @enderror" name="role" value="{{ old('role', $user_roles) }}" disabled />
                             </div>
@@ -117,6 +108,58 @@
                             <div class="group-input">
                                 <label style="z-index: 1000" for="status">status</label>
                                 <input type="text" class="@error('status') is-invalid @enderror" name="status" value="{{ old('status', $user->status) }}" disabled />
+                            </div>
+
+                            <label for="foto">Foto Profile</label>
+                            <div class="group-input">
+                                <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto" name="foto">
+                                @if ($user->foto)
+                                    <div class="badge clickable mt-1" data-url="{{ url('/storage/'.$user->foto) }}" style="color: rgb(21, 47, 118); background-color:rgba(192, 218, 254, 0.889); border-radius:10px; cursor: pointer;" target="_blank"><i class="fa fa-download me-1"></i> {{ $user->foto }}</div>
+                                @endif
+                                @error('foto')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <label for="kartu_keluarga">Kartu Keluarga</label>
+                            <div class="group-input">
+                                <input class="form-control @error('kartu_keluarga') is-invalid @enderror" type="file" id="kartu_keluarga" name="kartu_keluarga">
+                                @if ($user->kartu_keluarga)
+                                    <div class="badge clickable mt-1" data-url="{{ url('/storage/'.$user->kartu_keluarga) }}" style="color: rgb(21, 47, 118); background-color:rgba(192, 218, 254, 0.889); border-radius:10px; cursor: pointer;" target="_blank"><i class="fa fa-download me-1"></i> {{ $user->kartu_keluarga }}</div>
+                                @endif
+                                @error('kartu_keluarga')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <label for="ktp_kepala_keluarga">KTP Kepala Keluarga</label>
+                            <div class="group-input">
+                                <input class="form-control @error('ktp_kepala_keluarga') is-invalid @enderror" type="file" id="ktp_kepala_keluarga" name="ktp_kepala_keluarga">
+                                @if ($user->ktp_kepala_keluarga)
+                                    <div class="badge clickable mt-1" data-url="{{ url('/storage/'.$user->ktp_kepala_keluarga) }}" style="color: rgb(21, 47, 118); background-color:rgba(192, 218, 254, 0.889); border-radius:10px; cursor: pointer;" target="_blank"><i class="fa fa-download me-1"></i> {{ $user->ktp_kepala_keluarga }}</div>
+                                @endif
+                                @error('ktp_kepala_keluarga')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <label for="ktp_istri">KTP Istri</label>
+                            <div class="group-input">
+                                <input class="form-control @error('ktp_istri') is-invalid @enderror" type="file" id="ktp_istri" name="ktp_istri">
+                                @if ($user->ktp_istri)
+                                    <div class="badge clickable mt-1" data-url="{{ url('/storage/'.$user->ktp_istri) }}" style="color: rgb(21, 47, 118); background-color:rgba(192, 218, 254, 0.889); border-radius:10px; cursor: pointer;" target="_blank"><i class="fa fa-download me-1"></i> {{ $user->ktp_istri }}</div>
+                                @endif
+                                @error('ktp_istri')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
 
                             @php
@@ -377,7 +420,7 @@
 
     @push('script')
         <script>
-            flatpickr(".date");
+            flatpickr(".date", {disableMobile: true});
 
             $('.select2').select2();
 
@@ -477,7 +520,7 @@
                 `;
 
                 $('#keluargaContainer').append(newKeluarga);
-                flatpickr(".date");
+                flatpickr(".date", {disableMobile: true});
                 $('.select2').select2();
             });
 
@@ -496,6 +539,10 @@
                         });
                     }
                 }
+            });
+
+            $(".clickable").on("click", function() {
+                window.location.href = $(this).data("url");
             });
         </script>
     @endpush

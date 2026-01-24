@@ -116,6 +116,10 @@
                                 </div>
                                 <div class="col">
                                     {{ $gate_card->status_gate_card ?? '-' }}
+                                    @if ($gate_card->status_gate_card_text)
+                                        <br>
+                                        Alasan : {{ $gate_card->status_gate_card_text }}
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -147,9 +151,21 @@
                         </div>
                     </div>
                 </li>
+
                 <li class="list-group-item">
                     <div class="row align-items-center">
-                        <div class="col-sm-2 font-weight-bold">Keterangan</div>
+                        <div class="col-sm-2 font-weight-bold">Jenis Kendaraan</div>
+                        <div class="col-sm-4 mt-sm-0 mt-1">
+                            <div class="row align-items-center">
+                                <div class="col-1 d-none d-sm-inline">
+                                    :
+                                </div>
+                                <div class="col">
+                                    {{ $gate_card->vehicle_type ?? '-' }} {{ $gate_card->vehicle_type_text ? ': ' . $gate_card->vehicle_type_text : '' }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 font-weight-bold">Nomor Polisi Kendaraan</div>
                         <div class="col-sm-4 mt-sm-0 mt-1">
                             <div class="row align-items-center">
                                 <div class="col-1 d-none d-sm-inline">
@@ -160,6 +176,11 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </li>
+                
+                <li class="list-group-item">
+                    <div class="row align-items-center">
                         <div class="col-sm-2 font-weight-bold">Bukti Pembayaran</div>
                         <div class="col-sm-4 mt-sm-0 mt-1">
                             <div class="row align-items-center">
@@ -177,6 +198,7 @@
                         </div>
                     </div>
                 </li>
+
                 <li class="list-group-item">
                     <div class="row align-items-center">
                         <div class="col-sm-2 font-weight-bold">Status</div>

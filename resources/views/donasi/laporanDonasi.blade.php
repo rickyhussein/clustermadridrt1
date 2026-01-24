@@ -216,51 +216,51 @@
                                 <th rowspan="2" style="min-width: 300px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Status</th>
 
                                 @if (!request('month') || request('month') == '01')
-                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="3">Januari</th>
+                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="4">Januari</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '02')
-                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="3">Februari</th>
+                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="4">Februari</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '03')
-                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="3">Maret</th>
+                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="4">Maret</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '04')
-                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="3">April</th>
+                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="4">April</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '05')
-                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="3">Mei</th>
+                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="4">Mei</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '06')
-                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="3">Juni</th>
+                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="4">Juni</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '07')
-                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="3">Juli</th>
+                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="4">Juli</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '08')
-                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="3">Agustus</th>
+                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="4">Agustus</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '09')
-                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="3">September</th>
+                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="4">September</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '10')
-                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="3">Oktober</th>
+                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="4">Oktober</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '11')
-                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="3">November</th>
+                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="4">November</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '12')
-                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="3">Desember</th>
+                                    <th style="min-width: 600px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center" colspan="4">Desember</th>
                                 @endif
 
                                 <th rowspan="2" style="min-width: 300px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Total</th>
@@ -269,73 +269,85 @@
                             <tr>
                                 @if (!request('month') || request('month') == '01')
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Fasum</th>
-                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Umum</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi RTH RT01</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Inventaris</th>
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Lainnya</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '02')
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Fasum</th>
-                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Umum</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi RTH RT01</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Inventaris</th>
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Lainnya</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '03')
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Fasum</th>
-                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Umum</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi RTH RT01</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Inventaris</th>
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Lainnya</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '04')
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Fasum</th>
-                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Umum</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi RTH RT01</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Inventaris</th>
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Lainnya</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '05')
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Fasum</th>
-                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Umum</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi RTH RT01</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Inventaris</th>
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Lainnya</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '06')
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Fasum</th>
-                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Umum</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi RTH RT01</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Inventaris</th>
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Lainnya</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '07')
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Fasum</th>
-                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Umum</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi RTH RT01</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Inventaris</th>
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Lainnya</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '08')
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Fasum</th>
-                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Umum</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi RTH RT01</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Inventaris</th>
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Lainnya</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '09')
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Fasum</th>
-                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Umum</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi RTH RT01</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Inventaris</th>
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Lainnya</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '10')
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Fasum</th>
-                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Umum</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi RTH RT01</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Inventaris</th>
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Lainnya</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '11')
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Fasum</th>
-                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Umum</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi RTH RT01</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Inventaris</th>
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Lainnya</th>
                                 @endif
 
                                 @if (!request('month') || request('month') == '12')
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Fasum</th>
-                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Umum</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi RTH RT01</th>
+                                    <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Inventaris</th>
                                     <th style="min-width: 200px; background-color:rgb(243, 243, 243); vertical-align: middle;" class="text-center">Donasi Lainnya</th>
                                 @endif
                             </tr>
@@ -348,51 +360,63 @@
                             @else
                                 @php
                                     $total_total_januari_fasum = 0;
-                                    $total_total_januari_umum = 0;
+                                    $total_total_januari_rth_rt01 = 0;
+                                    $total_total_januari_inventaris = 0;
                                     $total_total_januari_lainnya = 0;
 
                                     $total_total_februari_fasum = 0;
-                                    $total_total_februari_umum = 0;
+                                    $total_total_februari_rth_rt01 = 0;
+                                    $total_total_februari_inventaris = 0;
                                     $total_total_februari_lainnya = 0;
 
                                     $total_total_maret_fasum = 0;
-                                    $total_total_maret_umum = 0;
+                                    $total_total_maret_rth_rt01 = 0;
+                                    $total_total_maret_inventaris = 0;
                                     $total_total_maret_lainnya = 0;
 
                                     $total_total_april_fasum = 0;
-                                    $total_total_april_umum = 0;
+                                    $total_total_april_rth_rt01 = 0;
+                                    $total_total_april_inventaris = 0;
                                     $total_total_april_lainnya = 0;
 
                                     $total_total_mei_fasum = 0;
-                                    $total_total_mei_umum = 0;
+                                    $total_total_mei_rth_rt01 = 0;
+                                    $total_total_mei_inventaris = 0;
                                     $total_total_mei_lainnya = 0;
 
                                     $total_total_juni_fasum = 0;
-                                    $total_total_juni_umum = 0;
+                                    $total_total_juni_rth_rt01 = 0;
+                                    $total_total_juni_inventaris = 0;
                                     $total_total_juni_lainnya = 0;
 
                                     $total_total_juli_fasum = 0;
-                                    $total_total_juli_umum = 0;
+                                    $total_total_juli_rth_rt01 = 0;
+                                    $total_total_juli_inventaris = 0;
                                     $total_total_juli_lainnya = 0;
 
                                     $total_total_agustus_fasum = 0;
-                                    $total_total_agustus_umum = 0;
+                                    $total_total_agustus_rth_rt01 = 0;
+                                    $total_total_agustus_inventaris = 0;
                                     $total_total_agustus_lainnya = 0;
 
                                     $total_total_september_fasum = 0;
-                                    $total_total_september_umum = 0;
+                                    $total_total_september_rth_rt01 = 0;
+                                    $total_total_september_inventaris = 0;
                                     $total_total_september_lainnya = 0;
 
                                     $total_total_oktober_fasum = 0;
-                                    $total_total_oktober_umum = 0;
+                                    $total_total_oktober_rth_rt01 = 0;
+                                    $total_total_oktober_inventaris = 0;
                                     $total_total_oktober_lainnya = 0;
 
                                     $total_total_november_fasum = 0;
-                                    $total_total_november_umum = 0;
+                                    $total_total_november_rth_rt01 = 0;
+                                    $total_total_november_inventaris = 0;
                                     $total_total_november_lainnya = 0;
 
                                     $total_total_desember_fasum = 0;
-                                    $total_total_desember_umum = 0;
+                                    $total_total_desember_rth_rt01 = 0;
+                                    $total_total_desember_inventaris = 0;
                                     $total_total_desember_lainnya = 0;
 
                                     $total_total = 0;
@@ -401,129 +425,152 @@
                                     <tr>
                                         @php
                                             $total_januari_fasum = $user->getDonasiFasum($user->id, '01', $year);
-                                            $total_januari_umum = $user->getDonasiUmum($user->id, '01', $year);
+                                            $total_januari_rth_rt01 = $user->getDonasiRthRt01($user->id, '01', $year);
+                                            $total_januari_inventaris = $user->getDonasiInventaris($user->id, '01', $year);
                                             $total_januari_lainnya = $user->getDonasiLainnya($user->id, '01', $year);
 
                                             $total_februari_fasum = $user->getDonasiFasum($user->id, '02', $year);
-                                            $total_februari_umum = $user->getDonasiUmum($user->id, '02', $year);
+                                            $total_februari_rth_rt01 = $user->getDonasiRthRt01($user->id, '02', $year);
+                                            $total_februari_inventaris = $user->getDonasiInventaris($user->id, '02', $year);
                                             $total_februari_lainnya = $user->getDonasiLainnya($user->id, '02', $year);
 
                                             $total_maret_fasum = $user->getDonasiFasum($user->id, '03', $year);
-                                            $total_maret_umum = $user->getDonasiUmum($user->id, '03', $year);
+                                            $total_maret_rth_rt01 = $user->getDonasiRthRt01($user->id, '03', $year);
+                                            $total_maret_inventaris = $user->getDonasiInventaris($user->id, '03', $year);
                                             $total_maret_lainnya = $user->getDonasiLainnya($user->id, '03', $year);
 
                                             $total_april_fasum = $user->getDonasiFasum($user->id, '04', $year);
-                                            $total_april_umum = $user->getDonasiUmum($user->id, '04', $year);
+                                            $total_april_rth_rt01 = $user->getDonasiRthRt01($user->id, '04', $year);
+                                            $total_april_inventaris = $user->getDonasiInventaris($user->id, '04', $year);
                                             $total_april_lainnya = $user->getDonasiLainnya($user->id, '04', $year);
 
                                             $total_mei_fasum = $user->getDonasiFasum($user->id, '05', $year);
-                                            $total_mei_umum = $user->getDonasiUmum($user->id, '05', $year);
+                                            $total_mei_rth_rt01 = $user->getDonasiRthRt01($user->id, '05', $year);
+                                            $total_mei_inventaris = $user->getDonasiInventaris($user->id, '05', $year);
                                             $total_mei_lainnya = $user->getDonasiLainnya($user->id, '05', $year);
 
                                             $total_juni_fasum = $user->getDonasiFasum($user->id, '06', $year);
-                                            $total_juni_umum = $user->getDonasiUmum($user->id, '06', $year);
+                                            $total_juni_rth_rt01 = $user->getDonasiRthRt01($user->id, '06', $year);
+                                            $total_juni_inventaris = $user->getDonasiInventaris($user->id, '06', $year);
                                             $total_juni_lainnya = $user->getDonasiLainnya($user->id, '06', $year);
 
                                             $total_juli_fasum = $user->getDonasiFasum($user->id, '07', $year);
-                                            $total_juli_umum = $user->getDonasiUmum($user->id, '07', $year);
+                                            $total_juli_rth_rt01 = $user->getDonasiRthRt01($user->id, '07', $year);
+                                            $total_juli_inventaris = $user->getDonasiInventaris($user->id, '07', $year);
                                             $total_juli_lainnya = $user->getDonasiLainnya($user->id, '07', $year);
 
                                             $total_agustus_fasum = $user->getDonasiFasum($user->id, '08', $year);
-                                            $total_agustus_umum = $user->getDonasiUmum($user->id, '08', $year);
+                                            $total_agustus_rth_rt01 = $user->getDonasiRthRt01($user->id, '08', $year);
+                                            $total_agustus_inventaris = $user->getDonasiInventaris($user->id, '08', $year);
                                             $total_agustus_lainnya = $user->getDonasiLainnya($user->id, '08', $year);
 
                                             $total_september_fasum = $user->getDonasiFasum($user->id, '09', $year);
-                                            $total_september_umum = $user->getDonasiUmum($user->id, '09', $year);
+                                            $total_september_rth_rt01 = $user->getDonasiRthRt01($user->id, '09', $year);
+                                            $total_september_inventaris = $user->getDonasiInventaris($user->id, '09', $year);
                                             $total_september_lainnya = $user->getDonasiLainnya($user->id, '09', $year);
 
                                             $total_oktober_fasum = $user->getDonasiFasum($user->id, '10', $year);
-                                            $total_oktober_umum = $user->getDonasiUmum($user->id, '10', $year);
+                                            $total_oktober_rth_rt01 = $user->getDonasiRthRt01($user->id, '10', $year);
+                                            $total_oktober_inventaris = $user->getDonasiInventaris($user->id, '10', $year);
                                             $total_oktober_lainnya = $user->getDonasiLainnya($user->id, '10', $year);
 
                                             $total_november_fasum = $user->getDonasiFasum($user->id, '11', $year);
-                                            $total_november_umum = $user->getDonasiUmum($user->id, '11', $year);
+                                            $total_november_rth_rt01 = $user->getDonasiRthRt01($user->id, '11', $year);
+                                            $total_november_inventaris = $user->getDonasiInventaris($user->id, '11', $year);
                                             $total_november_lainnya = $user->getDonasiLainnya($user->id, '11', $year);
 
                                             $total_desember_fasum = $user->getDonasiFasum($user->id, '12', $year);
-                                            $total_desember_umum = $user->getDonasiUmum($user->id, '12', $year);
+                                            $total_desember_rth_rt01 = $user->getDonasiRthRt01($user->id, '12', $year);
+                                            $total_desember_inventaris = $user->getDonasiInventaris($user->id, '12', $year);
                                             $total_desember_lainnya = $user->getDonasiLainnya($user->id, '12', $year);
 
                                             $total_total_januari_fasum += $total_januari_fasum;
-                                            $total_total_januari_umum += $total_januari_umum;
+                                            $total_total_januari_rth_rt01 += $total_januari_rth_rt01;
+                                            $total_total_januari_inventaris += $total_januari_inventaris;
                                             $total_total_januari_lainnya += $total_januari_lainnya;
 
                                             $total_total_februari_fasum += $total_februari_fasum;
-                                            $total_total_februari_umum += $total_februari_umum;
+                                            $total_total_februari_rth_rt01 += $total_februari_rth_rt01;
+                                            $total_total_februari_inventaris += $total_februari_inventaris;
                                             $total_total_februari_lainnya += $total_februari_lainnya;
 
                                             $total_total_maret_fasum += $total_maret_fasum;
-                                            $total_total_maret_umum += $total_maret_umum;
+                                            $total_total_maret_rth_rt01 += $total_maret_rth_rt01;
+                                            $total_total_maret_inventaris += $total_maret_inventaris;
                                             $total_total_maret_lainnya += $total_maret_lainnya;
 
                                             $total_total_april_fasum += $total_april_fasum;
-                                            $total_total_april_umum += $total_april_umum;
+                                            $total_total_april_rth_rt01 += $total_april_rth_rt01;
+                                            $total_total_april_inventaris += $total_april_inventaris;
                                             $total_total_april_lainnya += $total_april_lainnya;
 
                                             $total_total_mei_fasum += $total_mei_fasum;
-                                            $total_total_mei_umum += $total_mei_umum;
+                                            $total_total_mei_rth_rt01 += $total_mei_rth_rt01;
+                                            $total_total_mei_inventaris += $total_mei_inventaris;
                                             $total_total_mei_lainnya += $total_mei_lainnya;
 
                                             $total_total_juni_fasum += $total_juni_fasum;
-                                            $total_total_juni_umum += $total_juni_umum;
+                                            $total_total_juni_rth_rt01 += $total_juni_rth_rt01;
+                                            $total_total_juni_inventaris += $total_juni_inventaris;
                                             $total_total_juni_lainnya += $total_juni_lainnya;
 
                                             $total_total_juli_fasum += $total_juli_fasum;
-                                            $total_total_juli_umum += $total_juli_umum;
+                                            $total_total_juli_rth_rt01 += $total_juli_rth_rt01;
+                                            $total_total_juli_inventaris += $total_juli_inventaris;
                                             $total_total_juli_lainnya += $total_juli_lainnya;
 
                                             $total_total_agustus_fasum += $total_agustus_fasum;
-                                            $total_total_agustus_umum += $total_agustus_umum;
+                                            $total_total_agustus_rth_rt01 += $total_agustus_rth_rt01;
+                                            $total_total_agustus_inventaris += $total_agustus_inventaris;
                                             $total_total_agustus_lainnya += $total_agustus_lainnya;
 
                                             $total_total_september_fasum += $total_september_fasum;
-                                            $total_total_september_umum += $total_september_umum;
+                                            $total_total_september_rth_rt01 += $total_september_rth_rt01;
+                                            $total_total_september_inventaris += $total_september_inventaris;
                                             $total_total_september_lainnya += $total_september_lainnya;
 
                                             $total_total_oktober_fasum += $total_oktober_fasum;
-                                            $total_total_oktober_umum += $total_oktober_umum;
+                                            $total_total_oktober_rth_rt01 += $total_oktober_rth_rt01;
+                                            $total_total_oktober_inventaris += $total_oktober_inventaris;
                                             $total_total_oktober_lainnya += $total_oktober_lainnya;
 
                                             $total_total_november_fasum += $total_november_fasum;
-                                            $total_total_november_umum += $total_november_umum;
+                                            $total_total_november_rth_rt01 += $total_november_rth_rt01;
+                                            $total_total_november_inventaris += $total_november_inventaris;
                                             $total_total_november_lainnya += $total_november_lainnya;
 
                                             $total_total_desember_fasum += $total_desember_fasum;
-                                            $total_total_desember_umum += $total_desember_umum;
+                                            $total_total_desember_rth_rt01 += $total_desember_rth_rt01;
+                                            $total_total_desember_inventaris += $total_desember_inventaris;
                                             $total_total_desember_lainnya += $total_desember_lainnya;
 
                                             if (request('month') == '01') {
-                                                $total = $total_januari_fasum + $total_januari_umum + $total_januari_lainnya;
+                                                $total = $total_januari_fasum + $total_januari_rth_rt01 + $total_januari_inventaris + $total_januari_lainnya;
                                             } else if (request('month') == '02') {
-                                                $total = $total_februari_fasum + $total_februari_umum + $total_februari_lainnya;
+                                                $total = $total_februari_fasum + $total_februari_rth_rt01 + $total_februari_inventaris + $total_februari_lainnya;
                                             } else if (request('month') == '03') {
-                                                $total = $total_maret_fasum + $total_maret_umum + $total_maret_lainnya;
+                                                $total = $total_maret_fasum + $total_maret_rth_rt01 + $total_maret_inventaris + $total_maret_lainnya;
                                             } else if (request('month') == '04') {
-                                                $total = $total_april_fasum + $total_april_umum + $total_april_lainnya;
+                                                $total = $total_april_fasum + $total_april_rth_rt01 + $total_april_inventaris + $total_april_lainnya;
                                             } else if (request('month') == '05') {
-                                                $total = $total_mei_fasum + $total_mei_umum + $total_mei_lainnya;
+                                                $total = $total_mei_fasum + $total_mei_rth_rt01 + $total_mei_inventaris + $total_mei_lainnya;
                                             } else if (request('month') == '06') {
-                                                $total = $total_juni_fasum + $total_juni_umum + $total_juni_lainnya;
+                                                $total = $total_juni_fasum + $total_juni_rth_rt01 + $total_juni_inventaris + $total_juni_lainnya;
                                             } else if (request('month') == '07') {
-                                                $total = $total_juli_fasum + $total_juli_umum + $total_juli_lainnya;
+                                                $total = $total_juli_fasum + $total_juli_rth_rt01 + $total_juli_inventaris + $total_juli_lainnya;
                                             } else if (request('month') == '08') {
-                                                $total = $total_agustus_fasum + $total_agustus_umum + $total_agustus_lainnya;
+                                                $total = $total_agustus_fasum + $total_agustus_rth_rt01 + $total_agustus_inventaris + $total_agustus_lainnya;
                                             } else if (request('month') == '09') {
-                                                $total = $total_september_fasum + $total_september_umum + $total_september_lainnya;
+                                                $total = $total_september_fasum + $total_september_rth_rt01 + $total_september_inventaris + $total_september_lainnya;
                                             } else if (request('month') == '10') {
-                                                $total = $total_oktober_fasum + $total_oktober_umum + $total_oktober_lainnya;
+                                                $total = $total_oktober_fasum + $total_oktober_rth_rt01 + $total_oktober_inventaris + $total_oktober_lainnya;
                                             } else if (request('month') == '11') {
-                                                $total = $total_november_fasum + $total_november_umum + $total_november_lainnya;
+                                                $total = $total_november_fasum + $total_november_rth_rt01 + $total_november_inventaris + $total_november_lainnya;
                                             } else if (request('month') == '12') {
-                                                $total = $total_desember_fasum + $total_desember_umum + $total_desember_lainnya;
+                                                $total = $total_desember_fasum + $total_desember_rth_rt01 + $total_desember_inventaris + $total_desember_lainnya;
                                             } else {
-                                                $total = $total_januari_fasum + $total_januari_umum + $total_januari_lainnya + $total_februari_fasum + $total_februari_umum + $total_februari_lainnya + $total_maret_fasum + $total_maret_umum + $total_maret_lainnya + $total_april_fasum + $total_april_umum + $total_april_lainnya + $total_mei_fasum + $total_mei_umum + $total_mei_lainnya + $total_juni_fasum + $total_juni_umum + $total_juni_lainnya + $total_juli_fasum + $total_juli_umum + $total_juli_lainnya + $total_agustus_fasum + $total_agustus_umum + $total_agustus_lainnya + $total_september_fasum + $total_september_umum + $total_september_lainnya + $total_oktober_fasum + $total_oktober_umum + $total_oktober_lainnya + $total_november_fasum + $total_november_umum + $total_november_lainnya + $total_desember_fasum + $total_desember_umum + $total_desember_lainnya;
+                                                $total = $total_januari_fasum + $total_januari_rth_rt01 + $total_januari_inventaris + $total_januari_lainnya + $total_februari_fasum + $total_februari_rth_rt01 + $total_februari_inventaris + $total_februari_lainnya + $total_maret_fasum + $total_maret_rth_rt01 + $total_maret_inventaris + $total_maret_lainnya + $total_april_fasum + $total_april_rth_rt01 + $total_april_inventaris + $total_april_lainnya + $total_mei_fasum + $total_mei_rth_rt01 + $total_mei_inventaris + $total_mei_lainnya + $total_juni_fasum + $total_juni_rth_rt01 + $total_juni_inventaris + $total_juni_lainnya + $total_juli_fasum + $total_juli_rth_rt01 + $total_juli_inventaris + $total_juli_lainnya + $total_agustus_fasum + $total_agustus_rth_rt01 + $total_agustus_inventaris + $total_agustus_lainnya + $total_september_fasum + $total_september_rth_rt01 + $total_september_inventaris + $total_september_lainnya + $total_oktober_fasum + $total_oktober_rth_rt01 + $total_oktober_inventaris + $total_oktober_lainnya + $total_november_fasum + $total_november_rth_rt01 + $total_november_inventaris + $total_november_lainnya + $total_desember_fasum + $total_desember_rth_rt01 + $total_desember_inventaris + $total_desember_lainnya;
                                             }
-
 
                                             $total_total += $total;
                                         @endphp
@@ -536,73 +583,85 @@
 
                                         @if (!request('month') || request('month') == '01')
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_januari_fasum) }}</td>
-                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_januari_umum) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_januari_rth_rt01) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_januari_inventaris) }}</td>
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_januari_lainnya) }}</td>
                                         @endif
 
                                         @if (!request('month') || request('month') == '02')
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_februari_fasum) }}</td>
-                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_februari_umum) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_februari_rth_rt01) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_februari_inventaris) }}</td>
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_februari_lainnya) }}</td>
                                         @endif
 
                                         @if (!request('month') || request('month') == '03')
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_maret_fasum) }}</td>
-                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_maret_umum) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_maret_rth_rt01) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_maret_inventaris) }}</td>
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_maret_lainnya) }}</td>
                                         @endif
 
                                         @if (!request('month') || request('month') == '04')
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_april_fasum) }}</td>
-                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_april_umum) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_april_rth_rt01) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_april_inventaris) }}</td>
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_april_lainnya) }}</td>
                                         @endif
 
                                         @if (!request('month') || request('month') == '05')
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_mei_fasum) }}</td>
-                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_mei_umum) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_mei_rth_rt01) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_mei_inventaris) }}</td>
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_mei_lainnya) }}</td>
                                         @endif
 
                                         @if (!request('month') || request('month') == '06')
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_juni_fasum) }}</td>
-                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_juni_umum) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_juni_rth_rt01) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_juni_inventaris) }}</td>
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_juni_lainnya) }}</td>
                                         @endif
 
                                         @if (!request('month') || request('month') == '07')
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_juli_fasum) }}</td>
-                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_juli_umum) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_juli_rth_rt01) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_juli_inventaris) }}</td>
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_juli_lainnya) }}</td>
                                         @endif
 
                                         @if (!request('month') || request('month') == '08')
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_agustus_fasum) }}</td>
-                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_agustus_umum) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_agustus_rth_rt01) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_agustus_inventaris) }}</td>
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_agustus_lainnya) }}</td>
                                         @endif
 
                                         @if (!request('month') || request('month') == '09')
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_september_fasum) }}</td>
-                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_september_umum) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_september_rth_rt01) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_september_inventaris) }}</td>
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_september_lainnya) }}</td>
                                         @endif
 
                                         @if (!request('month') || request('month') == '10')
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_oktober_fasum) }}</td>
-                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_oktober_umum) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_oktober_rth_rt01) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_oktober_inventaris) }}</td>
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_oktober_lainnya) }}</td>
                                         @endif
 
                                         @if (!request('month') || request('month') == '11')
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_november_fasum) }}</td>
-                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_november_umum) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_november_rth_rt01) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_november_inventaris) }}</td>
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_november_lainnya) }}</td>
                                         @endif
 
                                         @if (!request('month') || request('month') == '12')
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_desember_fasum) }}</td>
-                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_desember_umum) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_desember_rth_rt01) }}</td>
+                                            <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_desember_inventaris) }}</td>
                                             <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($total_desember_lainnya) }}</td>
                                         @endif
 
@@ -615,73 +674,85 @@
 
                                     @if (!request('month') || request('month') == '01')
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_januari_fasum) }}</td>
-                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_januari_umum) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_januari_rth_rt01) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_januari_inventaris) }}</td>
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_januari_lainnya) }}</td>
                                     @endif
 
                                     @if (!request('month') || request('month') == '02')
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_februari_fasum) }}</td>
-                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_februari_umum) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_februari_rth_rt01) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_februari_inventaris) }}</td>
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_februari_lainnya) }}</td>
                                     @endif
 
                                     @if (!request('month') || request('month') == '03')
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_maret_fasum) }}</td>
-                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_maret_umum) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_maret_rth_rt01) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_maret_inventaris) }}</td>
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_maret_lainnya) }}</td>
                                     @endif
 
                                     @if (!request('month') || request('month') == '04')
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_april_fasum) }}</td>
-                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_april_umum) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_april_rth_rt01) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_april_inventaris) }}</td>
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_april_lainnya) }}</td>
                                     @endif
 
                                     @if (!request('month') || request('month') == '05')
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_mei_fasum) }}</td>
-                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_mei_umum) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_mei_rth_rt01) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_mei_inventaris) }}</td>
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_mei_lainnya) }}</td>
                                     @endif
 
                                     @if (!request('month') || request('month') == '06')
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_juni_fasum) }}</td>
-                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_juni_umum) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_juni_rth_rt01) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_juni_inventaris) }}</td>
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_juni_lainnya) }}</td>
                                     @endif
 
                                     @if (!request('month') || request('month') == '07')
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_juli_fasum) }}</td>
-                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_juli_umum) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_juli_rth_rt01) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_juli_inventaris) }}</td>
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_juli_lainnya) }}</td>
                                     @endif
 
                                     @if (!request('month') || request('month') == '08')
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_agustus_fasum) }}</td>
-                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_agustus_umum) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_agustus_rth_rt01) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_agustus_inventaris) }}</td>
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_agustus_lainnya) }}</td>
                                     @endif
 
                                     @if (!request('month') || request('month') == '09')
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_september_fasum) }}</td>
-                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_september_umum) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_september_rth_rt01) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_september_inventaris) }}</td>
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_september_lainnya) }}</td>
                                     @endif
 
                                     @if (!request('month') || request('month') == '10')
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_oktober_fasum) }}</td>
-                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_oktober_umum) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_oktober_rth_rt01) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_oktober_inventaris) }}</td>
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_oktober_lainnya) }}</td>
                                     @endif
 
                                     @if (!request('month') || request('month') == '11')
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_november_fasum) }}</td>
-                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_november_umum) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_november_rth_rt01) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_november_inventaris) }}</td>
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_november_lainnya) }}</td>
                                     @endif
 
                                     @if (!request('month') || request('month') == '12')
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_desember_fasum) }}</td>
-                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_desember_umum) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_desember_rth_rt01) }}</td>
+                                        <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_desember_inventaris) }}</td>
                                         <td class="text-center" style="vertical-align: middle; background-color: rgb(235, 235, 235);">Rp {{ number_format($total_total_desember_lainnya) }}</td>
                                     @endif
 

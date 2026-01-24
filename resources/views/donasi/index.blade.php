@@ -21,7 +21,8 @@
                     <select name="type" id="type" class="form-control @error('type') is-invalid @enderror selectpicker" data-live-search="true">
                         <option value="">-- Pilih Jenis Donasi --</option>
                         <option value="Donasi Fasum" {{ 'Donasi Fasum' == request('type') ? 'selected="selected"' : '' }}>Donasi Fasum</option>
-                        <option value="Donasi Umum" {{ 'Donasi Umum' == request('type') ? 'selected="selected"' : '' }}>Donasi Umum</option>
+                        <option value="Donasi RTH RT01" {{ 'Donasi RTH RT01' == request('type') ? 'selected="selected"' : '' }}>Donasi RTH RT01</option>
+                        <option value="Donasi Inventaris" {{ 'Donasi Inventaris' == request('type') ? 'selected="selected"' : '' }}>Donasi Inventaris</option>
                         <option value="Donasi Lainnya" {{ 'Donasi Lainnya' == request('type') ? 'selected="selected"' : '' }}>Donasi Lainnya</option>
                     </select>
                     @error('type')

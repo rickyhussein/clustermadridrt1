@@ -33,14 +33,9 @@
                             </div>
 
                             <div class="group-input">
-                                <label for="keluarga_id" style="z-index: 1000">Nama</label>
-                                <select style="width: 100%" name="keluarga_id" id="keluarga_id" class="@error('keluarga_id') is-invalid @enderror select2" data-live-search="true">
-                                    <option value="">-- Pilih Nama --</option>
-                                    @foreach ($keluargas as $keluarga)
-                                        <option value="{{ $keluarga->id }}" {{ $keluarga->id == old('keluarga_id', $surat_pengantar->keluarga_id) ? 'selected="selected"' : '' }}>{{ $keluarga->nama_keluarga }} {{ $keluarga->status_keluarga ? '(' . $keluarga->status_keluarga . ')' : '' }}</option>
-                                    @endforeach
-                                </select>
-                                @error('keluarga_id')
+                                <label for="name">Nama</label>
+                                <input type="text" class="@error('name') is-invalid @enderror borderi name" name="name" id="name"  value="{{ old('name', $surat_pengantar->name) }}">
+                                @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -284,7 +279,7 @@
 
     @push('script')
         <script>
-            flatpickr(".date");
+            flatpickr(".date", {disableMobile: true});
             $('.select2').select2();
 
             $.ajaxSetup({

@@ -167,6 +167,9 @@
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Nomor HP</th>
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Email</th>
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Keterangan</th>
+                            <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Kartu Keluarga</th>
+                            <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">KTP Kepala Keluarga</th>
+                            <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">KTP Istri</th>
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Role</th>
                             <th style="min-width: 320px; background-color:rgb(243, 243, 243);" class="text-center">Anggota Keluarga</th>
                             <th style="background-color:rgb(243, 243, 243);" class="text-center">Actions</th>
@@ -196,6 +199,27 @@
                                     <td class="text-center" style="vertical-align: middle;">{{ $user->no_hp ?? '-' }}</td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $user->email ?? '-' }}</td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $user->keterangan ?? '-' }}</td>
+                                    <td class="text-center" style="vertical-align: middle;">
+                                        @if ($user->kartu_keluarga)
+                                            <div class="badge clickable" data-url="{{ url('/storage/'.$user->kartu_keluarga) }}" style="color: rgb(21, 47, 118); background-color:rgba(192, 218, 254, 0.889); border-radius:10px; cursor: pointer;" target="_blank"><i class="fa fa-download mr-1"></i> {{ $user->kartu_keluarga }}</div>
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+                                    <td class="text-center" style="vertical-align: middle;">
+                                        @if ($user->ktp_kepala_keluarga)
+                                            <div class="badge clickable" data-url="{{ url('/storage/'.$user->ktp_kepala_keluarga) }}" style="color: rgb(21, 47, 118); background-color:rgba(192, 218, 254, 0.889); border-radius:10px; cursor: pointer;" target="_blank"><i class="fa fa-download mr-1"></i> {{ $user->ktp_kepala_keluarga }}</div>
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+                                    <td class="text-center" style="vertical-align: middle;">
+                                        @if ($user->ktp_istri)
+                                            <div class="badge clickable" data-url="{{ url('/storage/'.$user->ktp_istri) }}" style="color: rgb(21, 47, 118); background-color:rgba(192, 218, 254, 0.889); border-radius:10px; cursor: pointer;" target="_blank"><i class="fa fa-download mr-1"></i> {{ $user->ktp_istri }}</div>
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
                                     <td class="text-center" style="vertical-align: middle;">
                                         @if (count($user->roles) > 0)
                                             @foreach ($user->roles as $role)
@@ -276,6 +300,14 @@
         </div>
         </div>
     </div>
+    
+    @push('script')
+        <script>
+            $(".clickable").on("click", function() {
+                window.location.href = $(this).data("url");
+            });
+        </script>
+    @endpush
 @endsection
 
 

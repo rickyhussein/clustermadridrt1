@@ -57,7 +57,8 @@
                                 <select name="type" id="type" class="@error('type') is-invalid @enderror select2" data-live-search="true">
                                     <option value="">-- Pilih Jenis Donasi --</option>
                                     <option value="Donasi Fasum" {{ 'Donasi Fasum' == old('type', $donasi->type) ? 'selected="selected"' : '' }}>Donasi Fasum</option>
-                                    <option value="Donasi Umum" {{ 'Donasi Umum' == old('type', $donasi->type) ? 'selected="selected"' : '' }}>Donasi Umum</option>
+                                    <option value="Donasi RTH RT01" {{ 'Donasi RTH RT01' == old('type', $donasi->type) ? 'selected="selected"' : '' }}>Donasi RTH RT01</option>
+                                    <option value="Donasi Inventaris" {{ 'Donasi Inventaris' == old('type', $donasi->type) ? 'selected="selected"' : '' }}>Donasi Inventaris</option>
                                     <option value="Donasi Lainnya" {{ 'Donasi Lainnya' == old('type', $donasi->type) ? 'selected="selected"' : '' }}>Donasi Lainnya</option>
                                 </select>
                                 @error('type')
@@ -115,7 +116,7 @@
                                 </div>
 
                                 <div class="alert alert-warning" role="alert">
-                                    Silahkan transfer ke rekening ini : <span class="me-1" style="font-weight: bold;">Bank Syariah Indonesia (BSI)</span> Nama Penerima : <span class="me-1" style="font-weight: bold;">RT 01 CLUSTER MADRID</span> No. Rekening : <a id="copy"><span style="font-weight: bold;">6868123336</span> <i class="fas fa-copy ms-1"></i></a>
+                                    Silahkan transfer ke rekening ini : <span class="me-1" style="font-weight: bold;">Bank Syariah Indonesia (BSI)</span> Nama Penerima : <span class="me-1" style="font-weight: bold;">RT 001 RW 016 CLUSTER MADRID MGC</span> No. Rekening : <a id="copy"><span style="font-weight: bold;">8880010167</span> <i class="fas fa-copy ms-1"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +153,7 @@
 
             $('#copy').on('click', function(e) {
                 e.preventDefault();
-                var urlToCopy = "6868123336";
+                var urlToCopy = "8880010167";
                 var tempInput = $('<input>');
                 $('body').append(tempInput);
                 tempInput.val(urlToCopy).select();
