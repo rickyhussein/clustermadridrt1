@@ -16,22 +16,18 @@ class SendNotification implements ShouldQueue
     protected $user;
     protected $ipkl;
     protected $month_name;
-    protected $expired_date;
-    protected $nominal;
     protected $whatsappApiUrl;
     protected $whatsappApiSession;
     protected $whatsappApiKey;
 
-    public function __construct($user, $ipkl, $month_name, $expired_date, $nominal)
+    public function __construct($user, $ipkl, $month_name)
     {
         $this->user = $user;
         $this->ipkl = $ipkl;
         $this->month_name = $month_name;
-        $this->expired_date = $expired_date;
-        $this->nominal = $nominal;
-        $this->whatsappApiUrl = config('midtrans.whatsapp_api_url');
-        $this->whatsappApiSession = config('midtrans.whatsapp_api_session');
-        $this->whatsappApiKey = config('midtrans.whatsapp_api_key');
+        $this->whatsappApiUrl = config('faspay.whatsapp_api_url');
+        $this->whatsappApiSession = config('faspay.whatsapp_api_session');
+        $this->whatsappApiKey = config('faspay.whatsapp_api_key');
     }
 
     public function handle()
@@ -41,9 +37,9 @@ class SendNotification implements ShouldQueue
                    "Nama : " . $this->user->name . "\n" .
                    "Alamat : " . $this->user->alamat . "\n" .
                    "Jenis Pembayaran : IPKL (" . $this->month_name . ' ' . $this->ipkl->year . ") \n" .
-                   "Jatuh Tempo : " . $this->expired_date . "\n" .
+                   "Jatuh Tempo : " . $this->ipkl->expired_date . "\n" .
                    "Status : " . $this->ipkl->status . "\n" .
-                   "Nominal : Rp " . $this->nominal . "\n\n" .
+                   "Nominal : Rp " . number_format($this->ipkl->nominal) . "\n\n" .
                    "Silakan lakukan pembayaran melalui link berikut:\n\n" .
                    url('/my-ipkl/show/'.$this->ipkl->id);
 

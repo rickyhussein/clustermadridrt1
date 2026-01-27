@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('ktp_istri')->nullable();
             $table->string('alamat')->nullable();
             $table->string('rt')->nullable();
+            $table->string('rw')->nullable();
             $table->string('status')->nullable();
             $table->string('no_hp')->nullable();
             $table->string('email')->nullable();

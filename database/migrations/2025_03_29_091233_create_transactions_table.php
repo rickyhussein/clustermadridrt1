@@ -21,19 +21,36 @@ class CreateTransactionsTable extends Migration
             $table->string('type')->nullable();
             $table->bigInteger('nominal')->nullable();
             $table->text('notes')->nullable();
-            $table->integer('expired')->nullable();
+            $table->date('expired_date')->nullable();
             $table->string('status')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->foreign('updated_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('payment_source')->nullable();
-            $table->dateTime('paid_date')->nullable();
             $table->string('month')->nullable();
             $table->string('year')->nullable();
-            $table->string('snaptoken')->nullable();
-            $table->string('midtrans_transaction_id')->nullable();
             $table->string('in_out')->nullable();
+
+            $table->string('redirect_url')->nullable();
+            $table->string('trx_id')->nullable();
+            $table->string('payment_reff')->nullable();
+            $table->dateTime('payment_date')->nullable();
+            $table->string('payment_status_code')->nullable();
+            $table->string('payment_status_desc')->nullable();
+            $table->string('payment_channel_uid')->nullable();
+            $table->string('payment_channel')->nullable();
+            $table->string('signature')->nullable();
+
+            $table->string('file_transaction_path')->nullable();
+            $table->string('file_transaction_name')->nullable();
+
+            $table->string('status_approval')->nullable();
+
+            $table->bigInteger('qty')->nullable();
+            $table->string('status_gate_card')->nullable();
+            $table->string('status_gate_card_text')->nullable();
+            $table->string('vehicle_type')->nullable();
+            $table->string('vehicle_type_text')->nullable();
 
             $table->unsignedBigInteger('approved_by')->nullable();
             $table->foreign('approved_by')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');

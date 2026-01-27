@@ -137,14 +137,6 @@
                             </div>
                         </li>
                     </ul>
-
-                    @if ($ipkl->status == 'unpaid')
-                        <div class="alert alert-warning mt-4" role="alert">
-                            <center>
-                                Klik tombol refresh jika transaksi ini expired.
-                            </center>
-                        </div>
-                    @endif
                 </div>
             </div>
         </div>
@@ -153,25 +145,7 @@
             @if ($ipkl_unpaid->id == $ipkl->id)
                 <div class="bottom-navigation-bar st2 bottom-btn-fixed" style="bottom:65px">
                     <div class="tf-container">
-                        <div class="row">
-                            <div class="col-6">
-                                <button  id="pay-button" class="tf-btn accent large">Bayar Sekarang</button>
-                            </div>
-                            <div class="col-6">
-                                <form method="post" action="{{ url('/my-ipkl/update/'.$ipkl->id) }}" enctype="multipart/form-data">
-                                    @method('PUT')
-                                    @csrf
-                                    <input type="hidden" name="user_id" id="user_id" class="user_id" value="{{ old('user_id', $ipkl->user_id) }}">
-                                    <input type="hidden" name="type" id="type" class="type" value="{{ old('type', $ipkl->type) }}">
-                                    <input type="hidden" name="nominal" id="nominal" class="nominal" value="{{ old('nominal', $ipkl->nominal) }}">
-                                    <input type="hidden" name="date" id="date" class="date" value="{{ old('date', $ipkl->date) }}">
-                                    <input type="hidden" name="expired" id="expired" class="expired" value="{{ old('expired', $ipkl->expired) }}">
-                                    <input type="hidden" name="notes" id="notes" class="notes" value="{{ old('notes', $ipkl->notes) }}">
-
-                                    <button type="submit" class="tf-btn warning large">Refresh</button>
-                                </form>
-                            </div>
-                        </div>
+                        <a href="{{ $ipkl->redirect_url }}" class="tf-btn accent large">Bayar Sekarang</a>
                     </div>
                 </div>
             @else
@@ -208,48 +182,4 @@
     <br>
     <br>
     <br>
-
-    @if ($ipkl)
-        @push('style')
-            <script type="text/javascript" src="{{ config('midtrans.snap_url') }}" data-client-key="{{ config('midtrans.client_key') }}"></script>
-        @endpush
-
-        @push('script')
-            <script type="text/javascript">
-                var payButton = document.getElementById('pay-button');
-                payButton.addEventListener('click', function () {
-                    window.snap.pay('{{ $ipkl->snaptoken }}', {
-                        onSuccess: function(result){
-                            Swal.fire('Payment Success!', '', 'success');
-                            setTimeout(() => location.reload(), 3000);
-                        },
-                        onPending: function(result){
-                            Swal.fire({
-                                title: "Pending",
-                                text: "Waiting For Your Payment",
-                                icon: "info"
-                            });
-                            setTimeout(() => location.reload(), 3000);
-                        },
-                        onError: function(result){
-                            Swal.fire({
-                                title: "Failed",
-                                text: "Payment Failed",
-                                icon: "error"
-                            });
-                            setTimeout(() => location.reload(), 3000);
-                        },
-                        onClose: function(){
-                            Swal.fire({
-                                title: "Closed",
-                                text: "You closed The Popup Without Finishing The Payment",
-                                icon: "warning"
-                            });
-                            setTimeout(() => location.reload(), 3000);
-                        }
-                    })
-                });
-            </script>
-        @endpush
-    @endif
 @endsection

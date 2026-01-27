@@ -203,19 +203,20 @@ class IPKLController extends Controller
                 'type' => 'required',
                 'date' => 'required',
                 'nominal' => 'required',
-                'expired' => 'required',
+                'expired_date' => 'required',
             ]);
-
+    
             $nominal = $request->nominal ? str_replace(',', '', $request->nominal) : 0;
             $month = date('m', strtotime($request->date));
+            $month_name = Carbon::createFromFormat('m', $month)->translatedFormat('F');
             $year = date('Y', strtotime($request->date));
-
+    
             $ipkl = Transaction::create([
                 'user_id' => $request->user_id,
                 'type' => $request->type,
                 'date' => $request->date,
+                'expired_date' => $request->expired_date,
                 'nominal' => $nominal,
-                'expired' => $request->expired,
                 'notes' => $request->notes,
                 'status' => 'unpaid',
                 'created_by' => auth()->user()->id,
@@ -225,62 +226,64 @@ class IPKLController extends Controller
             ]);
 
             $this->result = $ipkl->id;
-
-            $date = Carbon::parse($ipkl->date);
-            $now = Carbon::now();
-            $diff_day = $now->diffInDays($date->addDay(), false);
-            $diff_day = max(0, $diff_day);
-            $total_expired = $diff_day + $ipkl->expired;
-            $user = User::find($request->user_id);
-
-            \Midtrans\Config::$serverKey = config('midtrans.server_key');
-            \Midtrans\Config::$isProduction = config('midtrans.is_production');
-            \Midtrans\Config::$isSanitized = true;
-            \Midtrans\Config::$is3ds = true;
-
-            $params = array(
-                'transaction_details' => array(
-                    'order_id' => $ipkl->id,
-                    'gross_amount' => $ipkl->nominal,
-                ),
-                'expiry' => array(
-                    'start_time' => date("Y-m-d H:i:s O"),
-                    'unit' => 'days',
-                    'duration' => $total_expired,
-                ),
-                'customer_details' => array(
-                    'first_name' => $user->name ?? '',
-                    'email' => $user->email ?? '',
-                    'phone' => $user->no_hp,
-                ),
-            );
-
-            $snapToken = \Midtrans\Snap::getSnapToken($params);
+    
+            $user = User::find($ipkl->user_id);
+            
+            $merchant_id = config('faspay.merchant_id');
+            $merchant_user_id = config('faspay.merchant_user_id');
+            $merchant_password = config('faspay.merchant_password');
+            
+            $combined_data = $merchant_user_id . $merchant_password . $ipkl->id . $ipkl->nominal;
+            $md5_hash = md5($combined_data);
+            $sha1_hash = sha1($md5_hash);
+    
+            $payload = [
+                "merchant_id" => $merchant_id,
+                "bill_no" => $ipkl->id,
+                "bill_date" => $ipkl->date . " " . date('H:i:s'),
+                "bill_expired" => $ipkl->expired_date . " " . date('H:i:s'),
+                "bill_gross" => $ipkl->nominal,
+                "bill_miscfee" => 0,
+                "bill_total" => $ipkl->nominal,
+                "bill_desc" => 'Pembayaran #' . $ipkl->id,
+                "cust_no" => $user->id,
+                "cust_name" => $user->name,
+                "return_url" => url('/my-ipkl/finish'),
+                "msisdn" => $user->no_hp,
+                "email" => $user->email,
+                "billing_address" => $user->alamat,
+                "item" => [
+                    [
+                        "product" => $ipkl->id,
+                        "qty" => "1",
+                        "amount" => $ipkl->nominal
+                    ]
+                ],
+                "button_color" => "333333",
+                "background_color" => "333333",
+                "signature" => $sha1_hash
+            ];
+    
+            $url = "https://xpress-sandbox.faspay.co.id/v4/post";
+    
+            $response = Http::post($url, $payload);
+            $dataResponse = $response->object(); 
             $ipkl->update([
-                'snaptoken' => $snapToken
+                'redirect_url' => $dataResponse->redirect_url,
+                'signature' => $sha1_hash
             ]);
-
-            $month_name = Carbon::createFromFormat('m', $month)->translatedFormat('F');
-
+    
             $data = [
                 'user_id' => auth()->user()->id,
                 'from' => auth()->user()->name,
                 'message' => 'IPKL (' . $month_name . ' ' . $year . ') Harap untuk segera melakukan pembayaran!',
                 'action' => '/my-ipkl/show/' . $ipkl->id
             ];
-
+    
             $user->notify(new UserNotification($data));
-
-            if ($ipkl->date) {
-                Carbon::setLocale('id');
-                $date = Carbon::createFromFormat('Y-m-d', $ipkl->date);
-                $expired_date = $date->addDays($ipkl->expired)->translatedFormat('d F Y');
-            } else {
-                $expired_date = '-';
-            }
-
-            SendNotification::dispatch($user, $ipkl, $month_name, $expired_date, $request->nominal);
-
+    
+            SendNotification::dispatch($user, $ipkl, $month_name, $ipkl->expired_date, $request->nominal);
+    
             Mail::to($user->email)->send(new IpklMail($ipkl));
         });
 

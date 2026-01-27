@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Kontak;
+use App\Models\Counter;
 use App\Models\Pengurus;
 use App\Models\Fasilitas;
 use App\Models\TataTertib;
@@ -161,6 +162,12 @@ class DatabaseSeeder extends Seeder
             'foto_pengurus' => 'foto_pengurus/team-3.jpg',
         ]);
 
-        DB::statement('ALTER TABLE transactions AUTO_INCREMENT = 7120');
+        Counter::create([
+            'name' => 'Surat Pengantar',
+            'counter' => 0,
+            'text_1' => 'Ket.RT.',
+        ]);
+
+        // DB::statement('ALTER TABLE transactions AUTO_INCREMENT = 7120');
     }
 }

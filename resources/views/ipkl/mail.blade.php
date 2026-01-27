@@ -81,7 +81,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="https://cluster.terratradesolution.com/assets/img/madrid.png" alt="Cluster Madrid">
+            <img src="http://rtsatumadrid.com/icons/icon-72.png" alt="RT SATU">
         </div>
         <br><br>
 
