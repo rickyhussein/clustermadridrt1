@@ -640,7 +640,6 @@ class IPKLController extends Controller
 
     public function callbackTransaction(Request $request)
     {
-        return $request;
         if ($request->payment_status_code == '2') {
             $transaction = Transaction::find($request->bill_no);
             $transaction->update([
