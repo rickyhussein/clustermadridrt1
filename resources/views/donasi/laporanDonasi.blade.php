@@ -27,7 +27,7 @@
                     <select name="status" id="status" class="form-control @error('status') is-invalid @enderror selectpicker" data-live-search="true">
                         <option value="">-- Pilih Status --</option>
                         <option value="Dihuni" {{ 'Dihuni' == request('status') ? 'selected="selected"' : '' }}>Dihuni</option>
-                        <option value="Belum dihuni" {{ 'Belum dihuni' == request('status') ? 'selected="selected"' : '' }}>Belum dihuni</option>
+                        <option value="Belum Dihuni" {{ 'Belum Dihuni' == request('status') ? 'selected="selected"' : '' }}>Belum Dihuni</option>
                     </select>
                 </div>
                 <div class="col-4 mb-2">
@@ -158,7 +158,7 @@
                             <select name="status" id="status" class="form-control @error('status') is-invalid @enderror selectpicker" data-live-search="true">
                                 <option value="">-- Pilih Status --</option>
                                 <option value="Dihuni" {{ 'Dihuni' == request('status') ? 'selected="selected"' : '' }}>Dihuni</option>
-                                <option value="Belum dihuni" {{ 'Belum dihuni' == request('status') ? 'selected="selected"' : '' }}>Belum dihuni</option>
+                                <option value="Belum Dihuni" {{ 'Belum Dihuni' == request('status') ? 'selected="selected"' : '' }}>Belum Dihuni</option>
                             </select>
                         </div>
                         <div class="form-group">

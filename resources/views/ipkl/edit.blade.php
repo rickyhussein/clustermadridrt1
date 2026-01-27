@@ -21,8 +21,8 @@
                                 </div>
 
                                 <div class="col-3">
-                                    <input type="radio" name="status_select" id="Belum_dihuni" class="form-check-input" value="Belum dihuni" {{ old('status_select', $ipkl->status_select) == 'Belum dihuni' ? 'checked' : '' }}>
-                                    <label for="Belum_dihuni" class="form-check-label">Belum dihuni</label>
+                                    <input type="radio" name="status_select" id="Belum_Dihuni" class="form-check-input" value="Belum Dihuni" {{ old('status_select', $ipkl->status_select) == 'Belum Dihuni' ? 'checked' : '' }}>
+                                    <label for="Belum_Dihuni" class="form-check-label">Belum Dihuni</label>
                                 </div>
                             </div>
                             <select name="user_id" id="user_id" class="form-control @error('user_id') is-invalid @enderror selectpicker" data-live-search="true">
@@ -119,7 +119,7 @@
 
                 if (selectedStatus === "Dihuni") {
                     $('#nominal').val('150000').trigger('input');
-                } else if (selectedStatus === "Belum dihuni") {
+                } else if (selectedStatus === "Belum Dihuni") {
                     $('#nominal').val('100000').trigger('input');
                 } else {
                     $('#nominal').val('').trigger('input');
