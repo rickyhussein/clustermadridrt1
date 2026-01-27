@@ -551,7 +551,6 @@ class IPKLController extends Controller
     {
         $title = 'IPKL';
         $ipkl = Transaction::find($id);
-        session()->put('id', $ipkl->id);
 
         return view('ipkl.myIpklShow', compact(
             'title',

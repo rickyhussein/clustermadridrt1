@@ -6,6 +6,9 @@
 @endsection
 @section('container')
     @if ($ipkl)
+        @php
+            session()->put('id', $ipkl->id);
+        @endphp
         <div id="app-wrap" class="mt-4">
             <div class="bill-content">
                 <div class="tf-container ms-4 me-4">
@@ -137,11 +140,13 @@
             </div>
         </div>
 
-        <div class="bottom-navigation-bar st2 bottom-btn-fixed" style="bottom:65px">
-            <div class="tf-container">
-                <a href="{{ $ipkl->redirect_url }}" target="_blank" class="tf-btn accent large">Bayar Sekarang</a>
+        @if ($ipkl->status == 'unpaid')
+            <div class="bottom-navigation-bar st2 bottom-btn-fixed" style="bottom:65px">
+                <div class="tf-container">
+                    <a href="{{ $ipkl->redirect_url }}" target="_blank" class="tf-btn accent large">Bayar Sekarang</a>
+                </div>
             </div>
-        </div>
+        @endif
     @else
         <div id="app-wrap" class="d-flex justify-content-center align-items-center vh-100">
             <div class="bill-content text-center">
