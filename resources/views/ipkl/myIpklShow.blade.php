@@ -139,7 +139,7 @@
 
         <div class="bottom-navigation-bar st2 bottom-btn-fixed" style="bottom:65px">
             <div class="tf-container">
-                <a href="{{ $ipkl->redirect_url }}" class="tf-btn accent large">Bayar Sekarang</a>
+                <a href="{{ $ipkl->redirect_url }}" target="_blank" class="tf-btn accent large">Bayar Sekarang</a>
             </div>
         </div>
     @else
