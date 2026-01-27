@@ -34,7 +34,6 @@
                 <div class="col-4 mb-2">
                     <select name="payment_source" id="payment_source" class="form-control @error('payment_source') is-invalid @enderror selectpicker" data-live-search="true">
                         <option value="">-- Pilih Jenis Pembayaran --</option>
-                        <option value="midtrans" {{ 'midtrans' == request('payment_source') ? 'selected="selected"' : '' }}>midtrans</option>
                         <option value="Bank Transfer (Perlu Konfirmasi Pembayaran Manual)" {{ 'Bank Transfer (Perlu Konfirmasi Pembayaran Manual)' == request('payment_source') ? 'selected="selected"' : '' }}>Bank Transfer (Perlu Konfirmasi Pembayaran Manual)</option>
                     </select>
                     @error('payment_source')
@@ -46,8 +45,8 @@
                 <div class="col-4 mb-2">
                     <select name="status" id="status" class="form-control @error('status') is-invalid @enderror selectpicker" data-live-search="true">
                         <option value="">-- Pilih Status --</option>
-                        <option value="unpaid" {{ 'unpaid' == request('status') ? 'selected="selected"' : '' }}>unpaid</option>
-                        <option value="paid" {{ 'paid' == request('status') ? 'selected="selected"' : '' }}>paid</option>
+                        <option value="unpaid" {{ 'unpaid' == request('status') ? 'selected="selected"' : '' }}>Belum Lunas</option>
+                        <option value="paid" {{ 'paid' == request('status') ? 'selected="selected"' : '' }}>Lunas</option>
                     </select>
                     @error('status')
                     <div class="invalid-feedback">
@@ -127,8 +126,8 @@
                         <div class="form-group">
                             <select name="status" id="status" class="form-control @error('status') is-invalid @enderror selectpicker" data-live-search="true">
                                 <option value="">-- Pilih Status --</option>
-                                <option value="unpaid" {{ 'unpaid' == request('status') ? 'selected="selected"' : '' }}>unpaid</option>
-                                <option value="paid" {{ 'paid' == request('status') ? 'selected="selected"' : '' }}>paid</option>
+                                <option value="unpaid" {{ 'unpaid' == request('status') ? 'selected="selected"' : '' }}>Belum Lunas</option>
+                                <option value="paid" {{ 'paid' == request('status') ? 'selected="selected"' : '' }}>Lunas</option>
                             </select>
                             @error('status')
                             <div class="invalid-feedback">
@@ -205,9 +204,9 @@
                                     <td style="vertical-align: middle;">{!! $donasi->notes ? nl2br(e($donasi->notes)) : '-' !!}</td>
                                     <td class="text-center" style="vertical-align: middle;">
                                         @if ($donasi->status == 'paid')
-                                            <div class="badge" style="color: rgba(20, 78, 7, 0.889); background-color:rgb(186, 238, 162); border-radius:10px; text-transform: uppercase">{{ $donasi->status ?? '-' }}</div>
+                                            <div class="badge" style="color: rgba(20, 78, 7, 0.889); background-color:rgb(186, 238, 162); border-radius:10px;">Lunas</div>
                                         @else
-                                            <div class="badge" style="color: rgba(78, 26, 26, 0.889); background-color:rgb(242, 170, 170); border-radius:10px; text-transform: uppercase">{{ $donasi->status ?? '-' }}</div>
+                                            <div class="badge" style="color: rgba(78, 26, 26, 0.889); background-color:rgb(242, 170, 170); border-radius:10px;">Belum Lunas</div>
                                         @endif
                                     </td>
                                     <td class="text-center" style="vertical-align: middle;">

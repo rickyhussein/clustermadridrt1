@@ -168,12 +168,12 @@
                             <td>{{ $total_januari }}</td>
                             <td>
                                 @if ($total_januari > 0 && $count_januari_paid > 0)
-                                    paid
+                                    Lunas
                                 @else
                                     @if ($count_januari_unpaid > 0)
-                                        unpaid
+                                        Belum Lunas
                                     @else
-                                        tagihan belum dibuat
+                                        Tagihan Belum Dibuat
                                     @endif
                                 @endif
                             </td>
@@ -183,12 +183,12 @@
                             <td>{{ $total_februari }}</td>
                             <td>
                                 @if ($total_februari > 0 && $count_februari_paid > 0)
-                                    paid
+                                    Lunas
                                 @else
                                     @if ($count_februari_unpaid > 0)
-                                        unpaid
+                                        Belum Lunas
                                     @else
-                                        tagihan belum dibuat
+                                        Tagihan Belum Dibuat
                                     @endif
                                 @endif
                             </td>
@@ -198,12 +198,12 @@
                             <td>{{ $total_maret }}</td>
                             <td>
                                 @if ($total_maret > 0 && $count_maret_paid > 0)
-                                    paid
+                                    Lunas
                                 @else
                                     @if ($count_maret_unpaid > 0)
-                                        unpaid
+                                        Belum Lunas
                                     @else
-                                        tagihan belum dibuat
+                                        Tagihan Belum Dibuat
                                     @endif
                                 @endif
                             </td>
@@ -213,12 +213,12 @@
                             <td>{{ $total_april }}</td>
                             <td>
                                 @if ($total_april > 0 && $count_april_paid > 0)
-                                    paid
+                                    Lunas
                                 @else
                                     @if ($count_april_unpaid > 0)
-                                        unpaid
+                                        Belum Lunas
                                     @else
-                                        tagihan belum dibuat
+                                        Tagihan Belum Dibuat
                                     @endif
                                 @endif
                             </td>
@@ -228,12 +228,12 @@
                             <td>{{ $total_mei }}</td>
                             <td>
                                 @if ($total_mei > 0 && $count_mei_paid > 0)
-                                    paid
+                                    Lunas
                                 @else
                                     @if ($count_mei_unpaid > 0)
-                                        unpaid
+                                        Belum Lunas
                                     @else
-                                        tagihan belum dibuat
+                                        Tagihan Belum Dibuat
                                     @endif
                                 @endif
                             </td>
@@ -243,12 +243,12 @@
                             <td>{{ $total_juni }}</td>
                             <td>
                                 @if ($total_juni > 0 && $count_juni_paid > 0)
-                                    paid
+                                    Lunas
                                 @else
                                     @if ($count_juni_unpaid > 0)
-                                        unpaid
+                                        Belum Lunas
                                     @else
-                                        tagihan belum dibuat
+                                        Tagihan Belum Dibuat
                                     @endif
                                 @endif
                             </td>
@@ -258,12 +258,12 @@
                             <td>{{ $total_juli }}</td>
                             <td>
                                 @if ($total_juli > 0 && $count_juli_paid > 0)
-                                    paid
+                                    Lunas
                                 @else
                                     @if ($count_juli_unpaid > 0)
-                                        unpaid
+                                        Belum Lunas
                                     @else
-                                        tagihan belum dibuat
+                                        Tagihan Belum Dibuat
                                     @endif
                                 @endif
                             </td>
@@ -273,12 +273,12 @@
                             <td>{{ $total_agustus }}</td>
                             <td>
                                 @if ($total_agustus > 0 && $count_agustus_paid > 0)
-                                    paid
+                                    Lunas
                                 @else
                                     @if ($count_agustus_unpaid > 0)
-                                        unpaid
+                                        Belum Lunas
                                     @else
-                                        tagihan belum dibuat
+                                        Tagihan Belum Dibuat
                                     @endif
                                 @endif
                             </td>
@@ -288,12 +288,12 @@
                             <td>{{ $total_september }}</td>
                             <td>
                                 @if ($total_september > 0 && $count_september_paid > 0)
-                                    paid
+                                    Lunas
                                 @else
                                     @if ($count_september_unpaid > 0)
-                                        unpaid
+                                        Belum Lunas
                                     @else
-                                        tagihan belum dibuat
+                                        Tagihan Belum Dibuat
                                     @endif
                                 @endif
                             </td>
@@ -303,12 +303,12 @@
                             <td>{{ $total_oktober }}</td>
                             <td>
                                 @if ($total_oktober > 0 && $count_oktober_paid > 0)
-                                    paid
+                                    Lunas
                                 @else
                                     @if ($count_oktober_unpaid > 0)
-                                        unpaid
+                                        Belum Lunas
                                     @else
-                                        tagihan belum dibuat
+                                        Tagihan Belum Dibuat
                                     @endif
                                 @endif
                             </td>
@@ -318,12 +318,12 @@
                             <td>{{ $total_november }}</td>
                             <td>
                                 @if ($total_november > 0 && $count_november_paid > 0)
-                                    paid
+                                    Lunas
                                 @else
                                     @if ($count_november_unpaid > 0)
-                                        unpaid
+                                        Belum Lunas
                                     @else
-                                        tagihan belum dibuat
+                                        Tagihan Belum Dibuat
                                     @endif
                                 @endif
                             </td>
@@ -333,12 +333,12 @@
                             <td>{{ $total_desember }}</td>
                             <td>
                                 @if ($total_desember > 0 && $count_desember_paid > 0)
-                                    paid
+                                    Lunas
                                 @else
                                     @if ($count_desember_unpaid > 0)
-                                        unpaid
+                                        Belum Lunas
                                     @else
-                                        tagihan belum dibuat
+                                        Tagihan Belum Dibuat
                                     @endif
                                 @endif
                             </td>

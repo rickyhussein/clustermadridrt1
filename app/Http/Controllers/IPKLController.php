@@ -123,6 +123,7 @@ class IPKLController extends Controller
                             'month' => $month,
                             'year' => $year,
                             'in_out' => 'in',
+                            'status_select' => $request->status_select,
                         ]);
                         
                         $user = User::find($ipkl->user_id);
@@ -225,6 +226,7 @@ class IPKLController extends Controller
                 'month' => $month,
                 'year' => $year,
                 'in_out' => 'in',
+                'status_select' => $request->status_select,
             ]);
 
             $this->result = $ipkl->id;
@@ -335,6 +337,7 @@ class IPKLController extends Controller
                 'month' => $month,
                 'year' => $year,
                 'in_out' => $ipkl_old->in_out,
+                'status_select' => $request->status_select,
             ]);
 
             $this->result = $ipkl->id;

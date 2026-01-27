@@ -32,8 +32,8 @@
                 <div class="col-4 mb-2">
                     <select name="status" id="status" class="form-control @error('status') is-invalid @enderror selectpicker" data-live-search="true">
                         <option value="">-- Pilih Status --</option>
-                        <option value="unpaid" {{ 'unpaid' == request('status') ? 'selected="selected"' : '' }}>unpaid</option>
-                        <option value="paid" {{ 'paid' == request('status') ? 'selected="selected"' : '' }}>paid</option>
+                        <option value="unpaid" {{ 'unpaid' == request('status') ? 'selected="selected"' : '' }}>Belum Lunas</option>
+                        <option value="paid" {{ 'paid' == request('status') ? 'selected="selected"' : '' }}>Lunas</option>
                     </select>
                     @error('status')
                     <div class="invalid-feedback">
@@ -100,8 +100,8 @@
                         <div class="form-group">
                             <select name="status" id="status" class="form-control @error('status') is-invalid @enderror selectpicker" data-live-search="true">
                                 <option value="">-- Pilih Status --</option>
-                                <option value="unpaid" {{ 'unpaid' == request('status') ? 'selected="selected"' : '' }}>unpaid</option>
-                                <option value="paid" {{ 'paid' == request('status') ? 'selected="selected"' : '' }}>paid</option>
+                                <option value="unpaid" {{ 'unpaid' == request('status') ? 'selected="selected"' : '' }}>Belum Lunas</option>
+                                <option value="paid" {{ 'paid' == request('status') ? 'selected="selected"' : '' }}>Lunas</option>
                             </select>
                             @error('status')
                             <div class="invalid-feedback">
@@ -189,9 +189,9 @@
                                     </td>
                                     <td class="text-center" style="vertical-align: middle;">
                                         @if ($gate_card->status == 'paid')
-                                            <div class="badge" style="color: rgba(20, 78, 7, 0.889); background-color:rgb(186, 238, 162); border-radius:10px; text-transform: uppercase">{{ $gate_card->status ?? '-' }}</div>
+                                            <div class="badge" style="color: rgba(20, 78, 7, 0.889); background-color:rgb(186, 238, 162); border-radius:10px;">Lunas</div>
                                         @else
-                                            <div class="badge" style="color: rgba(78, 26, 26, 0.889); background-color:rgb(242, 170, 170); border-radius:10px; text-transform: uppercase">{{ $gate_card->status ?? '-' }}</div>
+                                            <div class="badge" style="color: rgba(78, 26, 26, 0.889); background-color:rgb(242, 170, 170); border-radius:10px;">Belum Lunas</div>
                                         @endif
                                     </td>
                                     <td class="text-center" style="vertical-align: middle;">

@@ -36,9 +36,9 @@
                                                         <a style="font-size: 10px" href="{{ url('/my-donasi/show/'.$donasi->id) }}">
                                                             <span>Nominal : Rp {{ number_format($donasi->nominal) }}</span>
                                                             @if ($donasi->status == 'paid')
-                                                                <span class="badge" style="color: rgba(20, 78, 7, 0.889); background-color:rgb(186, 238, 162); border-radius:10px; text-transform: uppercase;">{{ $donasi->status ?? '-' }}</span>
+                                                                <span class="badge" style="color: rgba(20, 78, 7, 0.889); background-color:rgb(186, 238, 162); border-radius:10px;">Lunas</span>
                                                             @else
-                                                                <span class="badge" style="color: rgba(78, 26, 26, 0.889); background-color:rgb(242, 170, 170); border-radius:10px; text-transform: uppercase;">{{ $donasi->status ?? '-' }}</span>
+                                                                <span class="badge" style="color: rgba(78, 26, 26, 0.889); background-color:rgb(242, 170, 170); border-radius:10px;">Belum Lunas</span>
                                                             @endif
                                                         </a>
                                                         <a style="font-size: 10px" href="{{ url('/my-donasi/show/'.$donasi->id) }}">

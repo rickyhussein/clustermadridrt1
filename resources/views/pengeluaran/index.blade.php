@@ -18,12 +18,17 @@
             </div>
             <div class="col-3">
                 <select name="type" id="type" class="form-control @error('type') is-invalid @enderror selectpicker" data-live-search="true">
-                    <option value="">Jenis Transaksi</option>
-                    <option value="Gaji Security" {{ 'Gaji Security' == request('type') ? 'selected="selected"' : '' }}>Gaji Security</option>
-                    <option value="Pembayaran Vendor" {{ 'Pembayaran Vendor' == request('type') ? 'selected="selected"' : '' }}>Pembayaran Vendor</option>
-                    <option value="Operasional" {{ 'Operasional' == request('type') ? 'selected="selected"' : '' }}>Operasional</option>
-                    <option value="Biaya & Aset" {{ 'Biaya & Aset' == request('type') ? 'selected="selected"' : '' }}>Biaya & Aset</option>
-                    <option value="Lainnya" {{ 'Lainnya' == request('type') ? 'selected="selected"' : '' }}>Lainnya</option>
+                    <option value="">-- Pilih Jenis Transaksi --</option>
+                                <option value="IWRT10101 - Keamanan" {{ 'IWRT10101 - Keamanan' == request('type') ? 'selected="selected"' : '' }}>IWRT10101 - Keamanan</option>
+                                <option value="IWRT10102 - Sampah Rumah Tangga" {{ 'IWRT10102 - Sampah Rumah Tangga' == request('type') ? 'selected="selected"' : '' }}>IWRT10102 - Sampah Rumah Tangga</option>
+                                <option value="IWRT10103 - Kebersihan" {{ 'IWRT10103 - Kebersihan' == request('type') ? 'selected="selected"' : '' }}>IWRT10103 - Kebersihan</option>
+                                <option value="IWRT10104 - Token Listrik PJU" {{ 'IWRT10104 - Token Listrik PJU' == request('type') ? 'selected="selected"' : '' }}>IWRT10104 - Token Listrik PJU</option>
+                                <option value="IWRT10105 - Sarana & Prasarana" {{ 'IWRT10105 - Sarana & Prasarana' == request('type') ? 'selected="selected"' : '' }}>IWRT10105 - Sarana & Prasarana</option>
+                                <option value="IWRT10201 - Event" {{ 'IWRT10201 - Event' == request('type') ? 'selected="selected"' : '' }}>IWRT10201 - Event</option>
+                                <option value="IWRT10202 - Dana Sosial" {{ 'IWRT10202 - Dana Sosial' == request('type') ? 'selected="selected"' : '' }}>IWRT10202 - Dana Sosial</option>
+                                <option value="IWRT10203 - Inventaris" {{ 'IWRT10203 - Inventaris' == request('type') ? 'selected="selected"' : '' }}>IWRT10203 - Inventaris</option>
+                                <option value="IWRT10204 - Rukun Kematian" {{ 'IWRT10204 - Rukun Kematian' == request('type') ? 'selected="selected"' : '' }}>IWRT10204 - Rukun Kematian</option>
+                                <option value="IWRT10205 - Tak Terduga" {{ 'IWRT10205 - Tak Terduga' == request('type') ? 'selected="selected"' : '' }}>IWRT10205 - Tak Terduga</option>
                 </select>
                 @error('type')
                 <div class="invalid-feedback">
@@ -66,9 +71,9 @@
                                     <td class="text-center" style="vertical-align: middle;">Rp {{ number_format($pengeluaran->nominal) }}</td>
                                     <td class="text-center" style="vertical-align: middle;">
                                         @if ($pengeluaran->status == 'paid')
-                                            <div class="badge" style="color: rgba(20, 78, 7, 0.889); background-color:rgb(186, 238, 162); border-radius:10px; text-transform: uppercase;">{{ $pengeluaran->status ?? '-' }}</div>
+                                            <div class="badge" style="color: rgba(20, 78, 7, 0.889); background-color:rgb(186, 238, 162); border-radius:10px;">Lunas</div>
                                         @else
-                                            <div class="badge" style="color: rgba(78, 26, 26, 0.889); background-color:rgb(242, 170, 170); border-radius:10px; text-transform: uppercase;">{{ $pengeluaran->status ?? '-' }}</div>
+                                            <div class="badge" style="color: rgba(78, 26, 26, 0.889); background-color:rgb(242, 170, 170); border-radius:10px;">Belum Lunas</div>
                                         @endif
                                     </td>
                                     <td class="text-center" style="vertical-align: middle;">

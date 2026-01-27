@@ -16,11 +16,16 @@
                             <label for="type">Jenis Transaksi</label>
                             <select name="type" id="type" class="form-control @error('type') is-invalid @enderror selectpicker" data-live-search="true">
                                 <option value="">-- Pilih Jenis Transaksi --</option>
-                                <option value="Gaji Security" {{ 'Gaji Security' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>Gaji Security</option>
-                                <option value="Pembayaran Vendor" {{ 'Pembayaran Vendor' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>Pembayaran Vendor</option>
-                                <option value="Operasional" {{ 'Operasional' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>Operasional</option>
-                                <option value="Biaya & Aset" {{ 'Biaya & Aset' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>Biaya & Aset</option>
-                                <option value="Lainnya" {{ 'Lainnya' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>Lainnya</option>
+                                <option value="IWRT10101 - Keamanan" {{ 'IWRT10101 - Keamanan' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>IWRT10101 - Keamanan</option>
+                                <option value="IWRT10102 - Sampah Rumah Tangga" {{ 'IWRT10102 - Sampah Rumah Tangga' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>IWRT10102 - Sampah Rumah Tangga</option>
+                                <option value="IWRT10103 - Kebersihan" {{ 'IWRT10103 - Kebersihan' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>IWRT10103 - Kebersihan</option>
+                                <option value="IWRT10104 - Token Listrik PJU" {{ 'IWRT10104 - Token Listrik PJU' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>IWRT10104 - Token Listrik PJU</option>
+                                <option value="IWRT10105 - Sarana & Prasarana" {{ 'IWRT10105 - Sarana & Prasarana' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>IWRT10105 - Sarana & Prasarana</option>
+                                <option value="IWRT10201 - Event" {{ 'IWRT10201 - Event' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>IWRT10201 - Event</option>
+                                <option value="IWRT10202 - Dana Sosial" {{ 'IWRT10202 - Dana Sosial' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>IWRT10202 - Dana Sosial</option>
+                                <option value="IWRT10203 - Inventaris" {{ 'IWRT10203 - Inventaris' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>IWRT10203 - Inventaris</option>
+                                <option value="IWRT10204 - Rukun Kematian" {{ 'IWRT10204 - Rukun Kematian' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>IWRT10204 - Rukun Kematian</option>
+                                <option value="IWRT10205 - Tak Terduga" {{ 'IWRT10205 - Tak Terduga' == old('type', $pengeluaran->type) ? 'selected="selected"' : '' }}>IWRT10205 - Tak Terduga</option>
                             </select>
                             @error('type')
                             <div class="invalid-feedback">
@@ -56,8 +61,8 @@
                             <label for="status" class="form-label">Status</label>
                             <select name="status" id="status" class="form-control @error('status') is-invalid @enderror selectpicker" data-live-search="true">
                                 <option value="">-- Pilih Status --</option>
-                                <option value="unpaid" {{ 'unpaid' == request('status', $pengeluaran->status) ? 'selected="selected"' : '' }}>unpaid</option>
-                                <option value="paid" {{ 'paid' == request('status', $pengeluaran->status) ? 'selected="selected"' : '' }}>paid</option>
+                                <option value="unpaid" {{ 'unpaid' == request('status', $pengeluaran->status) ? 'selected="selected"' : '' }}>Belum Lunas</option>
+                                <option value="paid" {{ 'paid' == request('status', $pengeluaran->status) ? 'selected="selected"' : '' }}>Lunas</option>
                             </select>
                             @error('status')
                             <div class="invalid-feedback">

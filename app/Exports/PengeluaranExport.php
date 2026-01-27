@@ -49,6 +49,7 @@ class PengeluaranExport implements FromQuery, WithColumnFormatting, WithMapping,
             'Tanggal',
             'Jenis Transaksi',
             'Nominal',
+            'Status',
             'Keterangan',
         ];
     }
@@ -60,6 +61,7 @@ class PengeluaranExport implements FromQuery, WithColumnFormatting, WithMapping,
             $model->date ?? '-',
             $model->type ?? '-',
             $model->nominal ?? 0,
+            $model->status == 'paid' ? 'Lunas' : 'Belum Lunas',
             $model->notes ?? '-',
         ];
 
@@ -78,6 +80,7 @@ class PengeluaranExport implements FromQuery, WithColumnFormatting, WithMapping,
         $start_date = request()->input('start_date');
         $end_date = request()->input('end_date');
         $type = request()->input('type');
+        $year = request()->input('year');
 
         $transaction_pengeluaran = Transaction::where('in_out', 'out')
         ->when($start_date && $end_date, function ($query) use ($start_date, $end_date) {
@@ -85,6 +88,9 @@ class PengeluaranExport implements FromQuery, WithColumnFormatting, WithMapping,
         })
         ->when($type, function ($query) use ($type) {
             $query->where('type', $type);
+        })
+        ->when($year, function ($query) use ($year) {
+            $query->where('year', $year);
         })
         ->orderBy('id', 'DESC');
 

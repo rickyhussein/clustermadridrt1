@@ -109,9 +109,9 @@
                                 </p>
                                 <h5>
                                     @if ($donasi->status == 'paid')
-                                        <div class="badge" style="color: rgba(20, 78, 7, 0.889); background-color:rgb(186, 238, 162); border-radius:10px; text-transform: uppercase;">{{ $donasi->status ?? '-' }}</div>
+                                        <div class="badge" style="color: rgba(20, 78, 7, 0.889); background-color:rgb(186, 238, 162); border-radius:10px;">Lunas</div>
                                     @else
-                                        <div class="badge" style="color: rgba(78, 26, 26, 0.889); background-color:rgb(242, 170, 170); border-radius:10px; text-transform: uppercase;">{{ $donasi->status ?? '-' }}</div>
+                                        <div class="badge" style="color: rgba(78, 26, 26, 0.889); background-color:rgb(242, 170, 170); border-radius:10px;">Belum Lunas</div>
                                     @endif
                                 </h5>
                             </div>
@@ -190,78 +190,59 @@
         </div>
 
 
-        @if ($donasi->status == 'unpaid' && $donasi->payment_source == 'midtrans')
-            <div class="bottom-navigation-bar st2 bottom-btn-fixed" style="bottom:65px">
-                <div class="tf-container">
-                    <div class="row">
-                        <div class="col-6 mb-4">
-                            <a class="tf-btn success large" href="{{ url('/my-donasi/edit/'.$donasi->id) }}">Edit</a>
-                        </div>
-                        <div class="col-6 mb-4">
-                            <a href="#" id="btn-logout" class="tf-btn danger large">Delete</a>
-                        </div>
-                        <div class="col-12">
-                            <button  id="pay-button" class="tf-btn accent large">Bayar Sekarang</button>
-                        </div>
+
+        <div class="bottom-navigation-bar st2 bottom-btn-fixed" style="bottom:65px">
+            <div class="tf-container">
+                <div class="row">
+                    <div class="col-6 mb-4">
+                        <a class="tf-btn success large" href="{{ url('/my-donasi/edit/'.$donasi->id) }}">Edit</a>
+                    </div>
+                    <div class="col-6 mb-4">
+                        <a href="#" id="btn-logout" class="tf-btn danger large">Delete</a>
+                    </div>
+                    <div class="col-12">
+                        <a href="#" id="btn-popup-down" class="tf-btn accent large">Upload Bukti Pembayaran</a>
                     </div>
                 </div>
             </div>
-        @endif
+        </div>
 
-        @if ($donasi->status == 'unpaid' && $donasi->payment_source == 'Bank Transfer (Perlu Konfirmasi Pembayaran Manual)')
-            <div class="bottom-navigation-bar st2 bottom-btn-fixed" style="bottom:65px">
-                <div class="tf-container">
-                    <div class="row">
-                        <div class="col-6 mb-4">
-                            <a class="tf-btn success large" href="{{ url('/my-donasi/edit/'.$donasi->id) }}">Edit</a>
-                        </div>
-                        <div class="col-6 mb-4">
-                            <a href="#" id="btn-logout" class="tf-btn danger large">Delete</a>
-                        </div>
-                        <div class="col-12">
-                            <a href="#" id="btn-popup-down" class="tf-btn accent large">Upload Bukti Pembayaran</a>
+        <div class="tf-panel down">
+            <div class="panel_overlay"></div>
+            <div class="panel-box panel-down">
+                <div class="header">
+                    <div class="tf-container">
+                        <div class="tf-statusbar d-flex justify-content-center align-items-center">
+                            <a href="#" class="clear-panel"> <i class="icon-close1"></i> </a>
+                            <h3>Upload Bukti Pembayaran</h3>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="tf-panel down">
-                <div class="panel_overlay"></div>
-                <div class="panel-box panel-down">
-                    <div class="header">
-                        <div class="tf-container">
-                            <div class="tf-statusbar d-flex justify-content-center align-items-center">
-                                <a href="#" class="clear-panel"> <i class="icon-close1"></i> </a>
-                                <h3>Upload Bukti Pembayaran</h3>
+                <div class="mt-5">
+                    <div class="tf-container">
+                        <form class="tf-form-verify" action="{{ url('/my-donasi/upload/'.$donasi->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+
+                            <div class="group-input">
+                                <input type="file" class="form-control @error('file_transaction_path') is-invalid @enderror" name="file_transaction_path" value="{{ old('file_transaction_path') }}" />
+                                @error('file_transaction_path')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                                @if ($donasi->file_transaction_path)
+                                    <div class="badge clickable mt-1" data-url="{{ url('/storage/'.$donasi->file_transaction_path) }}" style="color: rgb(21, 47, 118); background-color:rgba(192, 218, 254, 0.889); border-radius:10px; cursor: pointer;" target="_blank"><i class="fa fa-download me-1"></i> {{ $donasi->file_transaction_name }}</div>
+                                @endif
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-5">
-                        <div class="tf-container">
-                            <form class="tf-form-verify" action="{{ url('/my-donasi/upload/'.$donasi->id) }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-
-                                <div class="group-input">
-                                    <input type="file" class="form-control @error('file_transaction_path') is-invalid @enderror" name="file_transaction_path" value="{{ old('file_transaction_path') }}" />
-                                    @error('file_transaction_path')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                    @if ($donasi->file_transaction_path)
-                                        <div class="badge clickable mt-1" data-url="{{ url('/storage/'.$donasi->file_transaction_path) }}" style="color: rgb(21, 47, 118); background-color:rgba(192, 218, 254, 0.889); border-radius:10px; cursor: pointer;" target="_blank"><i class="fa fa-download me-1"></i> {{ $donasi->file_transaction_name }}</div>
-                                    @endif
-                                </div>
-                                <div class="mt-7 mb-6">
-                                    <button type="submit" class="tf-btn accent">Submit</button>
-                                </div>
-                            </form>
-                        </div>
+                            <div class="mt-7 mb-6">
+                                <button type="submit" class="tf-btn accent">Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        @endif
+        </div>
 
         <div class="tf-panel logout">
             <div class="panel_overlay"></div>
@@ -291,9 +272,7 @@
         <br>
         <br>
 
-        @push('style')
-            <script type="text/javascript" src="{{ config('midtrans.snap_url') }}" data-client-key="{{ config('midtrans.client_key') }}"></script>
-        @endpush
+    
 
         @push('script')
             <script type="text/javascript">
@@ -314,40 +293,6 @@
                         icon: "success",
                         timer: 1500
                     });
-                });
-
-                var payButton = document.getElementById('pay-button');
-                payButton.addEventListener('click', function () {
-                    window.snap.pay('{{ $donasi->snaptoken }}', {
-                        onSuccess: function(result){
-                            Swal.fire('Payment Success!', '', 'success');
-                            setTimeout(() => location.reload(), 3000);
-                        },
-                        onPending: function(result){
-                            Swal.fire({
-                                title: "Pending",
-                                text: "Waiting For Your Payment",
-                                icon: "info"
-                            });
-                            setTimeout(() => location.reload(), 3000);
-                        },
-                        onError: function(result){
-                            Swal.fire({
-                                title: "Failed",
-                                text: "Payment Failed",
-                                icon: "error"
-                            });
-                            setTimeout(() => location.reload(), 3000);
-                        },
-                        onClose: function(){
-                            Swal.fire({
-                                title: "Closed",
-                                text: "You closed The Popup Without Finishing The Payment",
-                                icon: "warning"
-                            });
-                            setTimeout(() => location.reload(), 3000);
-                        }
-                    })
                 });
             </script>
         @endpush

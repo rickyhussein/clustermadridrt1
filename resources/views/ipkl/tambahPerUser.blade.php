@@ -13,6 +13,17 @@
                     <div class="form-row">
                         <div class="col">
                             <label for="user_id">Nama / Alamat</label>
+                            <div class="row mr-3 ml-3">
+                                <div class="col-3">
+                                    <input type="radio" name="status_select" id="Dihuni" class="form-check-input" value="Dihuni" {{ old('status_select') == 'Dihuni' ? 'checked' : '' }}>
+                                    <label for="Dihuni" class="form-check-label">Dihuni</label>
+                                </div>
+
+                                <div class="col-3">
+                                    <input type="radio" name="status_select" id="Belum_dihuni" class="form-check-input" value="Belum dihuni" {{ old('status_select') == 'Belum dihuni' ? 'checked' : '' }}>
+                                    <label for="Belum_dihuni" class="form-check-label">Belum dihuni</label>
+                                </div>
+                            </div>
                             <select name="user_id" id="user_id" class="form-control @error('user_id') is-invalid @enderror selectpicker" data-live-search="true">
                                 <option value="">-- Pilih --</option>
                                 @foreach ($users as $user)
@@ -101,6 +112,18 @@
             });
 
             flatpickr(".date", {disableMobile: true});
+
+            $('input[type="radio"][name="status_select"]').change(function () {
+                let selectedStatus = $(this).val();
+
+                if (selectedStatus === "Dihuni") {
+                    $('#nominal').val('150000').trigger('input');
+                } else if (selectedStatus === "Belum dihuni") {
+                    $('#nominal').val('100000').trigger('input');
+                } else {
+                    $('#nominal').val('').trigger('input');
+                }
+            });
         </script>
     @endpush
 @endsection

@@ -77,7 +77,7 @@ class IpklExport implements FromQuery, WithColumnFormatting, WithMapping, WithHe
             $model->type . ' (' . $month . $model->year . ')',
             $model->nominal ?? 0,
             $model->notes ?? '-',
-            $model->status ?? '-',
+            $model->status == 'paid' ? 'Lunas' : 'Belum Lunas' ?? '-',
             $model->paid_date ?? '-',
             $model->payment_source ?? '-',
             $model->midtrans_transaction_id ?? '-',

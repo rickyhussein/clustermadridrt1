@@ -74,7 +74,7 @@ class GateCardExport implements FromQuery, WithColumnFormatting, WithMapping, Wi
             $model->nominal ?? '0',
             $model->qty ?? '0',
             $model->notes ?? '-',
-            $model->status ?? '-',
+            $model->status == 'paid' ? 'Lunas' : 'Belum Lunas' ?? '-',
             $model->status_approval ?? '-',
             $model->approvedBy->name ?? '-',
             $model->approver_notes ?? '-',

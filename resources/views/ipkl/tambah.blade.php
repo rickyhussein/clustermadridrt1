@@ -15,20 +15,21 @@
                             <label for="user_id">Nama / Alamat</label>
                             <div class="row mr-3 ml-3">
                                 <div class="col-3">
-                                    <input type="checkbox" name="select_all" id="select_all" class="form-check-input" value="{{ old('select_all') }}">
-                                    <label for="select_all" class="form-check-label">Pilih Semua</label>
+                                    <input type="radio" name="status_select" id="select_all" class="form-check-input" value="Semua" {{ old('status_select') == 'Semua' ? 'checked' : '' }}>
+                                    <label for="select_all" class="form-check-label">Pilih semua</label>
                                 </div>
 
                                 <div class="col-3">
-                                    <input type="checkbox" name="Dihuni" id="Dihuni" class="form-check-input" value="{{ old('Dihuni') }}">
+                                    <input type="radio" name="status_select" id="Dihuni" class="form-check-input" value="Dihuni" {{ old('status_select') == 'Dihuni' ? 'checked' : '' }}>
                                     <label for="Dihuni" class="form-check-label">Dihuni</label>
                                 </div>
 
                                 <div class="col-3">
-                                    <input type="checkbox" name="Belum dihuni" id="Belum dihuni" class="form-check-input" value="{{ old('Belum dihuni') }}">
-                                    <label for="Belum dihuni" class="form-check-label">Belum dihuni</label>
+                                    <input type="radio" name="status_select" id="Belum_dihuni" class="form-check-input" value="Belum dihuni" {{ old('status_select') == 'Belum dihuni' ? 'checked' : '' }}>
+                                    <label for="Belum_dihuni" class="form-check-label">Belum dihuni</label>
                                 </div>
                             </div>
+
                             <select class="form-control selectpicker @error('user_id') is-invalid @enderror" name="user_id[]" id="user_id" multiple data-live-search="true">
                                 @foreach ($users as $user)
                                     <option value="{{ $user->id }}" {{ (is_array(old('user_id')) && in_array($user->id, old('user_id'))) ? 'selected' : '' }}>
@@ -119,34 +120,29 @@
 
             flatpickr(".date", {disableMobile: true});
 
-            var select_all = $('#select_all').val();
-            $('#select_all').prop('checked', select_all == "1");
+            $('input[type="radio"][name="status_select"]').change(function () {
+                let selectedStatus = $(this).val();
 
-            $('#select_all').change(function () {
-                if ($(this).is(':checked')) {
+                if (selectedStatus === "Semua") {
                     $('#user_id option').prop('selected', true);
-                    $('#select_all').val(1)
                 } else {
-                    $('#user_id option').prop('selected', false);
-                    $('#select_all').val(null)
+                    $('#user_id option').each(function () {
+                        let userStatus = $(this).text().split(' - ').pop().trim();
+                        $(this).prop('selected', userStatus === selectedStatus);
+                    });
                 }
                 $('#user_id').trigger('change');
+
+                if (selectedStatus === "Dihuni") {
+                    $('#nominal').val('150000').trigger('input');
+                } else if (selectedStatus === "Belum dihuni") {
+                    $('#nominal').val('100000').trigger('input');
+                } else {
+                    $('#nominal').val('').trigger('input');
+                }
             });
 
-            $('input[type="checkbox"][name!="select_all"]').change(function () {
-                let selectedStatuses = [];
 
-                $('input[type="checkbox"][name!="select_all"]:checked').each(function () {
-                    selectedStatuses.push($(this).attr('name'));
-                });
-
-                $('#user_id option').each(function () {
-                    let userStatus = $(this).text().split(' - ').pop().trim();
-                    $(this).prop('selected', selectedStatuses.includes(userStatus));
-                });
-
-                $('#user_id').trigger('change');
-            });
         </script>
     @endpush
 @endsection

@@ -70,7 +70,7 @@ class DonasiExport implements FromQuery, WithColumnFormatting, WithMapping, With
             $model->payment_source ?? '-',
             $model->nominal ?? '0',
             $model->notes ?? '-',
-            $model->status ?? '-',
+            $model->status == 'paid' ? 'Lunas' : 'Belum Lunas' ?? '-',
             $model->status_approval ?? '-',
             $model->approvedBy->name ?? '-',
             $model->approver_notes ?? '-',
@@ -110,7 +110,8 @@ class DonasiExport implements FromQuery, WithColumnFormatting, WithMapping, With
         ->when(!$type, function ($query) {
             $query->where(function ($q) {
                 $q->where('type', 'Donasi Fasum')
-                ->orWhere('type', 'Donasi Umum')
+                ->orWhere('type', 'Donasi RTH RT01')
+                ->orWhere('type', 'Donasi Inventaris')
                 ->orWhere('type', 'Donasi Lainnya');
             });
         })

@@ -177,13 +177,9 @@ class DonasiController extends Controller
             $validated['year'] = date('Y', strtotime($request->date));
             $validated['user_id'] = auth()->user()->id;
             $validated['created_by'] = auth()->user()->id;
-            $validated['expired'] = 15;
             $validated['status'] = 'unpaid';
+            $validated['status_approval'] = 'draft';
             $validated['in_out'] = 'in';
-
-            if ($request->payment_source == 'Bank Transfer (Perlu Konfirmasi Pembayaran Manual)') {
-                $validated['status_approval'] = 'draft';
-            }
 
             if ($request->file('file_transaction_path')) {
                 $validated['file_transaction_path'] = $request->file('file_transaction_path')->store('file_transaction_path');
@@ -193,47 +189,7 @@ class DonasiController extends Controller
             $donasi = Transaction::create($validated);
             $this->result = $donasi->id;
 
-            $date = Carbon::parse($donasi->date);
-            $now = Carbon::now();
-            $diff_day = $now->diffInDays($date->addDay(), false);
-            $diff_day = max(0, $diff_day);
-            $total_expired = $diff_day + $donasi->expired;
-            $user = User::find($donasi->user_id);
-
-            if ($donasi->payment_source == 'midtrans') {
-                \Midtrans\Config::$serverKey = config('midtrans.server_key');
-                \Midtrans\Config::$isProduction = config('midtrans.is_production');
-                \Midtrans\Config::$isSanitized = true;
-                \Midtrans\Config::$is3ds = true;
-
-                $params = array(
-                    'transaction_details' => array(
-                        'order_id' => $donasi->id,
-                        'gross_amount' => $donasi->nominal,
-                    ),
-                    'expiry' => array(
-                        'start_time' => date("Y-m-d H:i:s O"),
-                        'unit' => 'days',
-                        'duration' => $total_expired,
-                    ),
-                    'customer_details' => array(
-                        'first_name' => $user->name ?? '',
-                        'email' => $user->email ?? '',
-                        'phone' => $user->no_hp,
-                    ),
-                );
-
-                $snapToken = \Midtrans\Snap::getSnapToken($params);
-                $donasi->update([
-                    'snaptoken' => $snapToken
-                ]);
-            }
-
-            if ($donasi->payment_source == 'midtrans') {
-                $message = auth()->user()->name . ' melakukan ' . $donasi->type . ' (' . $donasi->status . ' - ' . $donasi->payment_source . ').';
-            } else {
-                $message = $donasi->type . ' dari ' . auth()->user()->name . ' membutuhkan approval dari anda.';
-            }
+            $message = $donasi->type . ' dari ' . auth()->user()->name . ' membutuhkan approval dari anda.';
 
             $users = User::whereHas('roles', function ($query) {
                 $query->where('name', 'admin');
@@ -267,9 +223,8 @@ class DonasiController extends Controller
 
     public function updateMyDonasi(Request $request, $id)
     {
-        $donasi_old = Transaction::find($id);
-        $result = null;
-        DB::transaction(function ()  use ($request, $result, $donasi_old) {
+        $donasi = Transaction::find($id);
+        DB::transaction(function ()  use ($request, $donasi) {
             $validated = $request->validate([
                 'date' => 'required',
                 'type' => 'required',
@@ -282,72 +237,15 @@ class DonasiController extends Controller
             $validated['nominal'] = $request->nominal ? str_replace(',', '', $request->nominal) : 0;
             $validated['month'] = date('m', strtotime($request->date));
             $validated['year'] = date('Y', strtotime($request->date));
-            $validated['user_id'] = auth()->user()->id;
-            $validated['created_by'] = auth()->user()->id;
-            $validated['updated_by'] = auth()->user()->id;
-            $validated['expired'] = 15;
-            $validated['status'] = 'unpaid';
-            $validated['in_out'] = 'in';
-
-            if ($donasi_old->file_transaction_path) {
-                $validated['file_transaction_path'] = $donasi_old->file_transaction_path;
-                $validated['file_transaction_name'] = $donasi_old->file_transaction_name;
-            }
-
-            if ($request->payment_source == 'Bank Transfer (Perlu Konfirmasi Pembayaran Manual)') {
-                $validated['status_approval'] = 'draft';
-            }
 
             if ($request->file('file_transaction_path')) {
                 $validated['file_transaction_path'] = $request->file('file_transaction_path')->store('file_transaction_path');
                 $validated['file_transaction_name'] = $request->file('file_transaction_path')->getClientOriginalName();
             }
 
-            $donasi = Transaction::create($validated);
-            $this->result = $donasi->id;
-            $donasi_old->delete();
+            $donasi->update($validated);
 
-            $date = Carbon::parse($donasi->date);
-            $now = Carbon::now();
-            $diff_day = $now->diffInDays($date->addDay(), false);
-            $diff_day = max(0, $diff_day);
-            $total_expired = $diff_day + $donasi->expired;
-            $user = User::find($donasi->user_id);
-
-            if ($donasi->payment_source == 'midtrans') {
-                \Midtrans\Config::$serverKey = config('midtrans.server_key');
-                \Midtrans\Config::$isProduction = config('midtrans.is_production');
-                \Midtrans\Config::$isSanitized = true;
-                \Midtrans\Config::$is3ds = true;
-
-                $params = array(
-                    'transaction_details' => array(
-                        'order_id' => $donasi->id,
-                        'gross_amount' => $donasi->nominal,
-                    ),
-                    'expiry' => array(
-                        'start_time' => date("Y-m-d H:i:s O"),
-                        'unit' => 'days',
-                        'duration' => $total_expired,
-                    ),
-                    'customer_details' => array(
-                        'first_name' => $user->name ?? '',
-                        'email' => $user->email ?? '',
-                        'phone' => $user->no_hp,
-                    ),
-                );
-
-                $snapToken = \Midtrans\Snap::getSnapToken($params);
-                $donasi->update([
-                    'snaptoken' => $snapToken
-                ]);
-            }
-
-            if ($donasi->payment_source == 'midtrans') {
-                $message = auth()->user()->name . ' melakukan ' . $donasi->type . ' (' . $donasi->status . ' - ' . $donasi->payment_source . ').';
-            } else {
-                $message = $donasi->type . ' dari ' . auth()->user()->name . ' membutuhkan approval dari anda.';
-            }
+            $message = $donasi->type . ' dari ' . auth()->user()->name . ' membutuhkan approval dari anda.';
 
             $users = User::whereHas('roles', function ($query) {
                 $query->where('name', 'admin');
@@ -365,7 +263,7 @@ class DonasiController extends Controller
             }
         });
 
-        return redirect('/my-donasi/show/'.$this->result)->with('success', 'Data Berhasil Diupdate');
+        return redirect('/my-donasi/show/'.$donasi->id)->with('success', 'Data Berhasil Diupdate');
     }
 
     public function showMyDonasi($id)

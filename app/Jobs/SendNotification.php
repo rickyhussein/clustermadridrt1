@@ -32,13 +32,15 @@ class SendNotification implements ShouldQueue
 
     public function handle()
     {
+        $status = $this->ipkl->status == 'paid' ? 'Lunas' : 'Belum Lunas';
+        
         $message = "Ini adalah pesan otomatis dari sistem layanan RT 01 Cluster Madrid\n\n" .
                    "Salam sejahtera Bapak/Ibu, Kami informasikan data dibawah ini belum melakukan pembayaran\n" .
                    "Nama : " . $this->user->name . "\n" .
                    "Alamat : " . $this->user->alamat . "\n" .
                    "Jenis Pembayaran : IPKL (" . $this->month_name . ' ' . $this->ipkl->year . ") \n" .
                    "Jatuh Tempo : " . $this->ipkl->expired_date . "\n" .
-                   "Status : " . $this->ipkl->status . "\n" .
+                   "Status : " . $status . "\n" .
                    "Nominal : Rp " . number_format($this->ipkl->nominal) . "\n\n" .
                    "Silakan lakukan pembayaran melalui link berikut:\n\n" .
                    url('/my-ipkl/show/'.$this->ipkl->id);

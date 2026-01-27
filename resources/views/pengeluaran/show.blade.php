@@ -63,9 +63,9 @@
                                 </div>
                                 <div class="col">
                                     @if ($pengeluaran->status == 'paid')
-                                        <div class="badge" style="color: rgba(20, 78, 7, 0.889); background-color:rgb(186, 238, 162); border-radius:10px; text-transform: uppercase;">{{ $pengeluaran->status ?? '-' }}</div>
+                                        <div class="badge" style="color: rgba(20, 78, 7, 0.889); background-color:rgb(186, 238, 162); border-radius:10px;">Lunas</div>
                                     @else
-                                        <div class="badge" style="color: rgba(78, 26, 26, 0.889); background-color:rgb(242, 170, 170); border-radius:10px; text-transform: uppercase;">{{ $pengeluaran->status ?? '-' }}</div>
+                                        <div class="badge" style="color: rgba(78, 26, 26, 0.889); background-color:rgb(242, 170, 170); border-radius:10px;">Belum Lunas</div>
                                     @endif
                                 </div>
                             </div>
@@ -156,8 +156,8 @@
                         <label for="status">Status</label>
                         <select name="status" id="status" class="form-control @error('status') is-invalid @enderror selectpicker" data-live-search="true">
                             <option value="">-- Pilih Status --</option>
-                            <option value="paid" {{ 'paid' == old('status', $pengeluaran->status) ? 'selected="selected"' : '' }}>paid</option>
-                            <option value="unpaid" {{ 'unpaid' == old('status', $pengeluaran->status) ? 'selected="selected"' : '' }}>unpaid</option>
+                            <option value="paid" {{ 'paid' == old('status', $pengeluaran->status) ? 'selected="selected"' : '' }}>Lunas</option>
+                            <option value="unpaid" {{ 'unpaid' == old('status', $pengeluaran->status) ? 'selected="selected"' : '' }}>Belum Lunas</option>
                         </select>
                         @error('status')
                             <div class="invalid-feedback">

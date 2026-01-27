@@ -83,7 +83,7 @@
                           <div class="card mb-3">
                             <div class="card-header border-0">
                               <div class="d-flex justify-content-between">
-                                <h3 class="card-title"><i class="far fa-file-pdf me-2"></i>Unduh File PDF</h3>
+                                <h3 class="card-title"><i class="far fa-file-pdf me-2"></i>Unduh Laporan PDF</h3>
                               </div>
                             </div>
                             <div class="card-body">

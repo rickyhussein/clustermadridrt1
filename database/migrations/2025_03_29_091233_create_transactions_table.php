@@ -16,6 +16,7 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->date('date')->nullable();
+            $table->string('status_select')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('type')->nullable();
@@ -40,6 +41,8 @@ class CreateTransactionsTable extends Migration
             $table->string('payment_channel_uid')->nullable();
             $table->string('payment_channel')->nullable();
             $table->string('signature')->nullable();
+
+            $table->string('payment_source')->nullable();
 
             $table->string('file_transaction_path')->nullable();
             $table->string('file_transaction_name')->nullable();

@@ -164,13 +164,9 @@ class GateCardController extends Controller
             $validated['year'] = date('Y', strtotime($request->date));
             $validated['user_id'] = auth()->user()->id;
             $validated['created_by'] = auth()->user()->id;
-            $validated['expired'] = 15;
+            $validated['status_approval'] = 'draft';
             $validated['status'] = 'unpaid';
             $validated['in_out'] = 'in';
-
-            if ($request->payment_source == 'Bank Transfer (Perlu Konfirmasi Pembayaran Manual)') {
-                $validated['status_approval'] = 'draft';
-            }
 
             if ($request->file('file_transaction_path')) {
                 $validated['file_transaction_path'] = $request->file('file_transaction_path')->store('file_transaction_path');
@@ -180,47 +176,7 @@ class GateCardController extends Controller
             $gate_card = Transaction::create($validated);
             $this->result = $gate_card->id;
 
-            $date = Carbon::parse($gate_card->date);
-            $now = Carbon::now();
-            $diff_day = $now->diffInDays($date->addDay(), false);
-            $diff_day = max(0, $diff_day);
-            $total_expired = $diff_day + $gate_card->expired;
-            $user = User::find($gate_card->user_id);
-
-            if ($gate_card->payment_source == 'midtrans') {
-                \Midtrans\Config::$serverKey = config('midtrans.server_key');
-                \Midtrans\Config::$isProduction = config('midtrans.is_production');
-                \Midtrans\Config::$isSanitized = true;
-                \Midtrans\Config::$is3ds = true;
-
-                $params = array(
-                    'transaction_details' => array(
-                        'order_id' => $gate_card->id,
-                        'gross_amount' => $gate_card->nominal,
-                    ),
-                    'expiry' => array(
-                        'start_time' => date("Y-m-d H:i:s O"),
-                        'unit' => 'days',
-                        'duration' => $total_expired,
-                    ),
-                    'customer_details' => array(
-                        'first_name' => $user->name ?? '',
-                        'email' => $user->email ?? '',
-                        'phone' => $user->no_hp,
-                    ),
-                );
-
-                $snapToken = \Midtrans\Snap::getSnapToken($params);
-                $gate_card->update([
-                    'snaptoken' => $snapToken
-                ]);
-            }
-
-            if ($gate_card->payment_source == 'midtrans') {
-                $message = 'Permintaan pembuatan Gate Card oleh ' . auth()->user()->name . ' . (' . $gate_card->status . ' - ' . $gate_card->payment_source . ').';
-            } else {
-                $message = 'Permintaan pembuatan Gate Card oleh ' . auth()->user()->name . ' membutuhkan approval dari anda.';
-            }
+            $message = 'Permintaan pembuatan Gate Card oleh ' . auth()->user()->name . ' membutuhkan approval dari anda.';
 
             $users = User::whereHas('roles', function ($query) {
                 $query->where('name', 'admin');
@@ -254,9 +210,8 @@ class GateCardController extends Controller
 
     public function updateMyGateCard(Request $request, $id)
     {
-        $gate_card_old = Transaction::find($id);
-        $result = null;
-        DB::transaction(function ()  use ($request, $result, $gate_card_old) {
+        $gate_card = Transaction::find($id);
+        DB::transaction(function ()  use ($request, $gate_card) {
             $validated = $request->validate([
                 'date' => 'required',
                 'type' => 'required',
@@ -274,72 +229,16 @@ class GateCardController extends Controller
             $validated['nominal'] = $request->nominal ? str_replace(',', '', $request->nominal) : 0;
             $validated['month'] = date('m', strtotime($request->date));
             $validated['year'] = date('Y', strtotime($request->date));
-            $validated['user_id'] = auth()->user()->id;
-            $validated['created_by'] = auth()->user()->id;
             $validated['updated_by'] = auth()->user()->id;
-            $validated['expired'] = 15;
-            $validated['status'] = 'unpaid';
-            $validated['in_out'] = 'in';
-
-            if ($gate_card_old->file_transaction_path) {
-                $validated['file_transaction_path'] = $gate_card_old->file_transaction_path;
-                $validated['file_transaction_name'] = $gate_card_old->file_transaction_name;
-            }
-
-            if ($request->payment_source == 'Bank Transfer (Perlu Konfirmasi Pembayaran Manual)') {
-                $validated['status_approval'] = 'draft';
-            }
 
             if ($request->file('file_transaction_path')) {
                 $validated['file_transaction_path'] = $request->file('file_transaction_path')->store('file_transaction_path');
                 $validated['file_transaction_name'] = $request->file('file_transaction_path')->getClientOriginalName();
             }
 
-            $gate_card = Transaction::create($validated);
-            $this->result = $gate_card->id;
-            $gate_card_old->delete();
+            $gate_card->update($validated);
 
-            $date = Carbon::parse($gate_card->date);
-            $now = Carbon::now();
-            $diff_day = $now->diffInDays($date->addDay(), false);
-            $diff_day = max(0, $diff_day);
-            $total_expired = $diff_day + $gate_card->expired;
-            $user = User::find($gate_card->user_id);
-
-            if ($gate_card->payment_source == 'midtrans') {
-                \Midtrans\Config::$serverKey = config('midtrans.server_key');
-                \Midtrans\Config::$isProduction = config('midtrans.is_production');
-                \Midtrans\Config::$isSanitized = true;
-                \Midtrans\Config::$is3ds = true;
-
-                $params = array(
-                    'transaction_details' => array(
-                        'order_id' => $gate_card->id,
-                        'gross_amount' => $gate_card->nominal,
-                    ),
-                    'expiry' => array(
-                        'start_time' => date("Y-m-d H:i:s O"),
-                        'unit' => 'days',
-                        'duration' => $total_expired,
-                    ),
-                    'customer_details' => array(
-                        'first_name' => $user->name ?? '',
-                        'email' => $user->email ?? '',
-                        'phone' => $user->no_hp,
-                    ),
-                );
-
-                $snapToken = \Midtrans\Snap::getSnapToken($params);
-                $gate_card->update([
-                    'snaptoken' => $snapToken
-                ]);
-            }
-
-            if ($gate_card->payment_source == 'midtrans') {
-                $message = 'Permintaan pembuatan Gate Card oleh ' . auth()->user()->name . ' . (' . $gate_card->status . ' - ' . $gate_card->payment_source . ').';
-            } else {
-                $message = 'Permintaan pembuatan Gate Card oleh ' . auth()->user()->name . ' membutuhkan approval dari anda.';
-            }
+            $message = 'Permintaan pembuatan Gate Card oleh ' . auth()->user()->name . ' membutuhkan approval dari anda.';
 
             $users = User::whereHas('roles', function ($query) {
                 $query->where('name', 'admin');
@@ -352,11 +251,12 @@ class GateCardController extends Controller
                     'message'   =>  $message,
                     'action'   =>  '/gate-card/show/'.$gate_card->id
                 ];
+
                 $user->notify(new UserNotification($data));
             }
         });
 
-        return redirect('/my-gate-card/show/'.$this->result)->with('success', 'Data Berhasil Diupdate');
+        return redirect('/my-gate-card/show/'.$gate_card->id)->with('success', 'Data Berhasil Diupdate');
     }
 
     public function showMyGateCard($id)

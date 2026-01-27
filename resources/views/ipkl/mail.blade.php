@@ -109,7 +109,7 @@
         @endphp
         Jatuh Tempo : {{ $expired_date }}
         <br>
-        Status : {{ $ipkl->status }}
+        Status : {{ $ipkl->status == 'paid' ? 'Lunas' : 'Belum Lunas' }}
         <br>
         Nominal : Rp {{ number_format($ipkl->nominal) }}
         <br><br>
