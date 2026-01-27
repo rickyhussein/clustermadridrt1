@@ -122,6 +122,7 @@
 
             $('input[type="radio"][name="status_select"]').change(function () {
                 let selectedStatus = $(this).val();
+                console.log(selectedStatus);
 
                 if (selectedStatus === "Semua") {
                     $('#user_id option').prop('selected', true);
