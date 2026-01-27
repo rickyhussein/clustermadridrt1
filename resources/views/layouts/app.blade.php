@@ -324,7 +324,7 @@
                             </li>
                             <li>
                                 <a href="{{ url('/my-berita') }}" class="nav-link">
-                                    <span style="{{ Request::is('my-berita*') ? 'color: orange' : '' }}">Berita Publik</span>
+                                    <span style="{{ Request::is('my-berita*') ? 'color: orange' : '' }}">Informasi Terkini</span>
                                 </a>
                             </li>
                             <li>
