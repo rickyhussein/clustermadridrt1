@@ -137,6 +137,7 @@ Route::get('/laporan-pengeluaran/show/{id}', [PengeluaranController::class, 'lap
 
 Route::get('/my-ipkl', [IPKLController::class, 'myIpkl'])->middleware('role:user');
 Route::get('/my-ipkl/show/{id}', [IPKLController::class, 'myIpklShow']);
+Route::get('/my-ipkl/finish', [IPKLController::class, 'myIpkFinish']);
 
 Route::get('/laporan-keuangan', [TransactionController::class, 'laporanKeuangan'])->middleware('role:user');
 
