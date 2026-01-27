@@ -168,6 +168,6 @@ class DatabaseSeeder extends Seeder
             'text_1' => 'Ket.RT.',
         ]);
 
-        DB::statement('ALTER TABLE transactions AUTO_INCREMENT = 200');
+        DB::statement('ALTER TABLE transactions AUTO_INCREMENT = 300');
     }
 }
