@@ -28,7 +28,7 @@ class UsersImport implements ToModel, WithHeadingRow
                 "no_hp" => $row["nomor_hp"],
                 "email" => $row["email"],
                 "keterangan" => $row["keterangan"],
-                "password" => Hash::make('madrid123')
+                "password" => Hash::make('RT01@2026')
             ]);
 
             $user->assignRole('user');
