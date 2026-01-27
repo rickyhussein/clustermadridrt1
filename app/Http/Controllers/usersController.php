@@ -103,10 +103,10 @@ class usersController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'foto' => 'image|file|max:10240',
-            'kartu_keluarga' => 'image|file|max:10240',
-            'ktp_kepala_keluarga' => 'image|file|max:10240',
-            'ktp_istri' => 'image|file|max:10240',
+            'foto' => 'image|file|max:1024',
+            'kartu_keluarga' => 'image|file|max:5120',
+            'ktp_kepala_keluarga' => 'image|file|max:5120',
+            'ktp_istri' => 'image|file|max:5120',
             'email' => 'required|unique:users',
             'password' => 'required|min:6|max:255',
             'alamat' => 'required|unique:users',
@@ -199,10 +199,10 @@ class usersController extends Controller
 
         $rules = [
             'name' => 'required',
-            'foto' => 'image|file|max:10240',
-            'kartu_keluarga' => 'image|file|max:10240',
-            'ktp_kepala_keluarga' => 'image|file|max:10240',
-            'ktp_istri' => 'image|file|max:10240',
+            'foto' => 'image|file|max:1024',
+            'kartu_keluarga' => 'image|file|max:5120',
+            'ktp_kepala_keluarga' => 'image|file|max:5120',
+            'ktp_istri' => 'image|file|max:5120',
             'rt' => 'required',
             'rw' => 'required',
             'no_hp' => 'required',
@@ -338,10 +338,10 @@ class usersController extends Controller
 
         $rules = [
             'name' => 'required',
-            'foto' => 'image|file|max:10240',
-            'kartu_keluarga' => 'image|file|max:10240',
-            'ktp_kepala_keluarga' => 'image|file|max:10240',
-            'ktp_istri' => 'image|file|max:10240',
+            'foto' => 'image|file|max:1024',
+            'kartu_keluarga' => 'image|file|max:5120',
+            'ktp_kepala_keluarga' => 'image|file|max:5120',
+            'ktp_istri' => 'image|file|max:5120',
             'rt' => 'required',
             'rw' => 'required',
             'no_hp' => 'required',
