@@ -49,7 +49,6 @@
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Alamat</th>
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Nama</th>
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Tanggal</th>
-                            <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Expired Days</th>
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Jatuh Tempo</th>
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Jenis Transaksi</th>
                             <th style="min-width: 170px; background-color:rgb(243, 243, 243);" class="text-center">Nominal</th>
@@ -70,14 +69,7 @@
                                     <td class="text-center" style="vertical-align: middle;">{{ $ipkl->user->alamat ?? '-' }}</td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $ipkl->user->name ?? '-' }}</td>
                                     <td class="text-center" style="vertical-align: middle;">{{ $ipkl->date ?? '-' }}</td>
-                                    <td class="text-center" style="vertical-align: middle;">{{ $ipkl->expired ?? '-' }} Hari</td>
-                                    <td class="text-center" style="vertical-align: middle; color:red;">
-                                        @php
-                                            $date = Carbon\Carbon::createFromFormat('Y-m-d', $ipkl->date);
-                                            $expired_date = $date->addDays($ipkl->expired)->translatedFormat('Y-m-d');
-                                        @endphp
-                                        {{ $expired_date }}
-                                    </td>
+                                    <td class="text-center" style="vertical-align: middle; color:red;">{{ $ipkl->expired_date ?? '-' }}</td>
                                     <td class="text-center" style="vertical-align: middle;">
                                         @php
                                             $month = Carbon\Carbon::createFromFormat('m', $ipkl->month)->translatedFormat('F');

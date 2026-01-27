@@ -32,7 +32,7 @@ class SendNotification implements ShouldQueue
 
     public function handle()
     {
-        $message = "Ini adalah pesan otomatis dari sistem layanan Cluster Madrid\n\n" .
+        $message = "Ini adalah pesan otomatis dari sistem layanan RT 01 Cluster Madrid\n\n" .
                    "Salam sejahtera Bapak/Ibu, Kami informasikan data dibawah ini belum melakukan pembayaran\n" .
                    "Nama : " . $this->user->name . "\n" .
                    "Alamat : " . $this->user->alamat . "\n" .

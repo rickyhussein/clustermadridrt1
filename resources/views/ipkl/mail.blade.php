@@ -85,7 +85,7 @@
         </div>
         <br><br>
 
-        Ini adalah pesan otomatis dari sistem layanan Cluster Madrid
+        Ini adalah pesan otomatis dari sistem layanan RT 01 Cluster Madrid
         <br><br>
         Salam sejahtera Bapak/Ibu, Kami informasikan data dibawah ini belum melakukan pembayaran
         <br>

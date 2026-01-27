@@ -64,9 +64,9 @@
                         </div>
 
                         <div class="col">
-                            <label for="expired">Expired Days</label>
-                            <input type="integer" class="form-control @error('expired') is-invalid @enderror" id="expired" name="expired" value="{{ old('expired', $ipkl->expired) }}">
-                            @error('expired')
+                            <label for="expired_date">Jatuh Tempo</label>
+                            <input type="text" class="form-control date @error('expired_date') is-invalid @enderror" id="expired_date" name="expired_date" value="{{ old('expired_date', $ipkl->expired_date) }}">
+                            @error('expired_date')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -100,6 +100,8 @@
             $('.money').mask('000,000,000,000,000', {
                 reverse: true
             });
+
+            flatpickr(".date", {disableMobile: true});
         </script>
     @endpush
 @endsection

@@ -88,11 +88,7 @@
                                     :
                                 </div>
                                 <div class="col">
-                                    @php
-                                        $date = Carbon\Carbon::createFromFormat('Y-m-d', $ipkl->date);
-                                        $expired_date = $date->addDays($ipkl->expired)->translatedFormat('Y-m-d');
-                                    @endphp
-                                    <span style="color: red;">{{ $expired_date }} ({{ $ipkl->expired ?? '-' }} Hari)</span>
+                                    <span style="color: red;">{{ $ipkl->expired_date }}</span>
                                 </div>
                             </div>
                         </div>
@@ -159,25 +155,25 @@
                 </li>
                 <li class="list-group-item">
                     <div class="row align-items-center">
-                        <div class="col-sm-2 font-weight-bold">Paid Date</div>
+                        <div class="col-sm-2 font-weight-bold">Payment Date</div>
                         <div class="col-sm-4 mt-sm-0 mt-1">
                             <div class="row align-items-center">
                                 <div class="col-1 d-none d-sm-inline">
                                     :
                                 </div>
                                 <div class="col">
-                                    {{ $ipkl->paid_date ?? '-' }}
+                                    {{ $ipkl->payment_date ?? '-' }}
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-2 font-weight-bold">Payment Source</div>
+                        <div class="col-sm-2 font-weight-bold">Payment Channel</div>
                         <div class="col-sm-4 mt-sm-0 mt-1">
                             <div class="row align-items-center">
                                 <div class="col-1 d-none d-sm-inline">
                                     :
                                 </div>
                                 <div class="col">
-                                    {{ $ipkl->payment_source ?? '-' }}
+                                    {{ $ipkl->payment_channel ?? '-' }}
                                 </div>
                             </div>
                         </div>

@@ -5,20 +5,10 @@
     @endif
 @endsection
 @section('container')
-
     @if ($ipkl)
         <div id="app-wrap" class="mt-4">
             <div class="bill-content">
                 <div class="tf-container ms-4 me-4">
-                    @if ($ipkl_unpaid && $ipkl_unpaid->id != $ipkl->id && $ipkl->date > $ipkl_unpaid->date)
-                        @php
-                            $ipkl_unpaid_month = Carbon\Carbon::createFromFormat('m', $ipkl_unpaid->month)->translatedFormat('F');
-                        @endphp
-                        <div class="alert alert-warning" role="alert">
-                            Harap untuk melakukan pembayaran <span class="me-1" style="font-weight: bold;">IPKL {{ $ipkl_unpaid_month }} {{ $ipkl_unpaid->year }}</span> terlebih dahulu. </a>
-                        </div>
-                    @endif
-
                     <ul class="mt-4">
                         <li class="list-card-invoice tf-topbar d-flex justify-content-between align-items-center">
                             <div class="content-right">
@@ -64,10 +54,8 @@
                                             Carbon\Carbon::setLocale('id');
                                             $date = Carbon\Carbon::createFromFormat('Y-m-d', $ipkl->date);
                                             $new_date = $date->translatedFormat('d F Y');
-                                            $expired_date = $date->addDays($ipkl->expired)->translatedFormat('d F Y');
                                         } else {
                                             $new_date = '-';
-                                            $expired_date = '-';
                                         }
                                     @endphp
                                     {{ $new_date  }}
@@ -81,7 +69,15 @@
                                     Jatuh Tempo
                                 </p>
                                 <h5 style="color: red">
-                                    {{ $expired_date }}
+                                    @php
+                                        if ($ipkl->expired_date) {
+                                            $expired_date = Carbon\Carbon::createFromFormat('Y-m-d', $ipkl->expired_date);
+                                            $new_expired_date = $expired_date->translatedFormat('d F Y');
+                                        } else {
+                                            $new_expired_date = '-';
+                                        }
+                                    @endphp
+                                    {{ $new_expired_date }}
                                 </h5>
                             </div>
                         </li>
@@ -141,27 +137,11 @@
             </div>
         </div>
 
-        @if ($ipkl_unpaid)
-            @if ($ipkl_unpaid->id == $ipkl->id)
-                <div class="bottom-navigation-bar st2 bottom-btn-fixed" style="bottom:65px">
-                    <div class="tf-container">
-                        <a href="{{ $ipkl->redirect_url }}" class="tf-btn accent large">Bayar Sekarang</a>
-                    </div>
-                </div>
-            @else
-                @if ($ipkl->date > $ipkl_unpaid->date)
-                    @php
-                        $ipkl_unpaid_month = Carbon\Carbon::createFromFormat('m', $ipkl_unpaid->month)->translatedFormat('F');
-                    @endphp
-                    <div class="bottom-navigation-bar st2 bottom-btn-fixed" style="bottom:65px">
-                        <div class="tf-container">
-                            <a href="{{ url('/my-ipkl/show/'.$ipkl_unpaid->id) }}" class="tf-btn accent large">Link IPKL {{ $ipkl_unpaid_month }} {{ $ipkl_unpaid->year }}</a>
-                        </div>
-                    </div>
-                @endif
-            @endif
-        @endif
-
+        <div class="bottom-navigation-bar st2 bottom-btn-fixed" style="bottom:65px">
+            <div class="tf-container">
+                <a href="{{ $ipkl->redirect_url }}" class="tf-btn accent large">Bayar Sekarang</a>
+            </div>
+        </div>
     @else
         <div id="app-wrap" class="d-flex justify-content-center align-items-center vh-100">
             <div class="bill-content text-center">

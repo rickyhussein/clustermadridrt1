@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="col">
-                            <label for="expired_date">Tanggal Expired</label>
+                            <label for="expired_date">Jatuh Tempo</label>
                             <input type="text" class="form-control date @error('expired_date') is-invalid @enderror" id="expired_date" name="expired_date" value="{{ old('expired_date') }}">
                             @error('expired_date')
                                 <div class="invalid-feedback">
