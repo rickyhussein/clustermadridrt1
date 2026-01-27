@@ -678,7 +678,7 @@ class IPKLController extends Controller
                 'action'   =>  $action_user
             ];
     
-            $user->notify(new UserNotification($data_user));
+            $user_payment->notify(new UserNotification($data_user));
     
             return response()->json([
                 "response"       => "Payment Notification",
