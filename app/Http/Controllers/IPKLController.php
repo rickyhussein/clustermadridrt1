@@ -104,81 +104,73 @@ class IPKLController extends Controller
 
             for ($i = 0; $i < count($user_id); $i++) {
                 if ($user_id[$i] !== null) {
-                    $exists = Transaction::where('user_id', $user_id[$i])
-                    ->where('month', $month)
-                    ->where('year', $year)
-                    ->where('type', $request->type)
-                    ->exists();
-
-                    if (!$exists) {
-                        $ipkl = Transaction::create([
-                            'user_id' => $user_id[$i],
-                            'type' => $request->type,
-                            'date' => $request->date,
-                            'expired_date' => $request->expired_date,
-                            'nominal' => $nominal,
-                            'notes' => $request->notes,
-                            'status' => 'unpaid',
-                            'created_by' => auth()->user()->id,
-                            'month' => $month,
-                            'year' => $year,
-                            'in_out' => 'in',
-                            'status_select' => $request->status_select,
-                        ]);
-                        
-                        $user = User::find($ipkl->user_id);
-                        
-                        $combined_data = $merchant_user_id . $merchant_password . $ipkl->id . $ipkl->nominal;
-                        $md5_hash = md5($combined_data);
-                        $sha1_hash = sha1($md5_hash);
-                
-                        $payload = [
-                            "merchant_id" => $merchant_id,
-                            "bill_no" => $ipkl->id,
-                            "bill_date" => $ipkl->date . " " . date('H:i:s'),
-                            "bill_expired" => $ipkl->expired_date . " " . date('H:i:s'),
-                            "bill_gross" => $ipkl->nominal,
-                            "bill_miscfee" => 0,
-                            "bill_total" => $ipkl->nominal,
-                            "bill_desc" => 'Pembayaran #' . $ipkl->id,
-                            "cust_no" => $user->id,
-                            "cust_name" => $user->name,
-                            "return_url" => url('/my-ipkl/finish'),
-                            "msisdn" => $user->no_hp,
-                            "email" => $user->email,
-                            "billing_address" => $user->alamat,
-                            "item" => [
-                                [
-                                    "product" => $ipkl->id,
-                                    "qty" => "1",
-                                    "amount" => $ipkl->nominal
-                                ]
-                            ],
-                            "button_color" => "333333",
-                            "background_color" => "333333",
-                            "signature" => $sha1_hash
-                        ];
-                
-                        $response = Http::post($merchant_post_url, $payload);
-                        $dataResponse = $response->object(); 
-                        $ipkl->update([
-                            'redirect_url' => $dataResponse->redirect_url,
-                            'signature' => $sha1_hash
-                        ]);
-                
-                        $data = [
-                            'user_id' => auth()->user()->id,
-                            'from' => auth()->user()->name,
-                            'message' => 'IPKL (' . $month_name . ' ' . $year . ') Harap untuk segera melakukan pembayaran!',
-                            'action' => '/my-ipkl/show/' . $ipkl->id
-                        ];
-                
-                        $user->notify(new UserNotification($data));
-                
-                        SendNotification::dispatch($user, $ipkl, $month_name, $ipkl->expired_date, $request->nominal);
-                
-                        Mail::to($user->email)->send(new IpklMail($ipkl));
-                    }
+                    $ipkl = Transaction::create([
+                        'user_id' => $user_id[$i],
+                        'type' => $request->type,
+                        'date' => $request->date,
+                        'expired_date' => $request->expired_date,
+                        'nominal' => $nominal,
+                        'notes' => $request->notes,
+                        'status' => 'unpaid',
+                        'created_by' => auth()->user()->id,
+                        'month' => $month,
+                        'year' => $year,
+                        'in_out' => 'in',
+                        'status_select' => $request->status_select,
+                    ]);
+                    
+                    $user = User::find($ipkl->user_id);
+                    
+                    $combined_data = $merchant_user_id . $merchant_password . $ipkl->id . $ipkl->nominal;
+                    $md5_hash = md5($combined_data);
+                    $sha1_hash = sha1($md5_hash);
+            
+                    $payload = [
+                        "merchant_id" => $merchant_id,
+                        "bill_no" => $ipkl->id,
+                        "bill_date" => $ipkl->date . " " . date('H:i:s'),
+                        "bill_expired" => $ipkl->expired_date . " " . date('H:i:s'),
+                        "bill_gross" => $ipkl->nominal,
+                        "bill_miscfee" => 0,
+                        "bill_total" => $ipkl->nominal,
+                        "bill_desc" => 'Pembayaran #' . $ipkl->id,
+                        "cust_no" => $user->id,
+                        "cust_name" => $user->name,
+                        "return_url" => url('/my-ipkl/finish'),
+                        "msisdn" => $user->no_hp,
+                        "email" => $user->email,
+                        "billing_address" => $user->alamat,
+                        "item" => [
+                            [
+                                "product" => $ipkl->id,
+                                "qty" => "1",
+                                "amount" => $ipkl->nominal
+                            ]
+                        ],
+                        "button_color" => "333333",
+                        "background_color" => "333333",
+                        "signature" => $sha1_hash
+                    ];
+            
+                    $response = Http::post($merchant_post_url, $payload);
+                    $dataResponse = $response->object(); 
+                    $ipkl->update([
+                        'redirect_url' => $dataResponse->redirect_url,
+                        'signature' => $sha1_hash
+                    ]);
+            
+                    $data = [
+                        'user_id' => auth()->user()->id,
+                        'from' => auth()->user()->name,
+                        'message' => 'IPKL (' . $month_name . ' ' . $year . ') Harap untuk segera melakukan pembayaran!',
+                        'action' => '/my-ipkl/show/' . $ipkl->id
+                    ];
+            
+                    $user->notify(new UserNotification($data));
+            
+                    SendNotification::dispatch($user, $ipkl, $month_name, $ipkl->expired_date, $request->nominal);
+            
+                    Mail::to($user->email)->send(new IpklMail($ipkl));
                 }
             }
         });
