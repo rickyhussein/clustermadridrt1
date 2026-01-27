@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
         $user = User::create([
             'name' => 'Ricky Ramadhan',
             'alamat' => 'Q00/00',
-            'status' => 'Dihuni',
+            'status' => 'Belum Dihuni',
             'no_hp' => '085171744592',
             'email' => 'rickykiki260198@gmail.com',
             'keterangan' => 'Test',
