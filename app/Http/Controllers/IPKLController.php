@@ -640,62 +640,60 @@ class IPKLController extends Controller
 
     public function callbackTransaction(Request $request)
     {
-        if ($request->payment_status_code == '2') {
-            $transaction = Transaction::find($request->bill_no);
-            $transaction->update([
-                'status' => 'paid',
-                'trx_id' => $request->trx_id,
-                'payment_reff' => $request->payment_reff,
-                'payment_date' => $request->payment_date,
-                'payment_status_code' => $request->payment_status_code,
-                'payment_status_desc' => $request->payment_status_desc,
-                'payment_channel_uid' => $request->payment_channel_uid,
-                'payment_channel' => $request->payment_channel,
-            ]);
+        $transaction = Transaction::find($request->bill_no);
+        $transaction->update([
+            'status' => 'paid',
+            'trx_id' => $request->trx_id,
+            'payment_reff' => $request->payment_reff,
+            'payment_date' => $request->payment_date,
+            'payment_status_code' => $request->payment_status_code,
+            'payment_status_desc' => $request->payment_status_desc,
+            'payment_channel_uid' => $request->payment_channel_uid,
+            'payment_channel' => $request->payment_channel,
+        ]);
 
-            $month_name = Carbon::createFromFormat('m', $transaction->month)->translatedFormat('F');
+        $month_name = Carbon::createFromFormat('m', $transaction->month)->translatedFormat('F');
 
-            $users = User::whereHas('roles', function ($query) {
-                $query->where('name', 'admin');
-            })->get();
+        $users = User::whereHas('roles', function ($query) {
+            $query->where('name', 'admin');
+        })->get();
 
-            $message = 'IPKL (' . $month_name . ' ' . $transaction->year . ') berhasil dibayar oleh ' . $transaction->user->name . ' sebesar Rp ' . number_format($transaction->nominal);
-            $action = '/ipkl/show/'.$transaction->id;
+        $message = 'IPKL (' . $month_name . ' ' . $transaction->year . ') berhasil dibayar oleh ' . $transaction->user->name . ' sebesar Rp ' . number_format($transaction->nominal);
+        $action = '/ipkl/show/'.$transaction->id;
 
-            $message_user = 'Terimakasih anda telah melakukan pembayaran IPKL (' . $month_name . ' ' . $transaction->year . ') sebesar Rp ' . number_format($transaction->nominal);
-            $action_user = '/my-ipkl/show/'.$transaction->id;
+        $message_user = 'Terimakasih anda telah melakukan pembayaran IPKL (' . $month_name . ' ' . $transaction->year . ') sebesar Rp ' . number_format($transaction->nominal);
+        $action_user = '/my-ipkl/show/'.$transaction->id;
 
-            foreach ($users as $user) {
-                $data = [
-                    'user_id'   =>  $transaction->user_id,
-                    'from'   =>  $transaction->user->name,
-                    'message'   =>  $message,
-                    'action'   =>  $action
-                ];
-
-                $user->notify(new UserNotification($data));
-            }
-
-            $user_payment = User::find($transaction->user_id);
-            $data_user = [
+        foreach ($users as $user) {
+            $data = [
                 'user_id'   =>  $transaction->user_id,
                 'from'   =>  $transaction->user->name,
-                'message'   =>  $message_user,
-                'action'   =>  $action_user
+                'message'   =>  $message,
+                'action'   =>  $action
             ];
 
-            $user->notify(new UserNotification($data_user));
-
-            return response()->json([
-                "response"       => "Payment Notification",
-                "trx_id"         => $request->trx_id,
-                "merchant_id"    => $request->merchant_id,
-                "merchant"       => $request->merchant,
-                "bill_no"        => $request->bill_no,
-                "response_code"  => "00",
-                "response_desc"  => "Success",
-                "response_date"  => now()->format('Y-m-d H:i:s')
-            ]);
+            $user->notify(new UserNotification($data));
         }
+
+        $user_payment = User::find($transaction->user_id);
+        $data_user = [
+            'user_id'   =>  $transaction->user_id,
+            'from'   =>  $transaction->user->name,
+            'message'   =>  $message_user,
+            'action'   =>  $action_user
+        ];
+
+        $user->notify(new UserNotification($data_user));
+
+        return response()->json([
+            "response"       => "Payment Notification",
+            "trx_id"         => $request->trx_id,
+            "merchant_id"    => $request->merchant_id,
+            "merchant"       => $request->merchant,
+            "bill_no"        => $request->bill_no,
+            "response_code"  => "00",
+            "response_desc"  => "Success",
+            "response_date"  => now()->format('Y-m-d H:i:s')
+        ]);
     }
 }
