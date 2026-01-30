@@ -119,7 +119,7 @@
                 if (selectedStatus === "Dihuni") {
                     $('#nominal').val('150000').trigger('input');
                 } else if (selectedStatus === "Belum Dihuni") {
-                    $('#nominal').val('100000').trigger('input');
+                    $('#nominal').val('105000').trigger('input');
                 } else {
                     $('#nominal').val('').trigger('input');
                 }
