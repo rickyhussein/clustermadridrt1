@@ -249,6 +249,9 @@ class IPKLController extends Controller
                 "msisdn" => $user->no_hp,
                 "email" => $user->email,
                 "billing_address" => $user->alamat,
+                "payment_channel" => [
+                    "711"
+                ],
                 "item" => [
                     [
                         "product" => $ipkl->id,
