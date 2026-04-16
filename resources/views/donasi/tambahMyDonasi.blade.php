@@ -41,13 +41,23 @@
                         </div>
 
                         <div class="group-input">
-                            <label for="date">Tanggal</label>
-                            <input type="text" class="@error('date') is-invalid @enderror" id="date" name="date" value="{{ old('date', date('Y-m-d')) }}" readonly>
-                            @error('date')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                            @if (auth()->user()->hasRole('admin'))
+                                <label for="date">Tanggal</label>
+                                <input type="text" class="date @error('date') is-invalid @enderror" id="date" name="date" value="{{ old('date') }}">
+                                @error('date')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            @else
+                                <label for="date">Tanggal</label>
+                                <input type="text" class="@error('date') is-invalid @enderror" id="date" name="date" value="{{ old('date', date('Y-m-d')) }}" readonly>
+                                @error('date')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            @endif
                         </div>
 
                         <div class="group-input">
@@ -142,6 +152,8 @@
             $('.money').mask('000,000,000,000,000', {
                 reverse: true
             });
+
+            flatpickr(".date", {disableMobile: true});
 
             $('.select2').select2();
 
