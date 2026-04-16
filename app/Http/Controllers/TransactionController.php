@@ -66,15 +66,7 @@ class TransactionController extends Controller
         })
         ->sum('nominal');
 
-        $transaction_in_paid_all = Transaction::where('in_out', 'in')->where('status', 'paid')->sum('nominal');
-        $transaction_out_all = Transaction::where('in_out', 'out')->sum('nominal');
-
-
-        if ($start_date && $end_date || request()->input('month') || request()->input('year')) {
-            $sisa = $transaction_in_paid - $transaction_out;
-        } else {
-            $sisa = $transaction_in_paid_all - $transaction_out_all;
-        }
+        $sisa = $transaction_in_paid - $transaction_out;
 
         $months = [
             '01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April',
