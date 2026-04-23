@@ -18,7 +18,6 @@ class SendNotification implements ShouldQueue
     protected $month_name;
     protected $whatsappApiUrl;
     protected $whatsappApiSession;
-    protected $whatsappApiKey;
 
     public function __construct($user, $ipkl, $month_name)
     {
@@ -27,7 +26,6 @@ class SendNotification implements ShouldQueue
         $this->month_name = $month_name;
         $this->whatsappApiUrl = config('faspay.whatsapp_api_url');
         $this->whatsappApiSession = config('faspay.whatsapp_api_session');
-        $this->whatsappApiKey = config('faspay.whatsapp_api_key');
     }
 
     public function handle()
@@ -49,7 +47,6 @@ class SendNotification implements ShouldQueue
             'session' => $this->whatsappApiSession,
             'to' => $this->user->whatsapp($this->user->no_hp),
             'text' =>  $message,
-            'key' =>  $this->whatsappApiKey,
         ]);
     }
 }
